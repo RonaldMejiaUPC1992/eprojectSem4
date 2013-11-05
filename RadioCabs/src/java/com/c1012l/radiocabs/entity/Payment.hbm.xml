@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 5, 2013 10:05:47 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.c1012l.radiocabs.entity.Payment" table="payment" schema="dbo" catalog="radiocabs">
+        <id name="paymentId" type="int">
+            <column name="paymentID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="paymentType" class="com.c1012l.radiocabs.entity.PaymentType" fetch="select">
+            <column name="paidTypeID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="registeredUnit" class="com.c1012l.radiocabs.entity.RegisteredUnit" fetch="select">
+            <column name="registrationID" length="10" not-null="true" />
+        </many-to-one>
+        <property name="money" type="double">
+            <column name="money" precision="53" scale="0" not-null="true" />
+        </property>
+        <property name="purchaseDate" type="date">
+            <column name="purchaseDate" length="10" />
+        </property>
+        <property name="expriateDate" type="date">
+            <column name="expriateDate" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>
