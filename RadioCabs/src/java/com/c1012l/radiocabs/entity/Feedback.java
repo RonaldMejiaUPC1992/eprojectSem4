@@ -1,5 +1,5 @@
 package com.c1012l.radiocabs.entity;
-// Generated Nov 5, 2013 10:05:47 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 7, 2013 1:20:29 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.io.Serializable;
@@ -15,7 +15,7 @@ public class Feedback  implements java.io.Serializable {
      private Serializable name;
      private String moblie;
      private String email;
-     private Serializable ciry;
+     private Serializable city;
      private Serializable description;
 
     public Feedback() {
@@ -27,13 +27,13 @@ public class Feedback  implements java.io.Serializable {
         this.feedbackType = feedbackType;
         this.name = name;
     }
-    public Feedback(int feedbackId, FeedbackType feedbackType, Serializable name, String moblie, String email, Serializable ciry, Serializable description) {
+    public Feedback(int feedbackId, FeedbackType feedbackType, Serializable name, String moblie, String email, Serializable city, Serializable description) {
        this.feedbackId = feedbackId;
        this.feedbackType = feedbackType;
        this.name = name;
        this.moblie = moblie;
        this.email = email;
-       this.ciry = ciry;
+       this.city = city;
        this.description = description;
     }
    
@@ -72,12 +72,12 @@ public class Feedback  implements java.io.Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    public Serializable getCiry() {
-        return this.ciry;
+    public Serializable getCity() {
+        return this.city;
     }
     
-    public void setCiry(Serializable ciry) {
-        this.ciry = ciry;
+    public void setCity(Serializable city) {
+        this.city = city;
     }
     public Serializable getDescription() {
         return this.description;

@@ -1,5 +1,5 @@
 package com.c1012l.radiocabs.entity;
-// Generated Nov 5, 2013 10:05:47 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 7, 2013 1:20:29 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.io.Serializable;
@@ -27,7 +27,6 @@ public class RegisteredUnit  implements java.io.Serializable {
      private String mobile;
      private String telephone;
      private String email;
-     private Boolean status;
      private Set<Payment> payments = new HashSet<Payment>(0);
 
     public RegisteredUnit() {
@@ -39,7 +38,7 @@ public class RegisteredUnit  implements java.io.Serializable {
         this.name = name;
         this.password = password;
     }
-    public RegisteredUnit(String registrationId, RegisteredType registeredType, Serializable name, String password, Serializable contactPerson, Serializable designation, String faxNumber, Integer membershipType, Serializable city, Integer experience, Serializable description, Serializable address, String mobile, String telephone, String email, Boolean status, Set<Payment> payments) {
+    public RegisteredUnit(String registrationId, RegisteredType registeredType, Serializable name, String password, Serializable contactPerson, Serializable designation, String faxNumber, Integer membershipType, Serializable city, Integer experience, Serializable description, Serializable address, String mobile, String telephone, String email, Set<Payment> payments) {
        this.registrationId = registrationId;
        this.registeredType = registeredType;
        this.name = name;
@@ -55,7 +54,6 @@ public class RegisteredUnit  implements java.io.Serializable {
        this.mobile = mobile;
        this.telephone = telephone;
        this.email = email;
-       this.status = status;
        this.payments = payments;
     }
    
@@ -163,13 +161,6 @@ public class RegisteredUnit  implements java.io.Serializable {
     
     public void setEmail(String email) {
         this.email = email;
-    }
-    public Boolean getStatus() {
-        return this.status;
-    }
-    
-    public void setStatus(Boolean status) {
-        this.status = status;
     }
     public Set<Payment> getPayments() {
         return this.payments;

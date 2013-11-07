@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 5, 2013 10:05:47 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Nov 7, 2013 1:20:36 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.c1012l.radiocabs.entity.RegisteredUnit" table="registeredUnit" schema="dbo" catalog="radiocabs">
         <id name="registrationId" type="string">
@@ -49,9 +49,6 @@
         </property>
         <property name="email" type="string">
             <column name="email" length="100" />
-        </property>
-        <property name="status" type="java.lang.Boolean">
-            <column name="status" />
         </property>
         <set name="payments" inverse="true">
             <key>
