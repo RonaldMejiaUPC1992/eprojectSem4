@@ -33,8 +33,7 @@ create table registeredUnit(
 	mobile varchar(20),
 	telephone varchar(20),
 	email varchar(100),
-	registeredTypeID int references registeredType(registeredTypeID),	
-	status bit	
+	registeredTypeID int references registeredType(registeredTypeID),		
 )
 go
 create table payment(
@@ -60,7 +59,7 @@ create table feedback(
 	name nvarchar(200) not null,
 	moblie varchar(20),
 	email varchar(100),
-	ciry nvarchar(100),
+	city nvarchar(100),
 	description nvarchar(200)
 )
 go
