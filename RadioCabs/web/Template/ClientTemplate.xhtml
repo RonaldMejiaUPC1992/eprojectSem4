@@ -6,32 +6,48 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" href="css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="../css/style.css" type="text/css"/>
         <title>Facelets Template</title>
     </h:head>
 
-    <h:body>
+    <script language="JavaScript">
+        function displayLogin() {
+            document.getElementById("login").style.display = 'inline';
+            document.getElementById("loginActive").style.color = '#d2d2d2';
+            document.getElementById("loginActive").style.background = 'url(../images/bg-navigation-hover.png) repeat-x center';
+        }
+    </script>
 
+    <h:body>
         <div id="top">
             <ui:insert name="top">
                 <div id="header">
                     <div id="logo">
-                        <a href="index.html"> <img src="images/logo.gif" alt="LOGO"/> </a>
+                        <a href="index.html"> <img src="../images/logo.gif" alt="LOGO"/> </a>
                     </div>
                     <ul id="navigation">
-                        <li class="active">
-                            <a href="index.html">home</a>
+                        <li id="home" class='home'>
+                            <a href="Home.xhtml">home</a>
                         </li>
-                        <li>
-                            <a href="about.html">about</a>
+                        <li id="about">
+                            <a href="About.xhtml" onclick="highlightMenu('about');">about</a>
                         </li>
-                        <li>
-                            <a href="blog.html">blog</a>
+                        <li id="services">
+                            <a href="blog.html" onclick="highlightMenu('services');">services</a>
                         </li>
-                        <li>
-                            <a href="journey.html">the journey</a>
+                        <li id="signup">
+                            <a href="journey.html" onclick="highlightMenu('signup');">sign up</a>
+                        </li>
+                        
+                        <li id="loginActive">
+                            <a href="#" onclick="displayLogin();">login</a>
                         </li>
                     </ul>
+                </div>
+                <div id="login" style="font: 14px/24px 'VarelaRound-Regular'; margin-left: 746px; display: none;">
+                    Username: <input type="text" id="txtUsername"/>
+                    Password: <input type="password" id="txtPassword"/>
+                    <input type="submit" value="Login"/>
                 </div>
             </ui:insert>
         </div>
@@ -41,7 +57,76 @@
         </div>
 
         <div id="bottom">
-            <ui:insert name="bottom">Bottom</ui:insert>
+            <ui:insert name="bottom">
+                <div id="body">
+                    
+                    <div id="articles">
+                        <ul>
+                            <li>
+                                <a href="#">Make a Reservation
+                                <img src="images/reservation.jpg" alt="Img"/></a>
+                                <p>
+                                    For reservation please call UAN: 111-222-787. Web Service available all over Pakistan and all reservations are subject to telephonic confirmation by MetroCab staff.
+                                </p>
+                                <a href="blog.html" class="more">Read more >></a>
+                            </li>
+                            <li>
+                                <a href="#">Services
+                                <img src="images/services.jpg" alt="Img"/></a>
+                                <p>
+                                    Airport to City: You can avail our services at the International Airports; the radio taxi pick up point is situated at car park level.
+                                    City to Airport: You can book your Metro radio cab by calling 111-222-787 or online by filling the simple form.
+                                </p>
+                                <a href="blog.html" class="more">Read more >></a>
+                            </li>
+                            <li>
+                                <a href="#">Become a Member
+                                <img src="images/member.jpg" alt="Img"/></a>
+                                <p>
+                                    Round the Clock 24/7 service 365 days. Ability to source a cab for you within 30 minutes. We have our own garage and service station, and we attend any emergency services. Regular maintainence to ensure no vehicle breakdown in transit travel.
+                                </p>
+                                <a href="blog.html" class="more">Read more >></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="footer">
+                    <ul id="connect">
+                        <li>
+                            <a href="http://freewebsitetemplates.com/go/facebook/" target="_blank" class="facebook" title="Facebook"></a>
+                        </li>
+                        <li>
+                            <a href="http://freewebsitetemplates.com/go/twitter/" target="_blank" class="twitter" title="Twitter"></a>
+                        </li>
+                        <li>
+                            <a href="http://freewebsitetemplates.com/go/youtube/" target="_blank" class="vimeo" title="Vimeo"></a>
+                        </li>
+                        <li>
+                            <a href="http://freewebsitetemplates.com/go/googleplus/" target="_blank" class="googleplus" title="Google+"></a>
+                        </li>
+                    </ul>
+                    <div id="footnote">
+                        <ul>
+                            <li class="active">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="about.html">About</a>
+                            </li>
+                            <li>
+                                <a href="blog.html">Services</a>
+                            </li>
+                            <li>
+                                <a href="index.html">Feedback</a>
+                            </li>
+                            <li>
+                                <a href="index.html">List of Drivers</a>
+                            </li>
+                        </ul>
+                        <span>&copy; Copyright &copy; 2013. BachKhoa-Aptech all rights reserved.</span>
+                    </div>
+                </div>
+            </ui:insert>
         </div>
 
     </h:body>

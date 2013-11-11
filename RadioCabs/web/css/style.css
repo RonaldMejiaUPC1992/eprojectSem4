@@ -69,7 +69,7 @@ img {
 }
 #adbox {
 	background: url(../images/bg-featured.jpg) no-repeat center;
-	height: 438px;
+	height: 425px;
 	margin: 0 auto;
 	padding: 30px 0;
 }
@@ -90,7 +90,7 @@ img {
 	padding: 0 0 24px;
 }
 #adbox div div p {
-	color: #fff;
+	color: #f1f2ea;
 	font: 14px/24px 'VarelaRound-Regular';
 	margin: 0;
 	padding: 0 0 24px;
@@ -294,6 +294,17 @@ img {
 	color: #4b4a4a;
 	font: 14px/24px 'VarelaRound-Regular';
 }
+
+#articles a {
+    text-decoration: none;
+    color: #d2d2d2;
+    font-size: larger;
+}
+
+#articles a:hover {
+    text-decoration: underline;
+}
+
 #articles p a {
 	color: #4b4a4a;
 	outline: 0;
