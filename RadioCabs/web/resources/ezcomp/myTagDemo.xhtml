@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="bean" />
+        <cc:attribute name="columnHeader"/>
+        <cc:attribute name="columnField" />
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>        
+        
+        <c:set var="arrHeader" value="#{fn:split(cc.attrs.columnHeader, ',')}"/>
+        <c:set var="arrField" value="#{fn:split(cc.attrs.columnField, ',')}"/>
+        <c:set var="length" value="#{fn:length(arrHeader)}"/>
+        
+        <p:dataTable id="table"
+                     value="#{cc.attrs.bean.lst}"
+                     var="item"
+                     rows="10"
+                     paginator="true"> 
+            <c:forEach begin="0" end="#{length-1}" step="1" var="i">                
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{arrHeader[i]}"/>
+                    </f:facet>                         
+                    <ui:param name="field" value="#{arrField[i]}"/>
+                    <ui:param name="field" value="#{fn:trim(field)}"/>
+                    <h:outputText value="#{item[field]}"/>
+                </p:column>
+            </c:forEach>
+            
+        </p:dataTable>
+
+    </cc:implementation>
+</html>
