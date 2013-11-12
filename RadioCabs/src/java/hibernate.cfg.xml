@@ -13,5 +13,7 @@
     <mapping resource="com/c1012l/radiocabs/entity/Payment.hbm.xml"/>
     <mapping resource="com/c1012l/radiocabs/entity/PaymentType.hbm.xml"/>
     <mapping resource="com/c1012l/radiocabs/entity/FeedbackType.hbm.xml"/>
+    <mapping/>
+    <mapping resource="com/c1012l/radiocabs/entity/Billing.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

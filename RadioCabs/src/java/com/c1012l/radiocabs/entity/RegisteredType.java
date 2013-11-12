@@ -1,8 +1,7 @@
 package com.c1012l.radiocabs.entity;
-// Generated Nov 7, 2013 1:20:29 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 12, 2013 4:44:31 PM by Hibernate Tools 3.2.1.GA
 
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,18 +12,18 @@ public class RegisteredType  implements java.io.Serializable {
 
 
      private int registeredTypeId;
-     private Serializable registeredTypeName;
-     private Set<RegisteredUnit> registeredUnits = new HashSet<RegisteredUnit>(0);
+     private String registeredTypeName;
+     private Set registeredUnits = new HashSet(0);
 
     public RegisteredType() {
     }
 
 	
-    public RegisteredType(int registeredTypeId, Serializable registeredTypeName) {
+    public RegisteredType(int registeredTypeId, String registeredTypeName) {
         this.registeredTypeId = registeredTypeId;
         this.registeredTypeName = registeredTypeName;
     }
-    public RegisteredType(int registeredTypeId, Serializable registeredTypeName, Set<RegisteredUnit> registeredUnits) {
+    public RegisteredType(int registeredTypeId, String registeredTypeName, Set registeredUnits) {
        this.registeredTypeId = registeredTypeId;
        this.registeredTypeName = registeredTypeName;
        this.registeredUnits = registeredUnits;
@@ -37,18 +36,18 @@ public class RegisteredType  implements java.io.Serializable {
     public void setRegisteredTypeId(int registeredTypeId) {
         this.registeredTypeId = registeredTypeId;
     }
-    public Serializable getRegisteredTypeName() {
+    public String getRegisteredTypeName() {
         return this.registeredTypeName;
     }
     
-    public void setRegisteredTypeName(Serializable registeredTypeName) {
+    public void setRegisteredTypeName(String registeredTypeName) {
         this.registeredTypeName = registeredTypeName;
     }
-    public Set<RegisteredUnit> getRegisteredUnits() {
+    public Set getRegisteredUnits() {
         return this.registeredUnits;
     }
     
-    public void setRegisteredUnits(Set<RegisteredUnit> registeredUnits) {
+    public void setRegisteredUnits(Set registeredUnits) {
         this.registeredUnits = registeredUnits;
     }
 

@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 7, 2013 1:20:36 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Nov 12, 2013 4:44:32 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="com.c1012l.radiocabs.entity.Payment" table="payment" schema="dbo" catalog="radiocabs">
-        <id name="paymentId" type="int">
-            <column name="paymentID" />
+    <class name="com.c1012l.radiocabs.entity.Billing" table="billing" schema="dbo" catalog="radiocabs">
+        <id name="billingId" type="int">
+            <column name="billingID" />
             <generator class="assigned" />
         </id>
         <many-to-one name="paymentType" class="com.c1012l.radiocabs.entity.PaymentType" fetch="select">

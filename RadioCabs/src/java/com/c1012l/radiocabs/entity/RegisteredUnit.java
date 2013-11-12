@@ -1,8 +1,7 @@
 package com.c1012l.radiocabs.entity;
-// Generated Nov 7, 2013 1:20:29 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 12, 2013 4:44:31 PM by Hibernate Tools 3.2.1.GA
 
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,31 +13,30 @@ public class RegisteredUnit  implements java.io.Serializable {
 
      private String registrationId;
      private RegisteredType registeredType;
-     private Serializable name;
+     private String name;
      private String password;
-     private Serializable contactPerson;
-     private Serializable designation;
+     private String contactPerson;
+     private String designation;
      private String faxNumber;
      private Integer membershipType;
-     private Serializable city;
+     private String city;
      private Integer experience;
-     private Serializable description;
-     private Serializable address;
+     private String description;
+     private String address;
      private String mobile;
      private String telephone;
      private String email;
-     private Set<Payment> payments = new HashSet<Payment>(0);
+     private Set billings = new HashSet(0);
 
     public RegisteredUnit() {
     }
 
 	
-    public RegisteredUnit(String registrationId, Serializable name, String password) {
+    public RegisteredUnit(String registrationId, String name) {
         this.registrationId = registrationId;
         this.name = name;
-        this.password = password;
     }
-    public RegisteredUnit(String registrationId, RegisteredType registeredType, Serializable name, String password, Serializable contactPerson, Serializable designation, String faxNumber, Integer membershipType, Serializable city, Integer experience, Serializable description, Serializable address, String mobile, String telephone, String email, Set<Payment> payments) {
+    public RegisteredUnit(String registrationId, RegisteredType registeredType, String name, String password, String contactPerson, String designation, String faxNumber, Integer membershipType, String city, Integer experience, String description, String address, String mobile, String telephone, String email, Set billings) {
        this.registrationId = registrationId;
        this.registeredType = registeredType;
        this.name = name;
@@ -54,7 +52,7 @@ public class RegisteredUnit  implements java.io.Serializable {
        this.mobile = mobile;
        this.telephone = telephone;
        this.email = email;
-       this.payments = payments;
+       this.billings = billings;
     }
    
     public String getRegistrationId() {
@@ -71,11 +69,11 @@ public class RegisteredUnit  implements java.io.Serializable {
     public void setRegisteredType(RegisteredType registeredType) {
         this.registeredType = registeredType;
     }
-    public Serializable getName() {
+    public String getName() {
         return this.name;
     }
     
-    public void setName(Serializable name) {
+    public void setName(String name) {
         this.name = name;
     }
     public String getPassword() {
@@ -85,18 +83,18 @@ public class RegisteredUnit  implements java.io.Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-    public Serializable getContactPerson() {
+    public String getContactPerson() {
         return this.contactPerson;
     }
     
-    public void setContactPerson(Serializable contactPerson) {
+    public void setContactPerson(String contactPerson) {
         this.contactPerson = contactPerson;
     }
-    public Serializable getDesignation() {
+    public String getDesignation() {
         return this.designation;
     }
     
-    public void setDesignation(Serializable designation) {
+    public void setDesignation(String designation) {
         this.designation = designation;
     }
     public String getFaxNumber() {
@@ -113,11 +111,11 @@ public class RegisteredUnit  implements java.io.Serializable {
     public void setMembershipType(Integer membershipType) {
         this.membershipType = membershipType;
     }
-    public Serializable getCity() {
+    public String getCity() {
         return this.city;
     }
     
-    public void setCity(Serializable city) {
+    public void setCity(String city) {
         this.city = city;
     }
     public Integer getExperience() {
@@ -127,18 +125,18 @@ public class RegisteredUnit  implements java.io.Serializable {
     public void setExperience(Integer experience) {
         this.experience = experience;
     }
-    public Serializable getDescription() {
+    public String getDescription() {
         return this.description;
     }
     
-    public void setDescription(Serializable description) {
+    public void setDescription(String description) {
         this.description = description;
     }
-    public Serializable getAddress() {
+    public String getAddress() {
         return this.address;
     }
     
-    public void setAddress(Serializable address) {
+    public void setAddress(String address) {
         this.address = address;
     }
     public String getMobile() {
@@ -162,12 +160,12 @@ public class RegisteredUnit  implements java.io.Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    public Set<Payment> getPayments() {
-        return this.payments;
+    public Set getBillings() {
+        return this.billings;
     }
     
-    public void setPayments(Set<Payment> payments) {
-        this.payments = payments;
+    public void setBillings(Set billings) {
+        this.billings = billings;
     }
 
 

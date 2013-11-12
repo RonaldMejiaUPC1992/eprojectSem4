@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 7, 2013 1:20:36 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Nov 12, 2013 4:44:32 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.c1012l.radiocabs.entity.PaymentType" table="paymentType" schema="dbo" catalog="radiocabs">
         <id name="paymentTypeId" type="int">
             <column name="paymentTypeID" />
             <generator class="assigned" />
         </id>
-        <property name="paymentTypeName" type="serializable">
-            <column name="paymentTypeName" />
+        <property name="paymentTypeName" type="string">
+            <column name="paymentTypeName" length="100" />
         </property>
-        <set name="payments" inverse="true">
+        <set name="billings" inverse="true">
             <key>
                 <column name="paidTypeID" not-null="true" />
             </key>
-            <one-to-many class="com.c1012l.radiocabs.entity.Payment" />
+            <one-to-many class="com.c1012l.radiocabs.entity.Billing" />
         </set>
     </class>
 </hibernate-mapping>

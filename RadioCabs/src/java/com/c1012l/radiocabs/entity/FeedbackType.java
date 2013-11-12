@@ -1,8 +1,7 @@
 package com.c1012l.radiocabs.entity;
-// Generated Nov 7, 2013 1:20:29 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 12, 2013 4:44:31 PM by Hibernate Tools 3.2.1.GA
 
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,18 +12,18 @@ public class FeedbackType  implements java.io.Serializable {
 
 
      private int feedbackTypeId;
-     private Serializable feedbackTypeName;
-     private Set<Feedback> feedbacks = new HashSet<Feedback>(0);
+     private String feedbackTypeName;
+     private Set feedbacks = new HashSet(0);
 
     public FeedbackType() {
     }
 
 	
-    public FeedbackType(int feedbackTypeId, Serializable feedbackTypeName) {
+    public FeedbackType(int feedbackTypeId, String feedbackTypeName) {
         this.feedbackTypeId = feedbackTypeId;
         this.feedbackTypeName = feedbackTypeName;
     }
-    public FeedbackType(int feedbackTypeId, Serializable feedbackTypeName, Set<Feedback> feedbacks) {
+    public FeedbackType(int feedbackTypeId, String feedbackTypeName, Set feedbacks) {
        this.feedbackTypeId = feedbackTypeId;
        this.feedbackTypeName = feedbackTypeName;
        this.feedbacks = feedbacks;
@@ -37,18 +36,18 @@ public class FeedbackType  implements java.io.Serializable {
     public void setFeedbackTypeId(int feedbackTypeId) {
         this.feedbackTypeId = feedbackTypeId;
     }
-    public Serializable getFeedbackTypeName() {
+    public String getFeedbackTypeName() {
         return this.feedbackTypeName;
     }
     
-    public void setFeedbackTypeName(Serializable feedbackTypeName) {
+    public void setFeedbackTypeName(String feedbackTypeName) {
         this.feedbackTypeName = feedbackTypeName;
     }
-    public Set<Feedback> getFeedbacks() {
+    public Set getFeedbacks() {
         return this.feedbacks;
     }
     
-    public void setFeedbacks(Set<Feedback> feedbacks) {
+    public void setFeedbacks(Set feedbacks) {
         this.feedbacks = feedbacks;
     }
 

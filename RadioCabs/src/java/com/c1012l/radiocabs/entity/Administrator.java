@@ -1,5 +1,5 @@
 package com.c1012l.radiocabs.entity;
-// Generated Nov 7, 2013 1:20:29 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 12, 2013 4:44:31 PM by Hibernate Tools 3.2.1.GA
 
 
 

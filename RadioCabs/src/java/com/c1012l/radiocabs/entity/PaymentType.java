@@ -1,8 +1,7 @@
 package com.c1012l.radiocabs.entity;
-// Generated Nov 7, 2013 1:20:29 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 12, 2013 4:44:31 PM by Hibernate Tools 3.2.1.GA
 
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,8 +12,8 @@ public class PaymentType  implements java.io.Serializable {
 
 
      private int paymentTypeId;
-     private Serializable paymentTypeName;
-     private Set<Payment> payments = new HashSet<Payment>(0);
+     private String paymentTypeName;
+     private Set billings = new HashSet(0);
 
     public PaymentType() {
     }
@@ -23,10 +22,10 @@ public class PaymentType  implements java.io.Serializable {
     public PaymentType(int paymentTypeId) {
         this.paymentTypeId = paymentTypeId;
     }
-    public PaymentType(int paymentTypeId, Serializable paymentTypeName, Set<Payment> payments) {
+    public PaymentType(int paymentTypeId, String paymentTypeName, Set billings) {
        this.paymentTypeId = paymentTypeId;
        this.paymentTypeName = paymentTypeName;
-       this.payments = payments;
+       this.billings = billings;
     }
    
     public int getPaymentTypeId() {
@@ -36,19 +35,19 @@ public class PaymentType  implements java.io.Serializable {
     public void setPaymentTypeId(int paymentTypeId) {
         this.paymentTypeId = paymentTypeId;
     }
-    public Serializable getPaymentTypeName() {
+    public String getPaymentTypeName() {
         return this.paymentTypeName;
     }
     
-    public void setPaymentTypeName(Serializable paymentTypeName) {
+    public void setPaymentTypeName(String paymentTypeName) {
         this.paymentTypeName = paymentTypeName;
     }
-    public Set<Payment> getPayments() {
-        return this.payments;
+    public Set getBillings() {
+        return this.billings;
     }
     
-    public void setPayments(Set<Payment> payments) {
-        this.payments = payments;
+    public void setBillings(Set billings) {
+        this.billings = billings;
     }
 
 
