@@ -7,7 +7,7 @@
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="../css/style.css" type="text/css"/>
-        <title>Facelets Template</title>
+        <title>Radio Cab</title>
     </h:head>
 
     <script language="JavaScript">
@@ -23,20 +23,20 @@
             <ui:insert name="top">
                 <div id="header">
                     <div id="logo">
-                        <a href="index.html"> <img src="../images/logo.gif" alt="LOGO"/> </a>
+                        <a href="Home.xhtml"> <img src="../images/logo.gif" alt="LOGO"/> </a>
                     </div>
                     <ul id="navigation">
-                        <li id="home" class='home'>
+                        <li id="home">
                             <a href="Home.xhtml">home</a>
                         </li>
                         <li id="about">
-                            <a href="About.xhtml" onclick="highlightMenu('about');">about</a>
+                            <a href="About.xhtml">about</a>
                         </li>
                         <li id="services">
-                            <a href="blog.html" onclick="highlightMenu('services');">services</a>
+                            <a href="blog.html">services</a>
                         </li>
                         <li id="signup">
-                            <a href="journey.html" onclick="highlightMenu('signup');">sign up</a>
+                            <a href="Register.xhtml">sign up</a>
                         </li>
                         
                         <li id="loginActive">
@@ -44,7 +44,7 @@
                         </li>
                     </ul>
                 </div>
-                <div id="login" style="font: 14px/24px 'VarelaRound-Regular'; margin-left: 746px; display: none;">
+                <div id="login" style="font: 14px/24px 'VarelaRound-Regular'; margin-left: 775px; display: none;">
                     Username: <input type="text" id="txtUsername"/>
                     Password: <input type="password" id="txtPassword"/>
                     <input type="submit" value="Login"/>
@@ -58,8 +58,7 @@
 
         <div id="bottom">
             <ui:insert name="bottom">
-                <div id="body">
-                    
+                <div id="body"> 
                     <div id="articles">
                         <ul>
                             <li>
@@ -67,7 +66,7 @@
                                 <img src="images/reservation.jpg" alt="Img"/></a>
                                 <p>
                                     For reservation please call UAN: 111-222-787. Web Service available all over Pakistan and all reservations are subject to telephonic confirmation by MetroCab staff.
-                                </p>
+                                </p><br/>
                                 <a href="blog.html" class="more">Read more >></a>
                             </li>
                             <li>
@@ -76,16 +75,16 @@
                                 <p>
                                     Airport to City: You can avail our services at the International Airports; the radio taxi pick up point is situated at car park level.
                                     City to Airport: You can book your Metro radio cab by calling 111-222-787 or online by filling the simple form.
-                                </p>
+                                </p><br/>
                                 <a href="blog.html" class="more">Read more >></a>
                             </li>
                             <li>
-                                <a href="#">Become a Member
+                                <a href="Register.xhtml">Become a Member
                                 <img src="images/member.jpg" alt="Img"/></a>
                                 <p>
                                     Round the Clock 24/7 service 365 days. Ability to source a cab for you within 30 minutes. We have our own garage and service station, and we attend any emergency services. Regular maintainence to ensure no vehicle breakdown in transit travel.
                                 </p>
-                                <a href="blog.html" class="more">Read more >></a>
+                                <a href="Register.xhtml" class="more">Read more >></a>
                             </li>
                         </ul>
                     </div>
@@ -108,19 +107,19 @@
                     <div id="footnote">
                         <ul>
                             <li class="active">
-                                <a href="index.html">Home</a>
+                                <a href="Home.xhtml">Home</a>
                             </li>
                             <li>
-                                <a href="about.html">About</a>
+                                <a href="About.xhtml">About</a>
                             </li>
                             <li>
-                                <a href="blog.html">Services</a>
+                                <a href="Services.xhtml">Services</a>
                             </li>
                             <li>
-                                <a href="index.html">Feedback</a>
+                                <a href="Feedback.xhtml">Feedback</a>
                             </li>
                             <li>
-                                <a href="index.html">List of Drivers</a>
+                                <a href="drivers.xhtml">List of Drivers</a>
                             </li>
                         </ul>
                         <span>&copy; Copyright &copy; 2013. BachKhoa-Aptech all rights reserved.</span>

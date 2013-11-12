@@ -122,6 +122,12 @@ img {
 	background-color: #181818;
 }
 /** MAIN **/
+
+#abc {
+    background-color: #181818;
+    height: 1px;
+}
+
 #main {
 	background: url(../images/middle-bar.gif) repeat-x center top;
 }
