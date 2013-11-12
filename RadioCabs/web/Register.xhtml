@@ -1,8 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
@@ -14,6 +16,10 @@
                         background: url(../images/bg-navigation-hover.png) repeat-x center;
                         color: #d2d2d2; 
                     }
+                    #content{
+                        margin: auto;
+                        border: white;
+                    }                    
                     #navigation li#signup a {
                         color: #d2d2d2;
                     }
@@ -30,47 +36,47 @@
                         <img src="images/bmx-rider.jpg" alt="About Img"/>
                         <h1>Join us now!</h1>
                         What do you want? 
-                        <a href="Advertise.xhtml">Advertisements</a> or <a href="Register.xhtml">become a driver</a> ?
-                        <table border="0" cellspacing="20px">
+                        <a href="Advertise.xhtml">Advertisements</a> or <a href="Register.xhtml">Become a Driver ?</a>
+                        <table border="0" cellspacing="20px" style="margin:auto">
                             <tr>
                                 <td align="left">Driver Name</td>
-                                <td><h:inputText id="txtDriverName" size="40"/></td>
+                                <td><p:inputText id="txtDriverName" size="40" /></td>
                             </tr>
                             <tr>
                                 <td align="left">Password</td>
-                                <td><h:inputText id="txtPassword" size="40"/></td>
+                                <td><p:inputText id="txtPassword" size="40"/></td>
                             </tr>
                             <tr>
                                 <td align="left">Contact Person</td>
-                                <td><h:inputText id="txtContactPerson" size="40"/></td>
+                                <td><p:inputText id="txtContactPerson" size="40"/></td>
                             </tr>
                             <tr>
                                 <td align="left">Address</td>
-                                <td><h:inputText id="txtAddress" size="40"/></td>
+                                <td><p:inputText id="txtAddress" size="40"/></td>
                             </tr>
                             <tr>
                                 <td align="left">City</td>
-                                <td><h:inputText id="txtCity" size="40"/></td>
+                                <td><p:inputText id="txtCity" size="40"/></td>
                             </tr>
                             <tr>
                                 <td align="left">Mobile</td>
-                                <td><h:inputText id="txtMobile" size="40"/></td>
+                                <td><p:inputText id="txtMobile" size="40"/></td>
                             </tr>
                             <tr>
                                 <td align="left">Telephone</td>
-                                <td><h:inputText id="txtTelephone" size="40"/></td>
+                                <td><p:inputText id="txtTelephone" size="40"/></td>
                             </tr>
                             <tr>
                                 <td align="left">Email</td>
-                                <td><h:inputText id="txtEmail" size="40"/></td>
+                                <td><p:inputText id="txtEmail" size="40"/></td>
                             </tr>
                             <tr>
                                 <td align="left">Experience</td>
-                                <td><h:inputText id="txtExperience" size="40"/></td>
+                                <td><p:inputText id="txtExperience" size="40"/></td>
                             </tr>
                             <tr>
                                 <td align="left" valign="top">Description</td>
-                                <td><h:inputTextarea id="txaDescription" rows="10" style="width: 300px;"/></td>
+                                <td><p:inputTextarea id="txaDescription" rows="10" style="width: 300px;"/></td>
                             </tr>
                             <tr>
                                 <td align="left">Payment Type</td>
