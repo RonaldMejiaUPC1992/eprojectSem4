@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+
+        <ui:composition template="./AdminTemplate.xhtml">
+
+            <ui:define name="title">
+                Edit Company
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form>
+                    <p:panelGrid id="pnlCompany" columns="2" style="width: 500px">
+                        <h:outputLabel id="lblCompanyName" value="Company Name"/>
+                        <p:inputText id="txtCompanyName" value=""/>
+                        
+                        <h:outputLabel id="lblCompanyID" value="Company ID"/>
+                        <p:inputText id="txtCompanyID" value=""/>
+                        
+                        <h:outputLabel id="lblPassword" value="Password"/>
+                        <p:inputText id="txtPassword" value=""/>
+                        
+                        <h:outputLabel id="lblRePassword" value="RePassword"/>
+                        <p:inputText id="txtRePassword" value=""/>
+                        
+                        <h:outputLabel id="lblContactPerson" value="Designation"/>
+                        <p:inputText id="txtContactPerson" value=""/>
+                        
+                        <h:outputLabel id="lblDesignation" value="Designation"/>
+                        <p:inputText id="txtDesignation" value=""/>
+                        
+                        <h:outputLabel id="lblAddress" value="Address"/>
+                        <p:inputText id="txtAddress" value=""/>
+                        
+                        <h:outputLabel id="lblMobile" value="Mobile"/>
+                        <p:inputText id="txtMobile" value=""/>
+                        
+                        <h:outputLabel id="lblTelephone" value="Telephone"/>
+                        <p:inputText id="txtTelephone" value=""/>
+                        
+                        <h:outputLabel id="lblFaxNumber" value="Fax Number"/>
+                        <p:inputText id="txtFaxNumber" value=""/>
+                        
+                        <h:outputLabel id="lblEmail" value="Email"/>
+                        <p:inputText id="txtEmail" value=""/>
+                        
+                        <h:outputLabel id="lblDescription" value="Description"/>
+                        <p:inputText id="txtDescription" value=""/>
+                        
+                        <h:outputLabel id="lblPaymentType" value="PaymentType"/>
+                        <p:selectOneMenu id="ddlPaymentType" value="" />
+                        <p:button id="btnSubmit" value="Submit"/>
+                        <p:button id="btnReset" value="Reset"/>
+                        
+                    </p:panelGrid>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
