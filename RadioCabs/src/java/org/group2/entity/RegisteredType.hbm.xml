@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 14, 2013 6:33:45 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.group2.entity.RegisteredType" table="registeredType" schema="dbo" catalog="radiocabs">
+        <id name="registeredTypeId" type="int">
+            <column name="registeredTypeID" />
+            <generator class="assigned" />
+        </id>
+        <property name="registeredTypeName" type="string">
+            <column name="registeredTypeName" length="200" not-null="true" />
+        </property>
+        <set name="registeredUnits" inverse="true">
+            <key>
+                <column name="registeredTypeID" />
+            </key>
+            <one-to-many class="org.group2.entity.RegisteredUnit" />
+        </set>
+    </class>
+</hibernate-mapping>

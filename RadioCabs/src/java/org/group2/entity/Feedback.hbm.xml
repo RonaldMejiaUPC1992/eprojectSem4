@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 14, 2013 6:33:45 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.group2.entity.Feedback" table="feedback" schema="dbo" catalog="radiocabs">
+        <id name="feedbackId" type="int">
+            <column name="feedbackID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="feedbackType" class="org.group2.entity.FeedbackType" fetch="select">
+            <column name="feedbackTypeID" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="200" not-null="true" />
+        </property>
+        <property name="moblie" type="string">
+            <column name="moblie" length="20" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="100" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="100" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>
