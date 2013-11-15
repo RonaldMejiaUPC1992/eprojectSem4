@@ -12,6 +12,7 @@
         <ui:composition>
             <p:dialog widgetVar="wgUpdate" id="dlgUpdate" modal="true" appendToBody="true">
                 <h:form id="frmUpdate">
+                    <p:growl id="grow"/>
                     <p:panelGrid id="pnlUpdate" columns="4">
                         <h:outputLabel for="txtRegistrationId" value="Registration Id: "/>
                         <p:inputText id="txtRegistrationId" value="#{controllerCompany.selected.registrationId}"/>
@@ -40,7 +41,7 @@
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <div style="margin: 5px">
-                        <p:commandButton id="btnUpdate" value="Update" update=":frmList" actionListener="#{controllerCompany.update(evt)}" oncomplete="wgUpdate.hide()"/>                        
+                        <p:commandButton id="btnUpdate" value="Update" update=":frmList grow" actionListener="#{controllerCompany.update(evt)}" oncomplete="wgUpdate.hide()"/>                        
                     </div>
                 </h:form>
             </p:dialog>

@@ -18,7 +18,18 @@ import org.group2.util.JsfUtil;
  */
 @ManagedBean
 @ViewScoped
-public class ControllerCompany {
+public class ControllerCompany extends AbstractController {
+    
+    public ControllerCompany(){
+        super(RegisteredUnit.class);
+    }
+    
+    /*public ControllerCompany(Class<RegisteredUnit> entityClass){
+        super(entityClass);
+    }*/
+    
+}
+/*public class ControllerCompany {
 
     public ControllerCompany() {   
         selected = new RegisteredUnit();
@@ -69,4 +80,4 @@ public class ControllerCompany {
         list = null;
         JsfUtil.addSuccessMessage("Delete");        
     }
-}
+}*/

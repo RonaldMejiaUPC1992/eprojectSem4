@@ -15,7 +15,8 @@
                              header="Delete" severity="alert"
                              widgetVar="wgDelete">
                 <h:form id="frmDelete">
-                    <p:commandButton value="Yes" oncomplete="wgDelete.hide()" actionListener="#{controllerCompany.delete(evt)}" update=":frmList"/>                                            
+                    <p:growl id="grow"/>
+                    <p:commandButton value="Yes" oncomplete="wgDelete.hide()" actionListener="#{controllerCompany.delete(evt)}" update=":frmList grow"/>                                            
                     <p:commandButton value="No" onclick="wgDelete.hide();" type="button" />
                 </h:form>
             </p:confirmDialog>

@@ -15,6 +15,7 @@
     <h:body>        
         <p:dialog widgetVar="wgCreate" id="dlgCreate" modal="true" appendToBody="true" resizable="false" style="margin:auto">
             <h:form id="frmCreate">
+                <p:growl id="grow"/>
                 <p:panelGrid id="pnlCreate" columns="4" rendered="#{controllerCompany.selected != null}">
                     <h:outputLabel for="txtRegistrationId" value="Registration Id: "/>
                     <p:inputText id="txtRegistrationId" value="#{controllerCompany.selected.registrationId}"/>
@@ -43,7 +44,7 @@
                     </p:selectOneMenu>
                 </p:panelGrid>
                 <div style="margin: 5px">
-                    <p:commandButton id="btnCreate" value="Create" update=":frmList" actionListener="#{controllerCompany.create(evt)}" oncomplete="wgCreate.hide()"/> 
+                    <p:commandButton id="btnCreate" value="Create" update=":frmList grow" actionListener="#{controllerCompany.create(evt)}" oncomplete="wgCreate.hide()"/> 
                 </div>
             </h:form>
         </p:dialog>

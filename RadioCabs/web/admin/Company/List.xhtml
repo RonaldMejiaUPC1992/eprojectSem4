@@ -10,8 +10,8 @@
     </h:head>
     <h:body>
         <ui:composition>
-            <div class="widget">                   
-                <h:form id="frmList">                    
+            <div class="widget">                 
+                <h:form id="frmList">                                        
                     <p:dataTable id="tbl" value="#{controllerCompany.list}" var="item"
                                  selectionMode="single" selection="#{controllerCompany.selected}" rowKey="#{item.registrationId}" 
                                  paginator="true" rows="10" rowsPerPageTemplate="10,20,30" >
