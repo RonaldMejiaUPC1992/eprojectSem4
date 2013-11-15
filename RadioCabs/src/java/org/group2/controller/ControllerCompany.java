@@ -47,13 +47,13 @@ public class ControllerCompany {
     }
     
     public void prepareCreate(ActionEvent evt){
-        selected = new RegisteredUnit();
+        selected = new RegisteredUnit();        
     }
 
-    public void create(ActionEvent evt) {       
-        System.out.println("====Create====");
+    public void create(ActionEvent evt) {               
         ModelCompany model = new ModelCompany(RegisteredUnit.class);
         model.add(selected);
+        list = null;
         JsfUtil.addSuccessMessage("Create");
     }
 
@@ -66,6 +66,7 @@ public class ControllerCompany {
     public void delete(ActionEvent evt) {
         ModelCompany model = new ModelCompany(RegisteredUnit.class);
         model.delete(selected);
-        JsfUtil.addSuccessMessage("Delete");
+        list = null;
+        JsfUtil.addSuccessMessage("Delete");        
     }
 }
