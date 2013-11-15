@@ -11,13 +11,13 @@
     <h:body>
         <ui:composition>
 
-            <p:confirmDialog message="Are you sure to delete?"
+            <p:confirmDialog message="Are you sure to delete ?"
                              header="Delete" severity="alert"
                              widgetVar="wgDelete">
                 <h:form>
-                    <p:commandButton value="Đồng ý" 
-                                     update=":frmList" oncomplete="dlgDelete.hide()"/>
-                    <p:commandButton value="Hủy" onclick="wgDelete.hide();" type="button" />
+                    <p:commandButton value="Yes" 
+                                     update=":frmList" oncomplete="wgDelete.hide()" actionListener="#{controllerCompany.delete(evt)}"/>
+                    <p:commandButton value="No" onclick="wgDelete.hide();" type="button" />
                 </h:form>
             </p:confirmDialog>
 

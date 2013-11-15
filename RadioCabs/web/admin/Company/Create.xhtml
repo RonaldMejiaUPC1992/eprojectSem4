@@ -13,29 +13,29 @@
         </style>
     </h:head>
     <h:body>        
-        <p:dialog widgetVar="wgCreate" id="dlgAdd" modal="true" appendToBody="true" resizable="false" style="margin:auto">
+        <p:dialog widgetVar="wgCreate" id="dlgCreate" modal="true" appendToBody="true" resizable="false" style="margin:auto">
             <h:form>
-                <p:panelGrid id="pnlCreate" columns="4">
+                <p:panelGrid id="pnlCreate" columns="4" rendered="#{controllerCompany.selected != null}">
                     <h:outputLabel for="txtRegistrationId" value="Registration Id: "/>
-                    <p:inputText id="txtRegistrationId" value="#{companyController.company.registrationId}"/>
+                    <p:inputText id="txtRegistrationId" value="#{controllerCompany.selected.registrationId}"/>
                     <h:outputLabel for="txtCompanyName" value="Company Name: "/>
-                    <p:inputText id="txtCompanyName" value="#{companyController.company.name}"/>
+                    <p:inputText id="txtCompanyName" value="#{controllerCompany.selected.name}"/>
                     <h:outputLabel for="txtPassword" value="Password: "/>
-                    <p:inputText id="txtPassword" value="#{companyController.company.password}"/>
+                    <p:inputText id="txtPassword" value="#{controllerCompany.selected.password}"/>
                     <h:outputLabel for="txtContactPerson" value="Contact Person: "/>
-                    <p:inputText id="txtContactPerson" value="#{companyController.company.contactPerson}"/>
+                    <p:inputText id="txtContactPerson" value="#{controllerCompany.selected.contactPerson}"/>
                     <h:outputLabel for="txtDesignation" value="Designation: "/>
-                    <p:inputText id="txtDesignation" value="#{companyController.company.designation}"/>
+                    <p:inputText id="txtDesignation" value="#{controllerCompany.selected.designation}"/>
                     <h:outputLabel for="txtAddress" value="Address: "/>
-                    <p:inputText id="txtAddress" value="#{companyController.company.address}"/>
+                    <p:inputText id="txtAddress" value="#{controllerCompany.selected.address}"/>
                     <h:outputLabel for="txtMobileNumber" value="Mobile Number: "/>
-                    <p:inputText id="txtMobileNumber" value="#{companyController.company.mobile}"/>
+                    <p:inputText id="txtMobileNumber" value="#{controllerCompany.selected.mobile}"/>
                     <h:outputLabel for="txtFaxNumber" value="Fax Number: "/>
-                    <p:inputText id="txtFaxNumber" value="#{companyController.company.faxNumber}"/>
+                    <p:inputText id="txtFaxNumber" value="#{controllerCompany.selected.faxNumber}"/>
                     <h:outputLabel for="txtEmail" value="Email: "/>
-                    <p:inputText id="txtEmail" value="#{companyController.company.email}"/>
+                    <p:inputText id="txtEmail" value="#{controllerCompany.selected.email}"/>
                     <h:outputLabel for="ddlMembershipType" value="Membership type: "/>
-                    <p:selectOneMenu id="ddlMembershipType" value="#{companyController.company.membershipType}" style="width:200px">  
+                    <p:selectOneMenu id="ddlMembershipType" value="#{controllerCompany.selected.membershipType}" style="width:200px">  
                         <f:selectItem itemLabel="Select One" itemValue="0" />  
                         <f:selectItem itemLabel="Premium" itemValue="1" />  
                         <f:selectItem itemLabel="Basic" itemValue="2" />  
@@ -43,7 +43,7 @@
                     </p:selectOneMenu>
                 </p:panelGrid>
                 <div style="margin: 5px">
-                    <p:commandButton id="btnCreate" value="Add" update=":frmList"/>
+                    <p:commandButton id="btnCreate" value="Create" update=":frmList" actionListener="#{controllerCompany.create(evt)}" oncomplete="wgCreate.hide()"/>
                 </div>
             </h:form>
         </p:dialog>

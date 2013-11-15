@@ -5,7 +5,6 @@
 package org.group2.model;
 
 import java.io.Serializable;
-import org.group2.controller.CompanyController;
 import org.group2.entity.RegisteredUnit;
 
 /**

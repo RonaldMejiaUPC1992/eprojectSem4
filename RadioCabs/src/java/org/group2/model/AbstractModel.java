@@ -26,8 +26,7 @@ public abstract class AbstractModel<T> {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction trans = session.beginTransaction();
         trans.begin();
-        Query query = session.createQuery("FROM " + entityClass.getName());
-        System.out.println("================FROM " + entityClass.getName()+"========================");
+        Query query = session.createQuery("FROM " + entityClass.getName());        
         List<T> lst = query.list();
         trans.commit();
         session.close();

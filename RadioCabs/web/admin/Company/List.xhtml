@@ -14,22 +14,22 @@
                 <h:form id="frmList">
                     <div align="center" style="margin: 5px">                            
                         <p:commandButton value="Create" id="createBtn" oncomplete="wgCreate.show()"/>
-                        <p:commandButton value="Update" id="updateBtn" oncomplete="wgUpdate.show()" update=":frmUpdate" disabled="#{empty companyController.company.membershipType}" />
-                        <p:commandButton value="Delete" id="deleteBtn" oncomplete="wgDelete.show()" disabled="#{empty companyController.company.membershipType}"/>
+                        <p:commandButton value="Update" id="updateBtn" oncomplete="wgUpdate.show()" update=":frmUpdate" disabled="#{empty controllerCompany.selected}" />
+                        <p:commandButton value="Delete" id="deleteBtn" oncomplete="wgDelete.show()" disabled="#{empty controllerCompany.selected}"/>
                     </div>
-                    <p:dataTable id="tblCompany" value="#{companyController.listCompany}" var="listCompany"
-                                 selectionMode="single" selection="#{companyController.company}" rowKey="#{listCompany.registrationId}" 
+                    <p:dataTable id="tblCompany" value="#{controllerCompany.list}" var="item"
+                                 selectionMode="single" selection="#{controllerCompany.selected}" rowKey="#{item.registrationId}" 
                                  paginator="true" rows="10" rowsPerPageTemplate="10,20,30" >
                         <p:ajax event="rowSelect" update=":frmList"/>
                         <p:ajax event="rowUnselect" update=":frmList"/>
-                        <p:column headerText="Registration Id">#{listCompany.registrationId}</p:column>
-                        <p:column headerText="Name">#{listCompany.name}</p:column>
-                        <p:column headerText="Address">#{listCompany.address}</p:column>
-                        <p:column headerText="Contact Person">#{listCompany.contactPerson}</p:column>
-                        <p:column headerText="Designation">#{listCompany.designation}</p:column>
-                        <p:column headerText="Email">#{listCompany.email}</p:column>
-                        <p:column headerText="Fax Number">#{listCompany.faxNumber}</p:column>
-                        <p:column headerText="Mobile">#{listCompany.mobile}</p:column>
+                        <p:column headerText="Registration Id">#{item.registrationId}</p:column>
+                        <p:column headerText="Name">#{item.name}</p:column>
+                        <p:column headerText="Address">#{item.address}</p:column>
+                        <p:column headerText="Contact Person">#{item.contactPerson}</p:column>
+                        <p:column headerText="Designation">#{item.designation}</p:column>
+                        <p:column headerText="Email">#{item.email}</p:column>
+                        <p:column headerText="Fax Number">#{item.faxNumber}</p:column>
+                        <p:column headerText="Mobile">#{item.mobile}</p:column>
                     </p:dataTable>
                     
                 </h:form>
