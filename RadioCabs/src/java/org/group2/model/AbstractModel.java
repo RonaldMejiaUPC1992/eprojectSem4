@@ -34,6 +34,18 @@ public abstract class AbstractModel<T> {
         return lst;
     }
     
+    public List<T> getAll(String condition){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction trans = session.beginTransaction();
+        trans.begin();
+        Query query = session.createQuery("FROM " + entityClass.getName()+ " WHERE "+condition);    
+        System.out.println("======FROM " + entityClass.getName()+ " WHERE "+condition+"======");
+        List<T> lst = query.list();
+        trans.commit();
+        session.close();
+        return lst;
+    }
+    
     public void add(T entity){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction trans = session.beginTransaction();

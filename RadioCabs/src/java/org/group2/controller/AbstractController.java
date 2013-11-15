@@ -56,9 +56,26 @@ public abstract class AbstractController<T> {
         }
         return list;
     }
+    
+    public List<T> getList(String condtion) {
+        if(list == null){
+            list = model.getAll(condtion);
+        }
+        return list;
+    }
 
     public void setList(List<T> list) {
         this.list = list;
+    }
+    
+    public void prepareCreate(ActionEvent evt){
+        try {
+            selected = entityClass.newInstance();
+        } catch (InstantiationException ex) {
+            Logger.getLogger(AbstractController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(AbstractController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void create(ActionEvent evt){        

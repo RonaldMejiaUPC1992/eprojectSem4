@@ -8,6 +8,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
+import org.group2.entity.RegisteredType;
 import org.group2.entity.RegisteredUnit;
 import org.group2.model.ModelCompany;
 import org.group2.util.JsfUtil;
@@ -23,10 +24,21 @@ public class ControllerCompany extends AbstractController {
     public ControllerCompany(){
         super(RegisteredUnit.class);
     }
+
+    @Override
+    public List getList() {        
+        return super.getList("registeredTypeID = 1");
+    }
+
+    @Override
+    public void create(ActionEvent evt) {
+        ((RegisteredUnit)selected).setRegisteredType(new RegisteredType(1, null));
+        super.create(evt);
+    }
     
-    /*public ControllerCompany(Class<RegisteredUnit> entityClass){
-        super(entityClass);
-    }*/
+    
+    
+    
     
 }
 /*public class ControllerCompany {
