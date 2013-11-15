@@ -14,9 +14,8 @@
             <p:confirmDialog message="Are you sure to delete ?"
                              header="Delete" severity="alert"
                              widgetVar="wgDelete">
-                <h:form>
-                    <p:commandButton value="Yes" 
-                                     update=":frmList" oncomplete="wgDelete.hide()" actionListener="#{controllerCompany.delete(evt)}"/>
+                <h:form id="frmDelete">
+                    <p:commandButton value="Yes" oncomplete="wgDelete.hide()" actionListener="#{controllerCompany.delete(evt)}" update=":frmList"/>                                            
                     <p:commandButton value="No" onclick="wgDelete.hide();" type="button" />
                 </h:form>
             </p:confirmDialog>

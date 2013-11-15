@@ -20,7 +20,7 @@ import org.group2.util.JsfUtil;
 @ViewScoped
 public class ControllerCompany {
 
-    public ControllerCompany() {
+    public ControllerCompany() {   
         selected = new RegisteredUnit();
     }
     
@@ -45,8 +45,13 @@ public class ControllerCompany {
     public void setList(List<RegisteredUnit> list) {
         this.list = list;
     }
+    
+    public void prepareCreate(ActionEvent evt){
+        selected = new RegisteredUnit();
+    }
 
-    public void create(ActionEvent evt) {        
+    public void create(ActionEvent evt) {       
+        System.out.println("====Create====");
         ModelCompany model = new ModelCompany(RegisteredUnit.class);
         model.add(selected);
         JsfUtil.addSuccessMessage("Create");

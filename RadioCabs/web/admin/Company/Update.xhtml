@@ -40,7 +40,7 @@
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <div style="margin: 5px">
-                        <p:commandButton id="btnUpdate" value="Update" update=":frmList" actionListener="#{controllerCompany.update(evt)}"/>                        
+                        <p:commandButton id="btnUpdate" value="Update" update=":frmList" actionListener="#{controllerCompany.update(evt)}" oncomplete="wgUpdate.hide()"/>                        
                     </div>
                 </h:form>
             </p:dialog>
