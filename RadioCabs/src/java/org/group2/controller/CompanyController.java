@@ -7,7 +7,7 @@ package org.group2.controller;
 import java.util.List;
 import javax.faces.event.ActionEvent;
 import org.group2.entity.RegisteredUnit;
-import org.group2.model.CompanyModel;
+import org.group2.model.ModelCompany;
 import org.group2.util.JsfUtil;
 
 /**
@@ -34,8 +34,8 @@ public class CompanyController {
     }
 
     public List<RegisteredUnit> getListCompany() {
-        CompanyModel model = new CompanyModel();
-        listCompany = model.getAllCompany();
+        ModelCompany model = new ModelCompany(RegisteredUnit.class);
+        listCompany = model.getAll();
         return listCompany;
     }
 
@@ -44,20 +44,20 @@ public class CompanyController {
     }
 
     public void addCompany(ActionEvent evt) {
-        CompanyModel model = new CompanyModel();
-        model.addCompany(company);
+        ModelCompany model = new ModelCompany(RegisteredUnit.class);
+        model.add(company);
         JsfUtil.addSuccessMessage("Create");
     }
 
     public void updateCompany(ActionEvent evt) {
-        CompanyModel model = new CompanyModel();
-        model.updateCompany(company);
+        ModelCompany model = new ModelCompany(RegisteredUnit.class);
+        model.update(company);
         JsfUtil.addSuccessMessage("Update");
     }
 
     public void deleteCompany(ActionEvent evt) {
-        CompanyModel model = new CompanyModel();
-        model.deleteCompany(company);
+        ModelCompany model = new ModelCompany(RegisteredUnit.class);
+        model.delete(company);
         JsfUtil.addSuccessMessage("Delete");
     }
 }

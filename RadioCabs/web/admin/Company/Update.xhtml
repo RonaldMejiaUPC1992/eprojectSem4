@@ -1,20 +1,18 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
-
-    <f:view contentType="text/html">
-        <h:head>
-            <title>Facelet Title</title>
-        </h:head>
-        <h:body>
-            Registration Company
-            <p:growl id="msg"/>
-            <h:form id="frmCreateCompany">
-                <h:panelGroup id="pnlCreate" >
-                    <p:panelGrid columns="2" style="width: 400px">
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <p:dialog widgetVar="wgUpdate" id="dlgUpdate" modal="true" appendToBody="true">
+                <h:form id="frmUpdate">
+                    <p:panelGrid id="pnlUpdate" columns="4">
                         <h:outputLabel for="txtRegistrationId" value="Registration Id: "/>
                         <p:inputText id="txtRegistrationId" value="#{companyController.company.registrationId}"/>
                         <h:outputLabel for="txtCompanyName" value="Company Name: "/>
@@ -41,10 +39,12 @@
                             <f:selectItem itemLabel="Gold" itemValue="3" />  
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton id="btnRegistration" actionListener="#{companyController.addCompany}" value="Registration" update=":msg" />
-                </h:panelGroup>
-            </h:form>
-        </h:body>
-    </f:view>
+                    <div style="margin: 5px">
+                        <p:commandButton id="btnUpdate" value="Update" update=":frmList"/>                        
+                    </div>
+                </h:form>
+            </p:dialog>
+        </ui:composition>
+    </h:body>
 </html>
 

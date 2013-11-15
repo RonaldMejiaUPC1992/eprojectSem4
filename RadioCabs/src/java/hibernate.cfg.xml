@@ -6,6 +6,7 @@
     <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=radiocabs</property>
     <property name="hibernate.connection.username">sa</property>
     <property name="hibernate.connection.password">1234$</property>
+    <property name="hibernate.current_session_context_class">thread</property>
     <mapping resource="org/group2/entity/PaymentType.hbm.xml"/>
     <mapping resource="org/group2/entity/RegisteredType.hbm.xml"/>
     <mapping resource="org/group2/entity/Feedback.hbm.xml"/>
