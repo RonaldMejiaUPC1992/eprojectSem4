@@ -19,7 +19,9 @@
                     </div>
                     <p:dataTable id="tblCompany" value="#{companyController.listCompany}" var="listCompany"
                                  selectionMode="single" selection="#{companyController.company}" rowKey="#{listCompany.registrationId}" 
-                                 paginator="true" rows="10" rowsPerPageTemplate="10,20,30" >                                      
+                                 paginator="true" rows="10" rowsPerPageTemplate="10,20,30" >
+                        <p:ajax event="rowSelect" update=":frmList"/>
+                        <p:ajax event="rowUnselect" update=":frmList"/>
                         <p:column headerText="Registration Id">#{listCompany.registrationId}</p:column>
                         <p:column headerText="Name">#{listCompany.name}</p:column>
                         <p:column headerText="Address">#{listCompany.address}</p:column>
