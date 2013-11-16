@@ -4,7 +4,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
     <body>
-        <ui:composition template="./Template/ClientTemplate.xhtml">
+        <ui:composition template="/Template/Client/ClientTemplate.xhtml">
             <ui:define name="content">
                 <style type="text/css">
                     #Contacts {
@@ -14,7 +14,7 @@
                         -webkit-box-shadow: inset 0 1px 3px #c5c2a9;
                     }
                 </style>
-                <script type="text/javascript" src="js/forms.js"></script>
+                <script type="text/javascript" src="/RadioCabs/Resource/Client/js/forms.js"></script>
                 <script type="text/javascript">
                     $(function() {
                         $('#contact-form').forms({
