@@ -27,9 +27,9 @@
                         <p:column headerText="Mobile">#{item.mobile}</p:column>
                     </p:dataTable>
                     <div align="center" style="margin: 5px">                            
-                        <p:commandButton value="Create" id="createBtn" oncomplete="wgCreate.show()" actionListener="#{controllerCompany.prepareCreate(evt)}"/>
-                        <p:commandButton value="Update" id="updateBtn" oncomplete="wgUpdate.show()" update=":frmUpdate"  />
-                        <p:commandButton value="Delete" id="deleteBtn" oncomplete="wgDelete.show()" />
+                        <p:commandButton value="Create" id="createBtn" oncomplete="wgCreate.show()" update=":frmCreate" actionListener="#{controllerCompany.prepareCreate(evt)}"/>
+                        <p:commandButton value="Update" id="updateBtn" oncomplete="wgUpdate.show()" update=":frmUpdate" disabled="#{empty controllerCompany.selected}" />
+                        <p:commandButton value="Delete" id="deleteBtn" oncomplete="wgDelete.show()" disabled="#{empty controllerCompany.selected}" />
                     </div>
                 </h:form>
             </div>

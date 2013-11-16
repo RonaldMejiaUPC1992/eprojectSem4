@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="bean"/>        
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <div class="widget">
+
+            <h:form id="frmList">                                        
+                <p:dataTable id="tbl" value="#{cc.attrs.bean.list}" var="item"
+                             selectionMode="single" selection="#{cc.attrs.bean.selected}" rowKey="#{item.registrationId}" 
+                             paginator="true" rows="10" rowsPerPageTemplate="10,20,30" >
+                    <p:ajax event="rowSelect" update=":#{cc.id}:frmList"/>
+                    <p:ajax event="rowUnselect" update=":#{cc.id}:frmList"/>
+                    
+                </p:dataTable>
+                <div align="center" style="margin: 5px">                            
+                    <p:commandButton value="Create" id="createBtn" oncomplete="wgCreate.show()" actionListener="#{controllerCompany.prepareCreate(evt)}"/>
+                    <p:commandButton value="Update" id="updateBtn" oncomplete="wgUpdate.show()"  />
+                    <p:commandButton value="Delete" id="deleteBtn" oncomplete="wgDelete.show()" />
+                </div>
+            </h:form>            
+        </div>
+    </cc:implementation>
+</html>

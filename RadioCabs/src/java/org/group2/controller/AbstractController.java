@@ -19,27 +19,22 @@ import org.hibernate.Session;
  * @author DUONGHM
  */
 public abstract class AbstractController<T> {
-    
+
     Class<T> entityClass;
-    
     AbstractModel<T> model;
     T selected;
     List<T> list;
-    
-    public AbstractController(){
-        
+
+    public AbstractController() {
     }
-    
-    public AbstractController(Class<T> entityClass){
-        try {
-            this.entityClass = entityClass;     
-            selected = entityClass.newInstance();
-            model = new AbstractModel<T>(entityClass){};
-        } catch (InstantiationException ex) {
-            Logger.getLogger(AbstractController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(AbstractController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+    public AbstractController(Class<T> entityClass) {
+
+        this.entityClass = entityClass;
+        //selected = entityClass.newInstance();
+        model = new AbstractModel<T>(entityClass) {
+        };
+
     }
 
     public T getSelected() {
@@ -51,14 +46,14 @@ public abstract class AbstractController<T> {
     }
 
     public List<T> getList() {
-        if(list == null){
+        if (list == null) {            
             list = model.getAll();
         }
         return list;
     }
-    
+
     public List<T> getList(String condtion) {
-        if(list == null){
+        if (list == null) {
             list = model.getAll(condtion);
         }
         return list;
@@ -67,32 +62,31 @@ public abstract class AbstractController<T> {
     public void setList(List<T> list) {
         this.list = list;
     }
-    
-    public void prepareCreate(ActionEvent evt){
-        try {
-            selected = entityClass.newInstance();
+
+    public void prepareCreate(ActionEvent evt) {
+        try {            
+            selected = entityClass.newInstance();            
         } catch (InstantiationException ex) {
             Logger.getLogger(AbstractController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
             Logger.getLogger(AbstractController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void create(ActionEvent evt){        
+
+    public void create(ActionEvent evt) {
         model.add(selected);
         JsfUtil.addSuccessMessage("Create");
         list = null;
     }
-    
-    public void update(ActionEvent evt){        
+
+    public void update(ActionEvent evt) {
         model.update(selected);
-        JsfUtil.addSuccessMessage("Update");        
+        JsfUtil.addSuccessMessage("Update");
     }
-    
-    public void delete(ActionEvent evt){        
+
+    public void delete(ActionEvent evt) {
         model.delete(selected);
         JsfUtil.addSuccessMessage("Delete");
         list = null;
     }
-    
 }

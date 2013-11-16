@@ -4,7 +4,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -33,12 +34,14 @@
                         <h:outputLabel for="txtEmail" value="Email: "/>
                         <p:inputText id="txtEmail" value="#{controllerCompany.selected.email}"/>
                         <h:outputLabel for="ddlMembershipType" value="Membership type: "/>
-                        <p:selectOneMenu id="ddlMembershipType" value="#{controllerCompany.selected.membershipType}">  
-                            <f:selectItem itemLabel="Select One" itemValue="0" />  
-                            <f:selectItem itemLabel="Premium" itemValue="1" />  
-                            <f:selectItem itemLabel="Basic" itemValue="2" />  
-                            <f:selectItem itemLabel="Gold" itemValue="3" />  
-                        </p:selectOneMenu>
+                        <c:if test="#{not empty controllerCompany.selected}">
+                            <p:selectOneMenu id="ddlMembershipType" value="#{controllerCompany.selected.membershipType}">  
+                                <f:selectItem itemLabel="Select One" itemValue="0" />  
+                                <f:selectItem itemLabel="Premium" itemValue="1" />  
+                                <f:selectItem itemLabel="Basic" itemValue="2" />  
+                                <f:selectItem itemLabel="Gold" itemValue="3" />  
+                            </p:selectOneMenu>
+                        </c:if>
                     </p:panelGrid>
                     <div style="margin: 5px">
                         <p:commandButton id="btnUpdate" value="Update" update=":frmList grow" actionListener="#{controllerCompany.update(evt)}" oncomplete="wgUpdate.hide()"/>                        
