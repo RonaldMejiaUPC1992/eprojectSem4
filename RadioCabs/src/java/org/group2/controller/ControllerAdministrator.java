@@ -5,8 +5,11 @@
 package org.group2.controller;
 
 import java.util.List;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import org.group2.entity.Administrator;
 
 /**
@@ -15,21 +18,10 @@ import org.group2.entity.Administrator;
  */
 @ManagedBean
 @ViewScoped
-public class ControllerAdministrator extends AbstractController {
+public class ControllerAdministrator extends AbstractController{
     
     public ControllerAdministrator() {
         super(Administrator.class);
-    }
-    
-    public String checkLogin(){
-        String email = "'" + ((Administrator)selected).getEmail() + "'";
-        String password = "'" + ((Administrator)selected).getPassword() + "'";
-        List l = search("email = "+email+" and password = "+password);
-        if(l.size()>0){            
-            return "SUCCESS";
-        }else{
-            return "ERROR";
-        }
     }
     
 }
