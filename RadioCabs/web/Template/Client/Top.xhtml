@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <div id="top">
+
+                <header>
+                    <div class="line-top"></div>
+                    <div class="main">
+                        <div class="row-top">
+                            <h1><a href="/client/index.xhtml"><img alt="" src="/RadioCabs/Resource/Client/images/logo.png"/></a></h1>
+                            <nav>
+                                <ul class="sf-menu">
+                                    <li id="Home"><a href="/RadioCabs/faces/client/index.xhtml">Home</a></li>
+                                    <li id="About"><a href="index-1.html">About Us </a> </li>
+                                    <li id="Services"><a href="#">Services</a>
+                                        <ul>
+                                            <li><a href="#">Advertisements</a></li>
+                                            <li><a href="#">Taxi Service</a></li>
+                                            <li><a href="#">Travel Tours</a></li>
+                                        </ul>
+                                    </li>
+                                    <li id="Signup"><a href="#">Register</a> 
+                                        <ul>
+                                            <li><a href="DriverRegister.xhtml">Driver Register</a></li>
+                                            <li><a href="Advertisement.xhtml">Advertisement</a></li>
+                                        </ul>
+                                    </li>
+                                    <li id="Drivers"><a href="/RadioCabs/faces/client/Driver/Drivers.xhtml">Drivers</a> </li>
+                                    <li id="Contacts"><a href="Contact.xhtml">Contacts</a> </li>
+                                    <li id="Login"><a href="index-5.html">Login</a>
+                                        <ul style="left:-110px;">
+                                            <h:form id="frmLogin">
+                                                <li>
+                                                    Username <h:inputText id="txtUsername" size="24"/>
+                                                </li>
+                                                <li>
+                                                    Password <h:inputSecret id="txtPassword" size="24"/>
+                                                </li>
+                                                <li>
+                                                    <a class="btn">Login</a>
+                                                </li>
+                                            </h:form>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+
+                </header>
+
+            </div>
+        </ui:composition>
+    </h:body>
+</html>
+

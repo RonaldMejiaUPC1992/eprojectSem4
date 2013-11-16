@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <!--css-->
+        <link rel="stylesheet" href="/RadioCabs/Resource/Client/css/reset.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="/RadioCabs/Resource/Client/css/style.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="/RadioCabs/Resource/Client/css/grid.css" type="text/css" media="screen"/>
+        <link rel="icon" href="/RadioCabs/Resource/Client/images/favicon.ico" type="image/x-icon"/>
+        <link rel="shortcut icon" href="/RadioCabs/Resource/Client/images/favicon.ico" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=PT+Serif+Caption:400,400italic' rel='stylesheet' type='text/css'/>
+        <link rel="stylesheet" href="/RadioCabs/Resource/Client/css/flexslider.css" type="text/css" media="screen"/>
+        <!--js-->
+        <script type="text/javascript" src="/RadioCabs/Resource/Client/js/jquery-1.7.1.min.js" ></script>
+        <script type="text/javascript" src="/RadioCabs/Resource/Client/js/superfish.js"></script>
+        <script type="text/javascript" src="/RadioCabs/Resource/Client/js/jquery.flexslider-min.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <script>
+            jQuery(window).load(function() {
+                jQuery('.flexslider').flexslider({
+                    animation: "fade",
+                    slideshow: true,
+                    slideshowSpeed: 7000,
+                    animationDuration: 600,
+                    prevText: "",
+                    nextText: "",
+                    controlNav: false
+                })
+            });
+        </script>
+        <meta charset="utf-8"/>
+        <title>Radio Cab</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top">
+                <header>
+                    <div class="line-top"></div>
+                    <div class="main">
+                        <div class="row-top">
+                            <h1><a href="index.xhtml"><img alt="" src="/RadioCabs/Resource/Client/images/logo.png"/></a></h1>
+                            <nav>
+                                <ul class="sf-menu">
+                                    <li id="Home"><a href="index.xhtml">Home</a></li>
+                                    <li id="About"><a href="index-1.html">About Us </a> </li>
+                                    <li id="Services"><a href="#">Services</a>
+                                        <ul>
+                                            <li><a href="#">Advertisements</a></li>
+                                            <li><a href="#">Taxi Service</a></li>
+                                            <li><a href="#">Travel Tours</a></li>
+                                        </ul>
+                                    </li>
+                                    <li id="Signup"><a href="#">Register</a> 
+                                        <ul>
+                                            <li><a href="DriverRegister.xhtml">Driver Register</a></li>
+                                            <li><a href="Advertisement.xhtml">Advertisement</a></li>
+                                        </ul>
+                                    </li>
+                                    <li id="Drivers"><a href="Drivers.xhtml">Drivers</a> </li>
+                                    <li id="Contacts"><a href="Contact.xhtml">Contacts</a> </li>
+                                    <li id="Login"><a href="index-5.html">Login</a>
+                                        <ul style="left:-110px;">
+                                            <h:form id="frmLogin">
+                                                <li>
+                                                    Username <h:inputText id="txtUsername" size="24"/>
+                                                </li>
+                                                <li>
+                                                    Password <h:inputSecret id="txtPassword" size="24"/>
+                                                </li>
+                                                <li>
+                                                    <a class="btn">Login</a>
+                                                </li>
+                                            </h:form>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+
+                </header>
+            </ui:insert>
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">
+                <!-- Contents here -->
+            </ui:insert>
+        </div>
+
+        <div id="bottom">
+            <ui:insert name="bottom">
+                <footer>
+                    <div class="main">
+                        <ul class="soc-list">
+                            <li><a href="#"><img alt="" src="/RadioCabs/Resource/Client/images/icon-1.png"/></a></li>
+                            <li><a href="#"><img alt="" src="/RadioCabs/Resource/Client/images/icon-2.png"/></a></li>
+                            <li><a href="#"><img alt="" src="/RadioCabs/Resource/Client/images/icon-3.png"/></a></li>
+                            <li><a href="#"><img alt="" src="/RadioCabs/Resource/Client/images/icon-4.png"/></a></li>
+                        </ul>
+                        <div class="policy"> Copyright &copy; 2013 by Group 2 - C1202L BachKhoa-Aptech </div>
+                        <div class="clear"></div>
+                    </div>
+                </footer>
+            </ui:insert>
+        </div>
+
+    </h:body>
+
+</html>
