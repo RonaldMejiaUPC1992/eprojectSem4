@@ -5,10 +5,10 @@
 package org.group2.controller;
 
 import java.util.List;
-import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 import org.group2.entity.Administrator;
 
 /**
@@ -18,7 +18,7 @@ import org.group2.entity.Administrator;
 @ManagedBean
 @RequestScoped
 public class LoginAdminBean {
-    
+
     public LoginAdminBean() {
     }
     Administrator admin = new Administrator();
@@ -30,18 +30,27 @@ public class LoginAdminBean {
     public void setAdmin(Administrator admin) {
         this.admin = admin;
     }
-        
-    public String checkLogin(){
+
+    public String checkLogin() {
         String email = "'" + admin.getEmail() + "'";
         String password = "'" + admin.getPassword() + "'";
-        List l = new ControllerAdministrator().search("email = "+email+" and password = "+password);
-        if(l.size()>0){        
-            FacesContext facesContext = FacesContext.getCurrentInstance();
-            Map<String, Object> session = facesContext.getExternalContext().getSessionMap();
-            session.put("user", admin);
+        List l = new ControllerAdministrator().search("email = " + email + " and password = " + password);
+        if (l.size() > 0) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            HttpSession session =
+                    (HttpSession) context.getExternalContext().getSession(true);
+            session.setAttribute("user", admin);
             return "/admin/Company/Company.xhtml?faces-redirect=true";
-        }else{
+        } else {
             return "";
         }
+    }
+
+    public String logout() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        HttpSession session =
+                (HttpSession) context.getExternalContext().getSession(true);
+        session.removeAttribute("user");
+        return "LOGOUT";
     }
 }
