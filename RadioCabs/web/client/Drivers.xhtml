@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <body>
+        <ui:composition template="./Template/ClientTemplate.xhtml">
+            <ui:define name="content">
+                <style type="text/css">
+                    #Drivers {
+                        background:url(images/tail-item.gif);
+                        box-shadow:inset 0 1px 3px #c5c2a9;
+                        -moz-box-shadow: inset 0 1px 3px #c5c2a9;
+                        -webkit-box-shadow: inset 0 1px 3px #c5c2a9;
+                    }
+                </style>
+                <section id="content"><div class="ic"></div>
+                    <div class="border-horiz"></div>
+                    <div class="container_12">
+                        <article class="side-bar extra1">
+                            <h3><span>aBOUT</span> OUR COMPANY</h3>
+                            <figure class="box-img img-indent1"><img src="images/about.jpg " alt="" /></figure>
+                            <div class="inner-1"> <a href="About.xhtml" class="link-1"> Radio Cab's History 1946 </a>
+                                <p>During the spring and summer of 1946 two groups of WWII Veterans held meetings to discuss creating new taxi companies. One group called themselves Tuxedo Cab, the other — Radio Cab. Each group appeared before the Portland City Council to request taxi company operating permits. City Council told them to leave, join forces and come back as one company. They got together, appeared before Council as Radio Tuxedo Cab Company, and were granted 35 taxi permits to operate in the City of Portland, Oregon.</p>
+                                <a href="About.xhtml" class="btn">Read more</a> </div>
+                        </article>
+                        <article class="grid_8">
+                            <h3>Our Drivers</h3>
+                            <ul class="list-recipes extra">
+                                <c:forEach var="item" items="#{driverMB.lst}">
+                                    <li>
+                                        <figure class="box-img"><img src="images/page5-img2.jpg " alt="" /></figure>
+                                        <div class="overflow">
+                                            <h4><h:outputText value="#{item.name}"/></h4>
+                                            <p>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam. et justo duo dolores et ea rebum.</p>
+                                            <a href="#" class="btn">Read more</a> </div>
+                                        <div class="clear"></div>
+                                    </li>
+                                </c:forEach>
+                            </ul>
+                        </article>
+                        <div class="clear"></div>
+                    </div>
+                </section>
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>
