@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Driver</title>        
+    </h:head>
+    <h:body>
+        <ui:composition template="/Template/Client/ClientTemplate.xhtml">
+            <ui:define name="content">
+                <style type="text/css">
+                    #Drivers {
+                        background:url(/RadioCabs/Resource/Client/images/tail-item.gif);
+                        box-shadow:inset 0 1px 3px #c5c2a9;
+                        -moz-box-shadow: inset 0 1px 3px #c5c2a9;
+                        -webkit-box-shadow: inset 0 1px 3px #c5c2a9;
+                    }
+
+                    .ui-widget-content {
+                        background: none repeat scroll 0 0 transparent ;
+                        border: none;
+                        color: #4F4F4F;
+                    }
+
+                    .ui-widget {
+                        font-family: 'PT Serif Caption',serif;
+                        font-weight: normal;
+                        font-size: 1.1em;
+                    }
+
+                    .ui-widget-content a {
+                        color: #FFFFFF;
+                    }
+
+                    figure {
+                        float: left;
+                        margin-right: 30px;
+                    }
+
+
+                    .ui-paginator {
+                        margin: 0 0 20px;
+                        padding: 2px;
+                        text-align: center;
+                    }
+
+                    .ui-widget-header {
+                        background: none;
+                        border: none;
+                        color: #333333;
+                        font-weight: bold;
+                        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+                    }
+
+                    .ui-paginator .ui-paginator-rpp-options {
+                        background-image: none;
+                        height: 30px;
+                        margin-left: 1em;
+                        margin-right: 1em;
+                    }
+                </style>
+                <section id="content"><div class="ic"></div>
+                    <div class="border-horiz"></div>
+                    <div class="container_12">
+                        <article class="side-bar extra1">
+                            <h3><span>ABOUT</span> OUR COMPANY</h3>
+                            <figure class="box-img img-indent1"><img src="/RadioCabs/Resource/Client/images/about.jpg " alt="" /></figure>
+                            <div class="inner-1"> <a href="About.xhtml" class="link-1"> Radio Cab's History 1946 </a>
+                                <p>During the spring and summer of 1946 two groups of WWII Veterans held meetings to discuss creating new taxi companies. One group called themselves Tuxedo Cab, the other — Radio Cab. Each group appeared before the Portland City Council to request taxi company operating permits. City Council told them to leave, join forces and come back as one company. They got together, appeared before Council as Radio Tuxedo Cab Company, and were granted 35 taxi permits to operate in the City of Portland, Oregon.</p>
+                                <a href="About.xhtml" class="btn">Read more</a> </div>
+                        </article>
+                        <article class="grid_8">
+                            <h3>Our Drivers</h3>
+                            <h:form id="frmList">
+                                <p:dataList id="dListDriver" 
+                                            value="#{controllerDriver.list}" var="driver" 
+                                            paginator="true" rows="3"                                          
+                                            rowsPerPageTemplate="5,10,15" 
+                                            style="background: none !important; ">  
+
+                                    <figure class="box-img">
+                                        <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg " alt="" />
+                                    </figure>
+                                    <div class="overflow">
+                                        <h4><h:outputText value="#{driver.name}"/></h4>
+                                        <p> Age: 56 <br/>
+                                            Experience: <h:outputText value="#{driver.experience}"/> years <br/>
+                                            City: <h:outputText value="#{driver.city}"/> <br/>
+                                            Tel: <h:outputText value="#{driver.telephone}"/></p>                                        
+                                        <h:commandLink styleClass="btn">Read More</h:commandLink>
+                                    </div>
+                                    <div class="clear"></div>  
+                                    <br /> 
+
+                                </p:dataList>                             
+                            </h:form>
+                        </article>
+                        <div class="clear"></div>
+                    </div>
+                </section>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>

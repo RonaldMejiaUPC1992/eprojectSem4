@@ -26,7 +26,7 @@ public class ControllerDriver extends AbstractController {
 
     @Override
     public List getList() {        
-        return super.getList("registeredTypeID = 1");
+        return super.getList("registeredTypeID = 2");
     }
 
     @Override
