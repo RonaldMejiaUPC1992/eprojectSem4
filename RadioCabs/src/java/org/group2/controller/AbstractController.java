@@ -58,6 +58,11 @@ public abstract class AbstractController<T> {
         }
         return list;
     }
+    
+    public List<T> search(String condtion) {        
+        List r = model.search(condtion);        
+        return r;
+    }
 
     public void setList(List<T> list) {
         this.list = list;

@@ -18,6 +18,9 @@ public abstract class AbstractModel<T> {
     
     private Class<T> entityClass;
     
+    public AbstractModel(){        
+    }
+    
     public AbstractModel(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
@@ -27,7 +30,7 @@ public abstract class AbstractModel<T> {
         Transaction trans = session.beginTransaction();
         trans.begin();
         Query query = session.createQuery("FROM " + entityClass.getName());    
-        System.out.println("================FROM " + entityClass.getName() + "=======================");
+        //System.out.println("================FROM " + entityClass.getName() + "=======================");
         List<T> lst = query.list();
         trans.commit();
         session.close();
@@ -39,7 +42,19 @@ public abstract class AbstractModel<T> {
         Transaction trans = session.beginTransaction();
         trans.begin();
         Query query = session.createQuery("FROM " + entityClass.getName()+ " WHERE "+condition);    
-        System.out.println("======FROM " + entityClass.getName()+ " WHERE "+condition+"======");
+        //System.out.println("======FROM " + entityClass.getName()+ " WHERE "+condition+"======");
+        List<T> lst = query.list();
+        trans.commit();
+        session.close();
+        return lst;
+    }
+    
+    public List<T> search(String condition){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction trans = session.beginTransaction();
+        trans.begin();
+        Query query = session.createQuery("FROM " + entityClass.getName()+ " WHERE "+condition);    
+        //System.out.println("======FROM " + entityClass.getName()+ " WHERE "+condition+"======");
         List<T> lst = query.list();
         trans.commit();
         session.close();

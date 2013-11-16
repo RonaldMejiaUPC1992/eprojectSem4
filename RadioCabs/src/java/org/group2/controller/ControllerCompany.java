@@ -10,8 +10,6 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 import org.group2.entity.RegisteredType;
 import org.group2.entity.RegisteredUnit;
-import org.group2.model.ModelCompany;
-import org.group2.util.JsfUtil;
 
 /**
  *
@@ -35,9 +33,6 @@ public class ControllerCompany extends AbstractController {
         ((RegisteredUnit)selected).setRegisteredType(new RegisteredType(1, null));
         super.create(evt);
     }
-    
-    
-    
     
     
 }
