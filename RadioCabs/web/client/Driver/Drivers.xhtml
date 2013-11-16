@@ -80,10 +80,12 @@
                                         </figure>
                                         <div class="overflow">
                                             <h4><h:outputText value="#{driver.registrationId}"/></h4>
-                                            <p> Name: <h:outputText value="#{driver.name}"/> <br/>
-                                                Experience: <h:outputText value="#{driver.experience}"/> years <br/>
-                                                City: <h:outputText value="#{driver.city}"/> <br/>
-                                                Tel: <h:outputText value="#{driver.telephone}"/></p>
+                                            <div>
+                                                <div>Name: <h:outputText value="#{driver.name}"/></div>
+                                                <div>Experience: <h:outputText value="#{driver.experience}"/> years</div>
+                                                <div>City: <h:outputText value="#{driver.city}"/></div>
+                                                <div>Tel: <h:outputText value="#{driver.telephone}"/></div>                                                
+                                            </div>    
                                             <p:commandLink styleClass="btn" oncomplete="wgDetail.show()" value="View Detail" update=":frmDetail">
                                                 <f:setPropertyActionListener value="#{driver}" target="#{controllerDriver.selected}" />                                            
                                             </p:commandLink>
