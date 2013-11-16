@@ -101,7 +101,7 @@ public class SecurityFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
-        /*
+        
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         HttpSession session = req.getSession(true);
@@ -112,7 +112,7 @@ public class SecurityFilter implements Filter {
         } else {
             chain.doFilter(request, response);
         }
-        */
+
     }
 
     /**

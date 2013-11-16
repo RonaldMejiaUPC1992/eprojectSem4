@@ -39,9 +39,9 @@ public class LoginAdminBean {
             FacesContext facesContext = FacesContext.getCurrentInstance();
             Map<String, Object> session = facesContext.getExternalContext().getSessionMap();
             session.put("user", admin);
-            return "SUCCESS";
+            return "/admin/Company/Company.xhtml?faces-redirect=true";
         }else{
-            return "ERROR";
+            return "";
         }
     }
 }
