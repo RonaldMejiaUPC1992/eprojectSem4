@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8' ?> 
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
@@ -17,85 +17,20 @@
         <link href="/RadioCabs/Resource/Admin/css/main.css" rel="stylesheet" type="text/css" />
     </h:head>
     <h:body>
-        <div id="leftSide">
-            <div class="logo"><a href="index.html"><img src="/RadioCabs/Resource/Admin/images/logo.png" alt="" /></a></div>
-            <div class="sidebarSep mt0"></div>
-            <!-- Left navigation -->
-            <ul id="menu" class="nav">
-                <li class="widgets"><a href="#" title="" class="exp"><span>Manager Driver</span><strong>4</strong></a>
-                    <ul class="sub">
-                        <li><a href="forms.html" title="">Form elements</a></li>
-                        <li><a href="form_validation.html" title="">Validation</a></li>
-                        <li><a href="form_editor.html" title="">WYSIWYG and file uploader</a></li>
-                        <li class="last"><a href="form_wizards.html" title="">Wizards</a></li>
-                    </ul>
-                </li>
-                <li class="tables"><a href="#" title="" class="exp"><span>Manager Advertise</span><strong>4</strong></a>
-                    <ul class="sub">
-                        <li><a href="forms.html" title="">Form elements</a></li>
-                        <li><a href="form_validation.html" title="">Validation</a></li>
-                        <li><a href="form_editor.html" title="">WYSIWYG and file uploader</a></li>
-                        <li class="last"><a href="form_wizards.html" title="">Wizards</a></li>
-                    </ul>
-                </li>
-                <li class="forms"><a href="#" title="" class="exp"><span>Manager Company</span><strong>4</strong></a>
-                    <ul class="sub">
-                        <li><a href="forms.html" title="">Form elements</a></li>
-                        <li><a href="form_validation.html" title="">Validation</a></li>
-                        <li><a href="form_editor.html" title="">WYSIWYG and file uploader</a></li>
-                        <li class="last"><a href="form_wizards.html" title="">Wizards</a></li>
-                    </ul>
-                </li>
-                <li class="charts"><a href="#" title="" class="exp"><span>Manager Feedback</span><strong>4</strong></a>
-                    <ul class="sub">
-                        <li><a href="forms.html" title="">Form elements</a></li>
-                        <li><a href="form_validation.html" title="">Validation</a></li>
-                        <li><a href="form_editor.html" title="">WYSIWYG and file uploader</a></li>
-                        <li class="last"><a href="form_wizards.html" title="">Wizards</a></li>
-                    </ul>
-                </li>
-                <li class="files"><a href="#" title="" class="exp"><span>Manager Payment</span><strong>4</strong></a>
-                    <ul class="sub">
-                        <li><a href="forms.html" title="">Form elements</a></li>
-                        <li><a href="form_validation.html" title="">Validation</a></li>
-                        <li><a href="form_editor.html" title="">WYSIWYG and file uploader</a></li>
-                        <li class="last"><a href="form_wizards.html" title="">Wizards</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
+        <!-- Left side -->
+        <ui:include src="Left.xhtml"/>
 
         <!-- Right side -->
         <div id="rightSide">
 
             <!-- Top fixed navigation -->
-            <div class="topNav">
-                <div class="wrapper">
-                    <div class="welcome"><a href="#" title=""><img src="/RadioCabs/Resource/Admin/images/userPic.png" alt="" /></a><span>Howdy, Eugene!</span></div>
-                    <div class="userNav">
-                        <ul>
-                            <li><a href="#" title=""><img src="/RadioCabs/Resource/Admin/images/icons/topnav/profile.png" alt="" /><span>Profile</span></a></li>
-                            <li class="dd"><a title=""><img src="/RadioCabs/Resource/Admin/images/icons/topnav/messages.png" alt="" /><span>Messages</span><span class="numberTop">8</span></a>
-                                <ul class="userDropdown">
-                                    <li><a href="#" title="" class="sAdd">new message</a></li>
-                                    <li><a href="#" title="" class="sInbox">inbox</a></li>
-                                    <li><a href="#" title="" class="sOutbox">outbox</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="Login.xhtml" title=""><img src="/RadioCabs/Resource/Admin/images/icons/topnav/logout.png" alt="" /><span>Logout</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </div>
+            <ui:include src="TopNavigator.xhtml"/>
             <!-- Title area -->
             <div class="titleArea">
                 <div class="wrapper">
                     <div class="pageTitle">
                         <h5>
-                            <ui:insert name="moduleName">                                
-                            </ui:insert>
+                            <ui:insert name="moduleName"/>                              
                         </h5>
                     </div>
                     <div class="clear"></div>
@@ -104,142 +39,14 @@
             <div class="line"></div>
             <!-- Main content wrapper -->
             <div class="wrapper"> 
-                <ui:insert name="content">
-                    <div class="widget">
-                        <div class="title"><img src="/RadioCabs/Resource/Admin/images/icons/dark/full2.png" alt="" class="titleIcon" /><h6>Dynamic table</h6></div>                          
-                        <table cellpadding="0" cellspacing="0" border="0" class="display dTable">
-                            <thead>
-                                <tr>
-                                    <th>Rendering engine</th>
-                                    <th>Browser</th>
-                                    <th>Platform(s)</th>
-                                    <th>Engine version</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="gradeX">
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 4.0</td>
-                                    <td>Win 95+</td>
-                                    <td class="center">4</td>
-                                </tr>
-                                <tr class="gradeC">
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 5.0</td>
-                                    <td>Win 95+</td>
-                                    <td class="center">5</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td>Gecko</td>
-                                    <td>Firefox 3.0</td>
-                                    <td>Win 2k+ / OSX.3+</td>
-                                    <td class="center">1.9</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td>Gecko</td>
-                                    <td>Camino 1.0</td>
-                                    <td>OSX.2+</td>
-                                    <td class="center">1.8</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td>Gecko</td>
-                                    <td>Camino 1.5</td>
-                                    <td>OSX.3+</td>
-                                    <td class="center">1.8</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td>Gecko</td>
-                                    <td>Netscape 7.2</td>
-                                    <td>Win 95+ / Mac OS 8.6-9.2</td>
-                                    <td class="center">1.7</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td>Gecko</td>
-                                    <td>Netscape Browser 8</td>
-                                    <td>Win 98SE+</td>
-                                    <td class="center">1.7</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td>Gecko</td>
-                                    <td>Mozilla 1.4</td>
-                                    <td>Win 95+ / OSX.1+</td>
-                                    <td class="center">1.4</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td>Gecko</td>
-                                    <td>Mozilla 1.5</td>
-                                    <td>Win 95+ / OSX.1+</td>
-                                    <td class="center">1.5</td>
-                                </tr>
-
-                                <tr class="gradeC">
-                                    <td>Tasman</td>
-                                    <td>Internet Explorer 5.2</td>
-                                    <td>Mac OS 8-X</td>
-                                    <td class="center">1</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td>Misc</td>
-                                    <td>NetFront 3.1</td>
-                                    <td>Embedded devices</td>
-                                    <td class="center">-</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td>Misc</td>
-                                    <td>NetFront 3.4</td>
-                                    <td>Embedded devices</td>
-                                    <td class="center">-</td>
-                                </tr>
-                                <tr class="gradeX">
-                                    <td>Misc</td>
-                                    <td>Dillo 0.8</td>
-                                    <td>Embedded devices</td>
-                                    <td class="center">-</td>
-                                </tr>
-                                <tr class="gradeX">
-                                    <td>Misc</td>
-                                    <td>Links</td>
-                                    <td>Text only</td>
-                                    <td class="center">-</td>
-                                </tr>
-                                <tr class="gradeX">
-                                    <td>Misc</td>
-                                    <td>Lynx</td>
-                                    <td>Text only</td>
-                                    <td class="center">-</td>
-                                </tr>
-                                <tr class="gradeC">
-                                    <td>Misc</td>
-                                    <td>IE Mobile</td>
-                                    <td>Windows Mobile 6</td>
-                                    <td class="center">-</td>
-                                </tr>
-                                <tr class="gradeC">
-                                    <td>Misc</td>
-                                    <td>PSP browser</td>
-                                    <td>PSP</td>
-                                    <td class="center">-</td>
-                                </tr>
-                                <tr class="gradeU">
-                                    <td>Other browsers</td>
-                                    <td>All others</td>
-                                    <td>-</td>
-                                    <td class="center">-</td>
-                                </tr>
-                            </tbody>
-                        </table>  
-                    </div>
-                </ui:insert>
+                <ui:insert name="content"/>
             </div>
             <!-- Footer line -->
-            <div id="footer">
-                <div class="wrapper">Designer by Group II-C1012L</div>
-            </div>
+            <ui:include src="Footer.xhtml"/>
 
         </div>
 
         <div class="clear"></div>
     </h:body>
 </html>
+
