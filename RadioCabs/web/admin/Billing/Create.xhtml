@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>        
+        <style type="text/css">
+            .ui-panelgrid td, .ui-panelgrid tr {
+                border: 0 !important;
+            }
+        </style>
+    </h:head>
+    <h:body>        
+        <p:dialog widgetVar="wgCreate" id="dlgCreate" modal="true" appendToBody="true" resizable="false" style="margin:auto">
+            <h:form id="frmCreate">
+                <p:growl id="grow"/>
+                <p:panelGrid id="pnlCreate" columns="4" rendered="#{controllerBilling.selected != null}">                    
+                    <!--Chèn các trường cần nhập thông tin vào đây-->
+                    
+                    <!--==========================================-->                    
+                </p:panelGrid>
+                <div style="margin: 5px">
+                    <p:commandButton id="btnCreate" value="Create" update=":frmList grow" actionListener="#{controllerBilling.create(evt)}" oncomplete="wgCreate.hide()"/> 
+                </div>
+            </h:form>
+        </p:dialog>
+
+    </h:body>
+</html>
+

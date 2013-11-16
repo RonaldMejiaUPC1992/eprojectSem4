@@ -15,8 +15,8 @@
                     <p:dataTable id="tbl" value="#{controllerCompany.list}" var="item"
                                  selectionMode="single" selection="#{controllerCompany.selected}" rowKey="#{item.registrationId}" 
                                  paginator="true" rows="10" rowsPerPageTemplate="10,20,30" >
-                        <p:ajax event="rowSelect" update=":frmList"/>
-                        <p:ajax event="rowUnselect" update=":frmList"/>
+                        <p:ajax event="rowSelect" update=":frmList:updateBtn"/>
+                        <p:ajax event="rowUnselect" update=":frmList:deleteBtn"/>
                         <p:column headerText="Registration Id">#{item.registrationId}</p:column>
                         <p:column headerText="Name">#{item.name}</p:column>
                         <p:column headerText="Address">#{item.address}</p:column>
