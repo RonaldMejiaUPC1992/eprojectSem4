@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <h:form id="frmDetail">
+                <p:dialog id="dlgDetail" header="Driver Detail" widgetVar="wgDetail" modal="true" style="background: #FFFFFF" resizable="false">  
+                    <p:outputPanel id="carDetail" style="width: 800px; padding-bottom: 10px;" layout="block" rendered="#{not empty controllerDriver.selected}">  
+                        <figure class="box-img">
+                            <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg " alt="" />
+                        </figure>
+                        <div class="overflow">
+                            <h4><h:outputText value="#{controllerDriver.selected.registrationId}"/></h4>
+                            <p> Name: <h:outputText value="#{controllerDriver.selected.name}"/> <br/>
+                                Experience: <h:outputText value="#{controllerDriver.selected.experience}"/> years <br/>
+                                City: <h:outputText value="#{controllerDriver.selected.city}"/> <br/>
+                                Tel: <h:outputText value="#{controllerDriver.selected.telephone}"/></p>
+                        </div>
+                        <div class="clear"></div>
+                    </p:outputPanel>  
+                </p:dialog>
+            </h:form>
+        </ui:composition>
+    </h:body>
+</html>
+

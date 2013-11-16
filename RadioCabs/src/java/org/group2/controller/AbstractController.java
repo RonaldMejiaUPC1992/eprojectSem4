@@ -41,7 +41,7 @@ public abstract class AbstractController<T> {
         return selected;
     }
 
-    public void setSelected(T selected) {
+    public void setSelected(T selected) {        
         this.selected = selected;
     }
 
