@@ -34,23 +34,12 @@
                                     </li>
                                     <li id="Drivers"><a href="/RadioCabs/faces/client/Driver/Drivers.xhtml">Drivers</a> </li>
                                     <li id="Feedback"><a href="/RadioCabs/faces/client/Feedback/Feedback.xhtml">Feedback</a> </li>
-                                    <c:if test="#{empty sessionScope['clientUser']}">
-                                        <li id="Login"><a href="#">Login</a>
-                                            <ul style="left:-110px;">
-                                                <h:form id="frmLogin">
-                                                    <li>
-                                                        Username <h:inputText id="txtUsername" size="24" value="#{loginClientBean.user.registrationId}"/>
-                                                    </li>
-                                                    <li>
-                                                        Password <h:inputSecret id="txtPassword" size="24" value="#{loginClientBean.user.password}"/>
-                                                    </li>
-                                                    <li>                                                        
-                                                        <h:commandLink style="margin-top: 3px" styleClass="btn" id="btnLogin" action="#{loginClientBean.checkLogin()}">
-                                                            Login
-                                                        </h:commandLink>                                                        
-                                                    </li>
-                                                </h:form>
-                                            </ul>
+
+                                    <ui:include src="Login.xhtml"/>
+
+                                    <c:if test="#{not empty sessionScope['clientUser']}">
+                                        <li id="ViewInfor">
+                                            <a href="#">View Infor</a>
                                         </li>
                                     </c:if>
                                 </ul>

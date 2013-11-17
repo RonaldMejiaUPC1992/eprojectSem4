@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <c:if test="#{empty sessionScope['clientUser']}">
+                <li id="Login"><a href="#">Login</a>
+                    <ul style="left:-110px;">
+                        <h:form id="frmLogin">
+                            <li>
+                                Username <h:inputText id="txtUsername" size="24" value="#{loginClientBean.user.registrationId}"/>
+                            </li>
+                            <li>
+                                Password <h:inputSecret id="txtPassword" size="24" value="#{loginClientBean.user.password}"/>
+                            </li>
+                            <li>                                                        
+                                <h:commandLink style="margin-top: 3px" styleClass="btn" id="btnLogin" action="#{loginClientBean.checkLogin()}">
+                                    Login
+                                </h:commandLink>                                                        
+                            </li>
+                        </h:form>
+                    </ul>
+                </li>
+            </c:if>
+            
+        </ui:composition>
+    </h:body>
+</html>
+
