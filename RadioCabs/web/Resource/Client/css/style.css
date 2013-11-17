@@ -724,3 +724,17 @@ footer {
     background:url(../images/bg-body.gif);
 }
 .soc-list li a:hover{opacity:0.7}
+
+/*New added*/
+.box-register{
+    background:#FFFFFF;
+    margin-top: 18px;
+    padding: 30px 40px 51px;
+    width:940px;
+    border-radius:18px;
+    -moz-border-radius:18px;
+    -webkit-border-radius:18px;
+    box-shadow:0 0 3px #c5c2a9;
+    -moz-box-shadow: 0 0 3px #c5c2a9;
+    -webkit-box-shadow:0 0 3px #c5c2a9;
+}

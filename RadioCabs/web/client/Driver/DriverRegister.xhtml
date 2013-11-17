@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="/Template/Client/ClientTemplate.xhtml">
+
+            <ui:define name="content">
+                <style type="text/css">
+                    #Signup {
+                        background:url(/RadioCabs/Resource/Client/images/tail-item.gif);
+                        box-shadow:inset 0 1px 3px #c5c2a9;
+                        -moz-box-shadow: inset 0 1px 3px #c5c2a9;
+                        -webkit-box-shadow: inset 0 1px 3px #c5c2a9;
+                    }
+
+                    #contact-form textarea {
+                        height: 104px;
+                        overflow: auto;
+                        resize: none;
+                    }
+
+                    .errorMsg{
+                        color: red;
+                        font-size: 8pt;
+                    }
+                </style>
+                <f:metadata>  
+                    <f:event type="preRenderView" listener="#{controllerDriver.prepareCreate(evt)}"></f:event>  
+                </f:metadata>  
+
+                <section id="content"><div class="ic"></div>                    
+                    <div class="border-horiz"></div>
+                    <h3 style="text-align: center">Join Us Now!</h3>
+                    <div class="container_12">
+                        <!--<article class="side-bar extra">
+                            <h3><strong>3</strong> Steps <em>To become<br/>
+                                    our driver</em> </h3>
+                            <ul class="list-dropcap1">
+                                <li>
+                                    <div class="wrapper">
+                                        <div class="dropcap">1</div>
+                                        <h4>Enter a driver<br/>
+                                            course</h4>
+                                    </div>
+                                    <p>First, you must learn how to drive a car, and take the driver's license</p>
+                                </li>
+                                <li>
+                                    <div class="wrapper">
+                                        <div class="dropcap">2</div>
+                                        <h4>Pass our Practical Test</h4>
+                                    </div>
+                                    <p>Our test will help us to choose who are the best drivers, match with our requirements</p>
+                                </li>
+                                <li>
+                                    <div class="wrapper">
+                                        <div class="dropcap">3</div>
+                                        <h4>At last: Join our company</h4>
+                                    </div>
+                                    <p>Become our driver, and we are a family!</p>
+                                </li>
+                            </ul>
+                        </article>
+                        -->
+                        <article class="grid_8">                            
+                            <div class="box-register">
+
+                                <h:form id="contact-form">
+                                    <div class="success"> Contact form submitted! <strong>We will be in touch soon.</strong> </div>                                
+                                    <fieldset>
+
+                                        <div class="coll-1">
+                                            <div>
+                                                <div class="form-txt">Driver ID:</div>
+                                                <label>
+                                                    <h:inputText id="txtDriverID" value="#{controllerDriver.selected.registrationId}" required="true" requiredMessage="*This field is required" validatorMessage="*Driver ID is not valid">                                                
+                                                        <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtDriverID" />
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div>
+                                                <div class="form-txt">Driver Name:</div>
+                                                <label>
+                                                    <h:inputText id="txtName" value="#{controllerDriver.selected.name}" required="true" requiredMessage="*This field is required" validatorMessage="*Name is not valid">                                                
+                                                        <f:validateRegex pattern="^[a-zA-Z ']+$" />
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtName" />
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div>
+                                                <div class="form-txt">Password:</div>
+                                                <label>
+                                                    <h:inputSecret id="txtPassword" value="#{controllerDriver.selected.password}" required="true" requiredMessage="*This field is required" validatorMessage="*Password must have more than 6 letter">
+                                                        <f:validateRegex pattern=".{6}" />
+                                                    </h:inputSecret>
+                                                    <h:message styleClass="errorMsg" for="txtPassword" />
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div>
+                                                <div class="form-txt">Contact Person:</div>
+                                                <label>
+                                                    <h:inputText id="txtContactPerson" value="#{controllerDriver.selected.contactPerson}" required="true" requiredMessage="*This field is required" validatorMessage="*Contact Person is not valid">                                                
+                                                        <f:validateRegex pattern="^[a-zA-Z ']+$" />
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtContactPerson" />
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div>
+                                                <div class="form-txt">Address:</div>
+                                                <label>
+                                                    <h:inputText id="txtAddress" value="#{controllerDriver.selected.address}" required="true" requiredMessage="*This field is required">                                                                                                    
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtAddress" />
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div>
+                                                <div class="form-txt">City:</div>
+                                                <label>
+                                                    <h:inputText id="txtCity" value="#{controllerDriver.selected.city}" required="true" requiredMessage="*This field is required" validatorMessage="*City is not valid">
+                                                        <f:validateRegex pattern="^[a-zA-Z ']+$" />
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtCity"/>
+                                                </label>
+                                            </div>                                                                                        
+                                        </div>
+
+                                        <div class="coll-2">
+                                            <div>
+                                                <div class="form-txt">Mobile:</div>
+                                                <label>
+                                                    <h:inputText id="txtMobile" value="#{controllerDriver.selected.mobile}" required="true" requiredMessage="*This field is required" validatorMessage="*Mobile is not valid">
+                                                        <f:validateRegex pattern="^0[0-9.]{9,10}$" />
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtMobile"/>
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div>
+                                                <div class="form-txt">Telephone:</div>
+                                                <label>
+                                                    <h:inputText id="txtTelephone" value="#{controllerDriver.selected.telephone}" required="true" requiredMessage="*This field is required" validatorMessage="*Telephone is not valid">
+                                                        <f:validateRegex pattern="^[0-9.]*$" />
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtTelephone"/>
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div>
+                                                <div class="form-txt">Email:</div>
+                                                <label>
+                                                    <h:inputText id="txtEmail" value="#{controllerDriver.selected.email}" style="text-transform: none" required="true" requiredMessage="*This field is required" validatorMessage="*Email is not valid">
+                                                        <f:validateRegex pattern="^(([\w-\s]+)|([\w-]+(?:\.[\w-]+)*)|([\w-\s]+)([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i" />
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtEmail"/>
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div>
+                                                <div class="form-txt">Experience:</div>
+                                                <label>
+                                                    <h:inputText id="txtExperience" value="#{controllerDriver.selected.experience}" required="true" requiredMessage="*This field is required" validatorMessage="*Experience is not valid">
+                                                        <f:validateRegex pattern="^[0-9]{1,2}$" />                                                        
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtExperience"/>
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div>
+                                                <div class="form-txt">Description:</div>
+                                                <label>
+                                                    <h:inputTextarea id="txtDescription" value="#{controllerDriver.selected.description}">                                                    
+                                                    </h:inputTextarea>
+                                                    <h:message styleClass="errorMsg" for="txtDescription"/>
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="clear"></div>
+
+                                        <div class="btns">                                    
+                                            <h:commandLink id="btnRegister" styleClass="btn"
+                                                           value="Register" data-type="submit"/>                                    
+                                            <h:commandLink id="btnReset" styleClass="btn" value="Reset">
+                                                <p:ajax update=":contact-form" resetValues="true" />
+                                            </h:commandLink>                                    
+                                        </div>
+                                    </fieldset>
+                                </h:form>
+                            </div>
+                        </article>
+                        <div class="clear"></div>
+                    </div>
+                </section>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
