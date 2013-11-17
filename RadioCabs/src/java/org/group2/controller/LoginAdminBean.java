@@ -34,12 +34,13 @@ public class LoginAdminBean {
     public String checkLogin() {
         String email = "'" + admin.getEmail() + "'";
         String password = "'" + admin.getPassword() + "'";
-        List l = new ControllerAdministrator().search("email = " + email + " and password = " + password);
-        if (l.size() > 0) {
+        List<Administrator> l = new ControllerAdministrator().search("email = " + email + " and password = " + password);
+        if (l.size() > 0) {            
+            admin = (Administrator)l.get(0);            
             FacesContext context = FacesContext.getCurrentInstance();
             HttpSession session =
                     (HttpSession) context.getExternalContext().getSession(true);
-            session.setAttribute("user", admin);
+            session.setAttribute("adminUser", admin);
             return "/admin/Company/Company.xhtml?faces-redirect=true";
         } else {
             return "";
@@ -50,7 +51,7 @@ public class LoginAdminBean {
         FacesContext context = FacesContext.getCurrentInstance();
         HttpSession session =
                 (HttpSession) context.getExternalContext().getSession(true);
-        session.removeAttribute("user");
+        session.removeAttribute("adminUser");
         return "LOGOUT";
     }
 }
