@@ -5,7 +5,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>Facelet Title</title>        
+        <title>Advertise</title>        
         <style type="text/css">
             .ui-panelgrid td, .ui-panelgrid tr {
                 border: 0 !important;
@@ -17,9 +17,26 @@
             <h:form id="frmCreate">
                 <p:growl id="grow"/>
                 <p:panelGrid id="pnlCreate" columns="4" rendered="#{controllerAdvertise.selected != null}">                    
-                    <!--Chèn các trường cần nhập thông tin vào đây-->
                     
-                    <!--==========================================-->                    
+                    <h:outputLabel for="txtRegistrationId" value="Registration Id: "/>
+                    <p:inputText id="txtRegistrationId" value="#{controllerAdvertise.selected.registrationId}"/>
+                    <h:outputLabel for="txtCompanyName" value="Company Name: "/>
+                    <p:inputText id="txtCompanyName" value="#{controllerAdvertise.selected.name}"/>                                      
+                    <h:outputLabel for="txtDesignation" value="Designation: "/>
+                    <p:inputText id="txtDesignation" value="#{controllerAdvertise.selected.designation}"/>
+                    <h:outputLabel for="txtAddress" value="Address: "/>
+                    <p:inputText id="txtAddress" value="#{controllerAdvertise.selected.address}"/>
+                    <h:outputLabel for="txtMobileNumber" value="Mobile Number: "/>
+                    <p:inputText id="txtMobileNumber" value="#{controllerAdvertise.selected.mobile}"/>
+                    <h:outputLabel for="txtTelephone" value="Telephone: "/>
+                    <p:inputText id="txtTelephone" value="#{controllerAdvertise.selected.telephone}"/>
+                    <h:outputLabel for="txtFaxNumber" value="Fax Number: "/>
+                    <p:inputText id="txtFaxNumber" value="#{controllerAdvertise.selected.faxNumber}"/>
+                    <h:outputLabel for="txtEmail" value="Email: "/>
+                    <p:inputText id="txtEmail" value="#{controllerAdvertise.selected.email}"/>                                    
+                    <h:outputLabel for="txtDescription" value="Description: "/>
+                    <p:inputText id="txtDescription" value="#{controllerAdvertise.selected.description}"/>
+                                  
                 </p:panelGrid>
                 <div style="margin: 5px">
                     <p:commandButton id="btnCreate" value="Create" update=":frmList grow" actionListener="#{controllerAdvertise.create(evt)}" oncomplete="wgCreate.hide()"/> 

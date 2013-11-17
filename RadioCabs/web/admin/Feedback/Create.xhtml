@@ -5,7 +5,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>Facelet Title</title>        
+        <title>Feedback</title>        
         <style type="text/css">
             .ui-panelgrid td, .ui-panelgrid tr {
                 border: 0 !important;
@@ -17,9 +17,22 @@
             <h:form id="frmCreate">
                 <p:growl id="grow"/>
                 <p:panelGrid id="pnlCreate" columns="4" rendered="#{controllerFeedback.selected != null}">                    
-                    <!--Chèn các trường cần nhập thông tin vào đây-->
-                    
-                    <!--==========================================-->                    
+
+                    <h:outputLabel for="txtFeedbackId" value="Feedback Id: "/>
+                    <p:inputText id="txtFeedbackId" value="#{controllerFeedback.selected.feedbackId}"/>
+                    <h:outputLabel for="txtFeedbackName" value="Feedback Name: "/>
+                    <p:inputText id="txtFeedbackName" value="#{controllerFeedback.selected.name}"/>
+                    <h:outputLabel for="txtMobileNumber" value="Mobile Number: "/>
+                    <p:inputText id="txtMobileNumber" value="#{controllerFeedback.selected.mobile}"/>
+                    <h:outputLabel for="txtEmail" value="Email: "/>
+                    <p:inputText id="txtEmail" value="#{controllerFeedback.selected.email}"/>
+                    <h:outputLabel for="txtCity" value="City: "/>
+                    <p:inputText id="txtCity" value="#{controllerFeedback.selected.city}"/>   
+                    <h:outputLabel for="txtFeedbackType" value="Feedback Type "/>
+                    <p:inputText id="txtFeedbackType" value="#{controllerFeedback.selected.feedbackType}"/>
+                    <h:outputLabel for="txtDescription" value="Description: "/>
+                    <p:inputText id="txtDescription" value="#{controllerFeedback.selected.description}"/>
+
                 </p:panelGrid>
                 <div style="margin: 5px">
                     <p:commandButton id="btnCreate" value="Create" update=":frmList grow" actionListener="#{controllerFeedback.create(evt)}" oncomplete="wgCreate.hide()"/> 

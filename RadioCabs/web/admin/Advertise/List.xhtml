@@ -6,7 +6,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Advertise</title>
     </h:head>
     <h:body>
         <ui:composition>
@@ -17,8 +17,17 @@
                                  paginator="true" rows="10" rowsPerPageTemplate="10,20,30" >
                         <p:ajax event="rowSelect" update=":frmList:updateBtn"/>
                         <p:ajax event="rowUnselect" update=":frmList:deleteBtn"/>
-                        <!--Chèn các cột cần hiển thị vào đây-->
-                        <!--=================================-->
+                        
+                        <p:column headerText="Registration Id">#{item.registrationId}</p:column>
+                        <p:column headerText="Name">#{item.name}</p:column>
+                        <p:column headerText="Designation">#{item.designation}</p:column>
+                        <p:column headerText="Address">#{item.address}</p:column>
+                        <p:column headerText="Mobile">#{item.mobile}</p:column>
+                        <p:column headerText="Telephone">#{item.telephone}</p:column>
+                        <p:column headerText="Fax Number">#{item.faxNumber}</p:column>                        
+                        <p:column headerText="Email">#{item.email}</p:column>                       
+                        <p:column headerText="Description">#{item.description}</p:column>
+                        
                     </p:dataTable>
                     <div align="center" style="margin: 5px">                            
                         <p:commandButton value="Create" id="createBtn" oncomplete="wgCreate.show()" update=":frmCreate" actionListener="#{controllerAdvertise.prepareCreate(evt)}"/>

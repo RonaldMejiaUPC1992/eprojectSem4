@@ -7,7 +7,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Billing</title>
     </h:head>
     <h:body>
         <ui:composition>
@@ -15,9 +15,25 @@
                 <h:form id="frmUpdate">
                     <p:growl id="grow"/>
                     <p:panelGrid id="pnlUpdate" columns="4">
-                        <!--Chèn giống hệt phần trong trang Create-->
                         
-                        <!--======================================-->
+                               <h:outputLabel for="txtBillingId" value="Registration Id: "/>
+                    <p:inputText id="txtBillingId" value="#{controllerBilling.selected.billingId}"/>
+                    <h:outputLabel for="txtRegisteredUnit" value="Registered Unit: "/>
+                    <p:inputText id="txtRegisteredUnit" value="#{controllerBilling.selected.registeredUnit}"/>
+                    <h:outputLabel for="ddlPaymentType" value="Payment type: "/>
+                    <p:selectOneMenu id="ddlPaymentType" value="" style="width:200px">  
+                        <f:selectItem itemLabel="Select One" itemValue="0" />  
+                        <f:selectItem itemLabel="PaymentType1" itemValue="1" />  
+                        <f:selectItem itemLabel="PaymentType2" itemValue="2" />  
+                        <f:selectItem itemLabel="PaymentType3" itemValue="3" />  
+                    </p:selectOneMenu>
+                    <h:outputLabel for="txtMoney" value="Money: "/>
+                    <p:inputText id="txtMoney" value="#{controllerBilling.selected.money}"/>                    
+                    <h:outputLabel for="txtPurchaseDate" value="Purchase Date: "/>
+                    <p:inputText id="txtPurchaseDate" value="#{controllerBilling.selected.PurchaseDate}"/>                 
+                    <h:outputLabel for="txtExpriateDate" value="Expriate Date: "/>
+                    <p:inputText id="txtExpriateDate" value="#{controllerBilling.selected.expriateDate}"/>
+                       
                     </p:panelGrid>
                     <div style="margin: 5px">
                         <p:commandButton id="btnUpdate" value="Update" update=":frmList grow" actionListener="#{controllerBilling.update(evt)}" oncomplete="wgUpdate.hide()"/>                        
