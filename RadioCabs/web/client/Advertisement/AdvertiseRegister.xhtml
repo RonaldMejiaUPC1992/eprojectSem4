@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../../Template/Client/ClientTemplate.xhtml">
+
+            <ui:define name="content">
+                <style type="text/css">
+                    #Signup {
+                        background:url(/RadioCabs/Resource/Client/images/tail-item.gif);
+                        box-shadow:inset 0 1px 3px #c5c2a9;
+                        -moz-box-shadow: inset 0 1px 3px #c5c2a9;
+                        -webkit-box-shadow: inset 0 1px 3px #c5c2a9;
+                    }
+
+                    #contact-form textarea {
+                        height: 104px;
+                        overflow: auto;
+                        resize: none;
+                    }
+
+                    .errorMsg{
+                        color: red;
+                        font-size: 8pt;
+                    }
+                </style>
+                <f:metadata>  
+                    <f:event type="preRenderView" listener="#{controllerAdvertise.prepareCreate(evt)}"></f:event>  
+                </f:metadata>  
+
+                <section id="content"><div class="ic"></div>                    
+                    <div class="border-horiz"></div>                    
+                    <div class="container_12">
+                        <article class="grid_8">                            
+                            <div class="box-register">
+                                <h3>Book an Advertisement</h3>
+                                <h:form id="contact-form">
+                                    <div class="success"> Contact form submitted! <strong>We will be in touch soon.</strong> </div>                                
+                                    <fieldset>
+
+                                        <div class="coll-1">
+                                            <div>
+                                                <div class="form-txt">Company Name: </div>
+                                                <label>
+                                                    <h:inputText id="txtName" value="#{controllerAdvertise.selected.name}" required="true" requiredMessage="*This field is required" validatorMessage="*Driver ID is not valid">                                                
+                                                        <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtName" />
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div>
+                                                <div class="form-txt">Designation: </div>
+                                                <label>
+                                                    <h:inputText id="txtDesignation" value="#{controllerAdvertise.selected.designation}" required="true" requiredMessage="*This field is required" validatorMessage="*Name is not valid">                                                
+                                                        <f:validateRegex pattern="^[a-zA-Z ']+$" />
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtDesignation" />
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div>
+                                                <div class="form-txt">Address: </div>
+                                                <label>
+                                                    <h:inputText id="txtAddress" value="#{controllerAdvertise.selected.address}" required="true" requiredMessage="*This field is required">                                                                                                    
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtAddress" />
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div>
+                                                <div class="form-txt">Mobile: </div>
+                                                <label>
+                                                    <h:inputText id="txtMobile" value="#{controllerAdvertise.selected.mobile}" required="true" requiredMessage="*This field is required" validatorMessage="*City is not valid">
+                                                        <f:validateRegex pattern="^[a-zA-Z ']+$" />
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtMobile"/>
+                                                </label>
+                                            </div>                                                                                        
+                                        </div>
+
+                                        <div class="coll-2">
+                                            <div>
+                                                <div class="form-txt">Telephone: </div>
+                                                <label>
+                                                    <h:inputText id="txtTelephone" value="#{controllerAdvertise.selected.telephone}" required="true" requiredMessage="*This field is required" validatorMessage="*Mobile is not valid">
+                                                        <f:validateRegex pattern="^0[0-9.]{9,10}$" />
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtTelephone"/>
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div>
+                                                <div class="form-txt">Fax Number: </div>
+                                                <label>
+                                                    <h:inputText id="txtFax" value="#{controllerAdvertise.selected.faxNumber}" required="true" requiredMessage="*This field is required" validatorMessage="*Telephone is not valid">
+                                                        <f:validateRegex pattern="^0[0-9.]{9,10}$" />
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtFax"/>
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div>
+                                                <div class="form-txt">Email:</div>
+                                                <label>
+                                                    <h:inputText id="txtEmail" value="#{controllerAdvertise.selected.email}" style="text-transform: none" required="true" requiredMessage="*This field is required" validatorMessage="*Email is not valid">
+                                                        <f:validateRegex pattern="^(([\w-\s]+)|([\w-]+(?:\.[\w-]+)*)|([\w-\s]+)([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i" />
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtEmail"/>
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                          
+                                            <div>
+                                                <div class="form-txt">Description:</div>
+                                                <label>
+                                                    <h:inputTextarea id="txtDescription" value="#{controllerAdvertise.selected.description}">                                                    
+                                                    </h:inputTextarea>
+                                                    <h:message styleClass="errorMsg" for="txtDescription"/>
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="clear"></div>
+
+                                        <div class="btns">                                    
+                                            <h:commandLink id="btnRegister" styleClass="btn" actionListener="#{controllerAdvertise.create(evt)}"
+                                                           value="Register" data-type="submit"/>                                    
+                                            <h:commandLink id="btnReset" styleClass="btn" value="Reset">
+                                                <p:ajax update=":contact-form" resetValues="true" />
+                                            </h:commandLink>                                    
+                                        </div>
+                                    </fieldset>
+                                </h:form>
+                            </div>
+                        </article>
+                        <div class="clear"></div>
+                    </div>
+                </section>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
