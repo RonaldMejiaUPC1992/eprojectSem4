@@ -4,10 +4,13 @@
  */
 package org.group2.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
+import org.group2.entity.Billing;
 import org.group2.entity.RegisteredType;
 import org.group2.entity.RegisteredUnit;
 

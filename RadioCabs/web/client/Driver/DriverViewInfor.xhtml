@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/Template/Client/ClientTemplate.xhtml">
+
+            <ui:define name="content">
+                <style type="text/css">
+                    .colImage{
+                        float: left;
+                        /*border: solid medium;*/
+                        height: 100%;                       
+                    }
+
+                    .col1, .col2{
+                        margin-top: 20px;
+                        font-size: 10pt;
+                        width: 340px;
+                    }
+
+                    .col1{
+                        float: left;
+                        /*border: solid medium;*/
+                        margin-left: 20px;
+                        margin-right: 10px;
+                    }
+
+                    .col2{
+                        float: left;
+                        /*border: solid medium;*/
+                        margin-left: 10px;
+                        margin-right: 0px;
+                    }
+
+                    .headerID{
+                        margin-top: 20px;
+                    }
+
+                    .lineHeader{
+                        color: #cc6600;
+                        width: 120px;
+                        float: left;
+                    }
+
+                    .oneLine{
+                        width: 100%;
+                        margin-top: 3px;
+                        margin-bottom: 3px;                        
+                    }
+                </style>
+                <c:if test="#{not empty sessionScope['clientUser']}">
+                    <c:set var="driver" value="#{sessionScope['clientUser']}" />
+                </c:if>
+                <section id="content"><div class="ic"></div>                    
+                    <div class="border-horiz"></div>                    
+                    <div class="container_12">
+
+                        <div class="box-viewInfor">
+                            <div class="colImage">
+                                <figure class="box-img">
+                                    <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg " alt="" />
+                                </figure>
+
+                            </div>                            
+                            <div style="float: right">
+                                <div style="margin-left: 20px" class="headerID">
+                                    <h4>Driver ID: <h:outputText value="#{driver.registrationId}"/></h4>
+                                </div>
+                                <div class="col1">
+                                    <div class="oneLine">
+                                        <div class="lineHeader">Name</div>
+                                        <h:outputText value="#{driver.name}"/>
+                                        <div class="clear"/>
+                                    </div>
+                                    <div class="oneLine">
+                                        <div class="lineHeader">Contact</div>
+                                        <h:outputText value="#{driver.contactPerson}"/>
+                                        <div class="clear"/>
+                                    </div>
+                                    <div class="oneLine">
+                                        <div class="lineHeader">Email</div>
+                                        <h:outputText value="#{driver.email}" style="text-transform: none"/>
+                                        <div class="clear"/>
+                                    </div>
+                                    <div class="oneLine">
+                                        <div class="lineHeader">Experience</div>
+                                        <h:outputText value="#{driver.experience}"/> Year(s)
+                                        <div class="clear"/>
+                                    </div>
+                                    <div class="oneLine">
+                                        <div class="lineHeader">Status</div>
+                                        <h:outputText value="#{driver.experience}"/> Year(s)
+                                        <div class="clear"/>
+                                    </div>
+                                </div>
+                                <div class="col2">
+                                    <div class="oneLine">
+                                        <div class="lineHeader">Mobile</div> 
+                                        <h:outputText value="#{driver.mobile}"/>
+                                        <div class="clear"/>
+                                    </div>
+                                    <div class="oneLine">
+                                        <div class="lineHeader">Tel</div>
+                                        <h:outputText value="#{driver.telephone}"/>
+                                        <div class="clear"/>
+                                    </div>                                
+                                    <div class="oneLine">
+                                        <div class="lineHeader">Address</div>
+                                        <h:outputText value="#{driver.address}"/>
+                                        <div class="clear"/>
+                                    </div>
+                                    <div class="oneLine">
+                                        <div class="lineHeader">City</div>
+                                        <h:outputText value="#{driver.city}"/>
+                                        <div class="clear"/>
+                                    </div>
+                                </div>                                
+                            </div>                                        
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </section>                        
+            </ui:define>
+
+        </ui:composition>
+    </h:body>
+</html>
+

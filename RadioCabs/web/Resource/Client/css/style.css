@@ -738,3 +738,17 @@ footer {
     -moz-box-shadow: 0 0 3px #c5c2a9;
     -webkit-box-shadow:0 0 3px #c5c2a9;
 }
+
+.box-viewInfor{
+    background:#FFFFFF;
+    margin-top: 18px;
+    padding: 20px 30px 30px ;
+    width:1000px;
+    height: 250px;
+    border-radius:18px;
+    -moz-border-radius:18px;
+    -webkit-border-radius:18px;
+    box-shadow:0 0 3px #c5c2a9;
+    -moz-box-shadow: 0 0 3px #c5c2a9;
+    -webkit-box-shadow:0 0 3px #c5c2a9;
+}
