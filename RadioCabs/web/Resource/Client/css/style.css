@@ -462,6 +462,94 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
 
 
 .box-contact .btn{margin-top:2px}
+
+#regist-form {
+    position: relative;
+    vertical-align: top;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+}
+#regist-form fieldset {
+    border: none;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+}
+#regist-form label {
+    min-height: 54px;
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    display: block;
+    float: left;
+    width: 100%;
+}
+#regist-form .message {
+    min-height: 213px;
+    display: block;
+    width: 100%;
+}
+#regist-form input,
+#regist-form textarea {
+    font-family: 'PT Serif Caption', serif;
+    padding: 4px 12px 5px;
+    text-transform:uppercase;
+    margin: 0;
+    font-size:14px;
+    display: block;
+    line-height: 24px !important;
+    color: #343434;
+    background: white;
+    outline: none;
+    width: 94%;
+    border: 1px solid #d1cfbd;
+    box-shadow: none;
+    border-radius: 0px;
+    float: left;
+}
+#regist-form input {
+    height: 24px;
+}
+#regist-form textarea { 
+    height: 184px;
+    resize: none;
+    overflow: auto;
+}
+#regist-form textarea:focus,
+#regist-form input[type="text"]:focus {
+    box-shadow: none;
+
+}
+#regist-form .area .error {
+    float: none;
+}
+#regist-form .success {
+    display: none;
+    margin-bottom: 10px;
+    background: #e8e7de;
+    font-size: 14px;
+    line-height: 16px;
+    position: relative;
+    border: 1px solid #d1cfbd;
+    padding: 10px;
+}
+#regist-form .error,
+#regist-form .empty {
+    color: #f00;
+    font-size: 11px;
+    line-height: 1.27em;
+    display: none;
+    overflow: hidden;
+    margin-bottom: 5px;
+    padding: 2px 4px 6px;
+    float: left;
+}
+
+#regist-form a{cursor:pointer}
+
+
+
 #contact-form {
     position: relative;
     vertical-align: top;
