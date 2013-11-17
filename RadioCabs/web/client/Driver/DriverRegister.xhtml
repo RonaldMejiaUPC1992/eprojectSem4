@@ -169,8 +169,7 @@
                                             <div>
                                                 <div class="form-txt">Experience:</div>
                                                 <label>
-                                                    <h:inputText id="txtExperience" value="#{controllerDriver.selected.experience}" required="true" requiredMessage="*This field is required" validatorMessage="*Experience is not valid">
-                                                        <f:validateRegex pattern="^[0-9]{1,2}$" />                                                        
+                                                    <h:inputText id="txtExperience" value="#{controllerDriver.selected.experience}" required="true" requiredMessage="*This field is required" validatorMessage="*Experience is not valid">                                                        
                                                     </h:inputText>
                                                     <h:message styleClass="errorMsg" for="txtExperience"/>
                                                 </label>
@@ -190,7 +189,7 @@
                                         <div class="clear"></div>
 
                                         <div class="btns">                                    
-                                            <h:commandLink id="btnRegister" styleClass="btn"
+                                            <h:commandLink id="btnRegister" styleClass="btn" actionListener="#{controllerDriver.create(evt)}"
                                                            value="Register" data-type="submit"/>                                    
                                             <h:commandLink id="btnReset" styleClass="btn" value="Reset">
                                                 <p:ajax update=":contact-form" resetValues="true" />
