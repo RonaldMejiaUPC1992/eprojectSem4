@@ -10,7 +10,7 @@
         <ui:composition template="/Template/Client/ClientTemplate.xhtml">
             <ui:define name="content">
                 <style type="text/css">
-                    #Contacts {
+                    #Feedback {
                         background:url(images/tail-item.gif);
                         box-shadow:inset 0 1px 3px #c5c2a9;
                         -moz-box-shadow: inset 0 1px 3px #c5c2a9;
@@ -31,25 +31,7 @@
                     });
                 </script>
                 <section id="content"><div class="ic"></div>
-                    <div class="border-horiz"></div>
-                    <div class="main">
-                        <h3>Contact Information</h3>
-                        <div class="box-address">
-                            <h4>Radio Cab Inc.</h4>
-                            <dl class="address">
-                                <dt>8901 Marmora Road,<br/>
-                                    Glasgow, D04 89GR.</dt>
-                                <dd> <span>Freephone:</span> +1 800 559 6580</dd>
-                                <dd> <span>Telephone:</span> +1 959 603 6035</dd>
-                                <dd> <span>FAX:</span> +1 504 889 9898</dd>
-                                <dd> E-mail: <a class="mail-1" href="#">radiocab@radio.com</a> </dd>
-                            </dl>
-                        </div>
-                        <div class="map box-img">
-                            <iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"> </iframe>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
+                    <div class="border-horiz"></div>                    
                     <div class="box-contact">
                         <h3>Feedback Form</h3>
                         <h:form id="contact-form">
@@ -128,6 +110,24 @@
                                 </div>
                             </fieldset>
                         </h:form>
+                    </div>
+                    <div class="main">
+                        <h3>Contact Information</h3>
+                        <div class="box-address">
+                            <h4>Radio Cab Inc.</h4>
+                            <dl class="address">
+                                <dt>8901 Marmora Road,<br/>
+                                    Glasgow, D04 89GR.</dt>
+                                <dd> <span>Freephone:</span> +1 800 559 6580</dd>
+                                <dd> <span>Telephone:</span> +1 959 603 6035</dd>
+                                <dd> <span>FAX:</span> +1 504 889 9898</dd>
+                                <dd> E-mail: <a class="mail-1" href="#">radiocab@radio.com</a> </dd>
+                            </dl>
+                        </div>
+                        <div class="map box-img">
+                            <iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"> </iframe>
+                        </div>
+                        <div class="clear"></div>
                     </div>
                 </section>
             </ui:define>
