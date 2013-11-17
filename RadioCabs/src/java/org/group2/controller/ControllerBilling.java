@@ -27,13 +27,22 @@ public class ControllerBilling extends AbstractController {
     public ControllerBilling() {
         super(Billing.class);
     }
+    /*
+    List<Billing> currentUserBillings;    
     
     public List<Billing> getCurrentUserBillings(){
-        FacesContext context = FacesContext.getCurrentInstance();
-        HttpSession session =
-                (HttpSession) context.getExternalContext().getSession(true);        
-        RegisteredUnit currentUser = (RegisteredUnit)session.getAttribute("clientUser");
-        String registrationID = "'" + currentUser.getRegistrationId() + "'";        
-        return search("registrationId = "+registrationID);
+        if(currentUserBillings==null){
+            FacesContext context = FacesContext.getCurrentInstance();
+            HttpSession session =
+                    (HttpSession) context.getExternalContext().getSession(true);        
+            RegisteredUnit currentUser = (RegisteredUnit)session.getAttribute("clientUser");
+            String registrationID = "'" + currentUser.getRegistrationId() + "'";        
+            currentUserBillings = search("registrationId = "+registrationID + " order by expriateDate desc");
+        }
+        return currentUserBillings;        
     }
+    
+    public Billing getLastestBilling(){
+        return currentUserBillings.get(0);
+    }*/
 }

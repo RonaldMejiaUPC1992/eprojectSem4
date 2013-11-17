@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Nov 14, 2013 6:33:45 PM by Hibernate Tools 3.2.1.GA -->
-<hibernate-mapping>
+<hibernate-mapping default-lazy="false">
     <class name="org.group2.entity.FeedbackType" table="feedbackType" schema="dbo" catalog="radiocabs">
         <id name="feedbackTypeId" type="int">
             <column name="feedbackTypeID" />

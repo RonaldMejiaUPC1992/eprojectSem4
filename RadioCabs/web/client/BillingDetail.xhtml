@@ -14,12 +14,21 @@
             <ui:define name="content">
 
                 <h:outputText value="#{sessionScope['clientUser'].name}"/>                
-                <p:dataTable value="#{controllerBilling.currentUserBillings}" var="bill">
-                    <p:column>
+                <p:dataTable value="#{sessionScope['clientUser'].listBillings}" var="bill">
+                    <p:column headerText="Billing ID">
                         <h:outputText value="#{bill.billingId}"/>
                     </p:column>
-                    <p:column>
+                    <p:column headerText="">
+                        <h:outputText value="#{bill.paymentType.paymentTypeName}"/>
+                    </p:column>
+                    <p:column headerText="">
                         <h:outputText value="#{bill.money}"/>
+                    </p:column>
+                    <p:column headerText="">
+                        <h:outputText value="#{bill.purchaseDate}"/>
+                    </p:column>
+                    <p:column headerText="">
+                        <h:outputText value="#{bill.expriateDate}"/>
                     </p:column>
                 </p:dataTable>
 
