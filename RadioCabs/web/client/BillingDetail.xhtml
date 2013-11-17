@@ -12,25 +12,32 @@
         <ui:composition template="/Template/Client/ClientTemplate.xhtml">
 
             <ui:define name="content">
-
-                <h:outputText value="#{sessionScope['clientUser'].name}"/>                
-                <p:dataTable value="#{sessionScope['clientUser'].listBillings}" var="bill">
-                    <p:column headerText="Billing ID">
-                        <h:outputText value="#{bill.billingId}"/>
-                    </p:column>
-                    <p:column headerText="">
-                        <h:outputText value="#{bill.paymentType.paymentTypeName}"/>
-                    </p:column>
-                    <p:column headerText="">
-                        <h:outputText value="#{bill.money}"/>
-                    </p:column>
-                    <p:column headerText="">
-                        <h:outputText value="#{bill.purchaseDate}"/>
-                    </p:column>
-                    <p:column headerText="">
-                        <h:outputText value="#{bill.expriateDate}"/>
-                    </p:column>
-                </p:dataTable>
+                <section id="content"><div class="ic"></div>                    
+                    <div class="border-horiz"></div>                    
+                    <div class="container_12">
+                        <div class="box-Billing">
+                            <h3>Billing Detail - <h:outputText value="#{sessionScope['clientUser'].registrationId}"/></h3>                                            
+                            <p:dataTable value="#{sessionScope['clientUser'].listBillings}" var="bill" 
+                                         paginator="true" rowKey="#{bill.billingId}" rows="5" rowsPerPageTemplate="5,10,15">
+                                <p:column headerText="Billing ID">
+                                    <h:outputText value="#{bill.billingId}"/>
+                                </p:column>
+                                <p:column headerText="Payment Type">
+                                    <h:outputText value="#{bill.paymentType.paymentTypeName}"/>
+                                </p:column>
+                                <p:column headerText="Money">
+                                    <h:outputText value="#{bill.money}"/> USD
+                                </p:column>
+                                <p:column headerText="Purchase Date">
+                                    <h:outputText value="#{bill.purchaseDate}"/>
+                                </p:column>
+                                <p:column headerText="Expriate Date">
+                                    <h:outputText value="#{bill.expriateDate}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </div>
+                    </div>
+                </section>
 
             </ui:define>
 

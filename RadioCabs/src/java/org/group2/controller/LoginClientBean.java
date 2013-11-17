@@ -35,7 +35,7 @@ public class LoginClientBean {
     public String checkLogin(){
         String registrationID = "'" + user.getRegistrationId() + "'";
         String password = "'" + user.getPassword() + "'";
-        List<RegisteredUnit> l = new ControllerDriver().search("registrationId = " + registrationID + " and password = " + password + " and (registeredTypeID = 1 or registeredTypeID = 2)");
+        List<RegisteredUnit> l = new ControllerDriver().search("registrationId = " + registrationID + " and password = " + password);
         if (l.size() > 0) {
             user = l.get(0);
             FacesContext context = FacesContext.getCurrentInstance();

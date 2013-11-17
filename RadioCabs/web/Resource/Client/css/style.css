@@ -288,7 +288,7 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
 /*===== content =====*/
 
 #content {
-    padding:0 0 44px;
+    padding:0 0 20px;
     background:url(images/tail-cont.gif)
 }
 
@@ -745,6 +745,20 @@ footer {
     padding: 20px 30px 30px ;
     width:1000px;
     height: 250px;
+    border-radius:18px;
+    -moz-border-radius:18px;
+    -webkit-border-radius:18px;
+    box-shadow:0 0 3px #c5c2a9;
+    -moz-box-shadow: 0 0 3px #c5c2a9;
+    -webkit-box-shadow:0 0 3px #c5c2a9;
+}
+
+.box-Billing{
+    background:#FFFFFF;
+    margin-top: 18px;
+    padding: 20px 30px 30px ;
+    width:1000px;    
+    min-height: 500px;
     border-radius:18px;
     -moz-border-radius:18px;
     -webkit-border-radius:18px;

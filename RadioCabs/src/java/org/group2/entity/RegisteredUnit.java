@@ -2,7 +2,11 @@ package org.group2.entity;
 // Generated Nov 14, 2013 6:33:44 PM by Hibernate Tools 3.2.1.GA
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -25,7 +29,7 @@ public class RegisteredUnit implements java.io.Serializable {
     private String address;
     private String mobile;
     private String telephone;
-    private String email;     
+    private String email;
     private Set<Billing> billings = new HashSet<Billing>(0);
 
     public RegisteredUnit() {
@@ -178,16 +182,29 @@ public class RegisteredUnit implements java.io.Serializable {
     public Set<Billing> getBillings() {
         return this.billings;
     }
-    
+
     public void setBillings(Set<Billing> billings) {
         this.billings = billings;
     }
 
+    private List<Billing> listBillings;
+    
     public List<Billing> getListBillings() {
         if (billings != null) {
-            return new ArrayList<Billing>(billings);
-        }else{
+            listBillings = new ArrayList<Billing>(billings);
+            Collections.sort(listBillings, new Comparator<Billing>() {
+                @Override
+                public int compare(Billing o1, Billing o2) {
+                    return o2.getExpriateDate().compareTo(o1.getExpriateDate());
+                }
+            });            
+            return listBillings;
+        } else {
             return null;
         }
+    }
+    
+    public Billing getLastestBilling(){        
+        return getListBillings().get(0);
     }
 }
