@@ -17,10 +17,48 @@
                         </figure>
                         <div class="overflow">
                             <h4><h:outputText value="#{controllerDriver.selected.registrationId}"/></h4>
-                            <p> Name: <h:outputText value="#{controllerDriver.selected.name}"/> <br/>
-                                Experience: <h:outputText value="#{controllerDriver.selected.experience}"/> years <br/>
-                                City: <h:outputText value="#{controllerDriver.selected.city}"/> <br/>
-                                Tel: <h:outputText value="#{controllerDriver.selected.telephone}"/></p>
+                            <table cellpadding="5px">
+                                <tr>
+                                    <td>Name:</td>
+                                    <td><h:outputText value="#{controllerDriver.selected.name}"/></td>
+                                </tr>
+                                <tr>
+                                    <td>ID: </td>
+                                    <td><h:outputText value="#{controllerDriver.selected.registrationId}"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Contact Person: &nbsp; </td>
+                                    <td><h:outputText value="#{controllerDriver.selected.contactPerson}"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Address: </td>
+                                    <td><h:outputText value="#{controllerDriver.selected.address}"/></td>
+                                </tr>
+                                <tr>
+                                    <td>City: </td>
+                                    <td><h:outputText value="#{controllerDriver.selected.city}"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Mobile: </td>
+                                    <td><h:outputText value="#{controllerDriver.selected.mobile}"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Tel: </td>
+                                    <td><h:outputText value="#{controllerDriver.selected.telephone}"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Email: </td>
+                                    <td><h:outputText value="#{controllerDriver.selected.email}"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Experience: </td>
+                                    <td><h:outputText value="#{controllerDriver.selected.experience}"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Description: </td>
+                                    <td><h:outputText value="#{controllerDriver.selected.description}"/></td>
+                                </tr>
+                            </table>
                         </div>
                         <div class="clear"></div>
                     </p:outputPanel>  
