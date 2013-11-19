@@ -83,7 +83,9 @@
                                         <div class="form-txt">Type:</div>
                                         <label>
                                             <p:selectOneMenu id="ddlFeedbackType" value="#{controllerFeedback.selected.feedbackType}" style="width: 300px" required="true" requiredMessage="*This field is required">
-                                                <f:selectItems value="#{controllerFeedback.listFeedbackType}" var="feedbackType" itemLabel="#{feedbackType.feedbackTypeName}" itemValue="#{feedbackType}"/>
+                                                <f:selectItems value="#{controllerFeedback.listFeedbackType}" var="feedbackType" itemLabel="#{feedbackType.feedbackTypeName}" itemValue="#{feedbackType}">                                                    
+                                                </f:selectItems>
+                                                <f:converter converterId="feedbackConvertor"/>
                                             </p:selectOneMenu>
                                             <div><h:message styleClass="errorMsg" for="ddlFeedbackType"/></div>
                                         </label>

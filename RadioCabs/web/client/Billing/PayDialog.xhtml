@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -12,17 +13,15 @@
             <h:form id="frmPayment">
                 <p:dialog widgetVar="wgPayment" header="Payment Detail" modal="true" style="background: #FFFFFF" resizable="false">                    
                     <div>
-                        Payment Type : <p:selectOneMenu id="dllPaymentType" value="#{controllerBilling.selected.paymentType}"/>
+                        Payment Type : 
+                        <p:selectOneMenu id="dllPaymentType" value="#{controllerBilling.selected.paymentType}">
+                            <f:selectItems value="#{controllerBilling.listPaymentType}" var="paymentType" itemLabel="#{paymentType.paymentTypeName}" itemValue="#{paymentType}"/>
+                            <p:ajax event="change" />
+                        </p:selectOneMenu>
                     </div>
                     <div>
                         Money : <p:inputText id="txtMoney" value="#{controllerBilling.selected.money}"/>
-                    </div>
-                    <div>
-                        Purchase Date : <p:inputText id="txtPurchaseDate" value="#{controllerBilling.selected.purchaseDate}"/>
-                    </div>
-                    <div>
-                        Expired Date : <p:inputText id="txtExpriateDate" value="#{controllerBilling.selected.expriateDate}"/>
-                    </div>
+                    </div>                    
                 </p:dialog>
             </h:form>
         </ui:composition>

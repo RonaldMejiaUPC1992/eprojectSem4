@@ -11,7 +11,9 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 import org.group2.entity.Billing;
+import org.group2.entity.PaymentType;
 import org.group2.entity.RegisteredUnit;
+import org.group2.model.AbstractModel;
 
 /**
  *
@@ -20,29 +22,22 @@ import org.group2.entity.RegisteredUnit;
 @ManagedBean
 @ViewScoped
 public class ControllerBilling extends AbstractController {
-
-    /**
-     * Creates a new instance of ControllerBilling
-     */
+    
+    List<PaymentType> listPaymentType;
+        
     public ControllerBilling() {
         super(Billing.class);
+        listPaymentType = new AbstractModel<PaymentType>(PaymentType.class){}.getAll();
     }
-    /*
-    List<Billing> currentUserBillings;    
-    
-    public List<Billing> getCurrentUserBillings(){
-        if(currentUserBillings==null){
-            FacesContext context = FacesContext.getCurrentInstance();
-            HttpSession session =
-                    (HttpSession) context.getExternalContext().getSession(true);        
-            RegisteredUnit currentUser = (RegisteredUnit)session.getAttribute("clientUser");
-            String registrationID = "'" + currentUser.getRegistrationId() + "'";        
-            currentUserBillings = search("registrationId = "+registrationID + " order by expriateDate desc");
-        }
-        return currentUserBillings;        
+
+    public List<PaymentType> getListPaymentType() {
+        return listPaymentType;
+    }
+
+    public void setListPaymentType(List<PaymentType> listPaymentType) {
+        this.listPaymentType = listPaymentType;
     }
     
-    public Billing getLastestBilling(){
-        return currentUserBillings.get(0);
-    }*/
+    
+    
 }

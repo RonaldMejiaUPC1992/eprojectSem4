@@ -10,7 +10,6 @@ import java.util.Set;
  */
 public class FeedbackType  implements java.io.Serializable {
 
-
      private int feedbackTypeId;
      private String feedbackTypeName;
      private Set<Feedback> feedbacks = new HashSet<Feedback>(0);
