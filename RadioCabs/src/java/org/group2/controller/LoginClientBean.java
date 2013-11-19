@@ -32,7 +32,7 @@ public class LoginClientBean {
         this.user = user;
     }
     
-    public String checkLogin(){
+    public String checkLogin(){        
         String registrationID = "'" + user.getRegistrationId() + "'";
         String password = "'" + user.getPassword() + "'";
         List<RegisteredUnit> l = new ControllerDriver().search("registrationId = " + registrationID + " and password = " + password);
@@ -43,7 +43,7 @@ public class LoginClientBean {
                     (HttpSession) context.getExternalContext().getSession(true);
             session.setAttribute("clientUser", user);
             return "";
-        } else {
+        } else {            
             return "";
         }
     }
