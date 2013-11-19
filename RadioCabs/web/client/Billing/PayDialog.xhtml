@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <h:form id="frmPayment">
+                <p:dialog widgetVar="wgPayment" header="Payment Detail" modal="true" style="background: #FFFFFF" resizable="false">                    
+                    <div>
+                        Payment Type : <p:selectOneMenu id="dllPaymentType" value="#{controllerBilling.selected.paymentType}"/>
+                    </div>
+                    <div>
+                        Money : <p:inputText id="txtMoney" value="#{controllerBilling.selected.money}"/>
+                    </div>
+                    <div>
+                        Purchase Date : <p:inputText id="txtPurchaseDate" value="#{controllerBilling.selected.purchaseDate}"/>
+                    </div>
+                    <div>
+                        Expired Date : <p:inputText id="txtExpriateDate" value="#{controllerBilling.selected.expriateDate}"/>
+                    </div>
+                </p:dialog>
+            </h:form>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -13,10 +13,10 @@
 
             <ui:define name="content">
                 <section id="content"><div class="ic"></div>                    
-                    <div class="border-horiz"></div>                    
+                    <div class="border-horiz"></div>
                     <div class="container_12">
                         <div class="box-Billing">
-                            <h3>Billing Detail - <h:outputText value="#{sessionScope['clientUser'].registrationId}"/></h3>                                            
+                            <h3>Billing Detail - <h:outputText value="#{sessionScope['clientUser'].registrationId}"/></h3>
                             <p:dataTable value="#{sessionScope['clientUser'].listBillings}" var="bill" 
                                          paginator="true" rowKey="#{bill.billingId}" rows="5" rowsPerPageTemplate="5,10,15">
                                 <p:column headerText="Billing ID">

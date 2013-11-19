@@ -4,7 +4,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:c="http://java.sun.com/jsp/jstl/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -55,6 +56,9 @@
                         margin-bottom: 3px;                        
                     }
                 </style>
+                <f:metadata>  
+                    <f:event type="preRenderView" listener="#{controllerBilling.prepareCreate(evt)}"></f:event>  
+                </f:metadata>
                 <c:if test="#{not empty sessionScope['clientUser']}">
                     <c:set var="user" value="#{sessionScope['clientUser']}" />
                 </c:if>
@@ -65,7 +69,7 @@
                         <div class="box-viewInfor">
                             <div class="colImage">
                                 <figure class="box-img">
-                                    <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg " alt="" />
+                                    <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg" alt="" />
                                 </figure>
 
                             </div>                            
@@ -137,13 +141,14 @@
                                         <div class="oneLine">
                                             <div class="lineHeader">&nbsp;</div> 
                                             <h:form>                                            
-                                                <p:commandLink styleClass="btn" value="Purchase"/>
+                                                <p:commandLink styleClass="btn" oncomplete="wgPayment.show()" value="Purchase"/>
                                             </h:form>
                                         </div>
                                     </c:if>
                                 </div>                                
                             </div>                                        
                             <div class="clear"></div>
+                            <ui:include src="/client/Billing/PayDialog.xhtml"/>
                         </div>
                     </div>
                 </section>                        
