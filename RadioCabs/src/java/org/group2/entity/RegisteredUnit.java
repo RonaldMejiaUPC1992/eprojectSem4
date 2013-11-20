@@ -218,7 +218,20 @@ public class RegisteredUnit implements java.io.Serializable {
         }else{            
             Date expiredDate = getLastestBilling().getExpriateDate();
             return expiredDate.compareTo(new Date())>=0;
-        }
-        
+        }        
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj==null){
+            return false;
+        }
+        if(obj instanceof RegisteredUnit){
+            return ((RegisteredUnit)obj).registrationId.equals(this.registrationId) ;
+        }else{
+            return false;
+        }
+    }
+    
+    
 }

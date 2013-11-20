@@ -8,28 +8,26 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
-import org.group2.entity.FeedbackType;
+import org.group2.entity.PaymentType;
 import org.group2.model.AbstractModel;
 
 /**
  *
- * @author acer
+ * @author DUONGHM
  */
-@FacesConverter("feedbackConvertor")
-public class FeedbackConverter implements Converter{
+@FacesConverter("paymentTypeConverter")
+public class PaymentTypeConverter implements Converter{
 
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
-        System.out.println("value receive = " + string);
-        //return new AbstractModel(FeedbackType.class){}.search("feedbackTypeId = " + string).get(0);
-        return new FeedbackType(Integer.parseInt(string), null);
+        //return new PaymentType(Integer.parseInt(string));
+        return new AbstractModel(PaymentType.class){}.search("paymentTypeId = " + string).get(0);
     }
 
     @Override
     public String getAsString(FacesContext fc, UIComponent uic, Object o) {
-        int v = ((FeedbackType)o).getFeedbackTypeId();
+        int v = ((PaymentType)o).getPaymentTypeId();
         return String.valueOf(v);
     }
-    
     
 }

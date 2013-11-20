@@ -6,7 +6,7 @@
     <class name="org.group2.entity.Billing" table="billing" schema="dbo" catalog="radiocabs">
         <id name="billingId" type="int">
             <column name="billingID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="paymentType" class="org.group2.entity.PaymentType" fetch="select">
             <column name="paidTypeID" not-null="true" />

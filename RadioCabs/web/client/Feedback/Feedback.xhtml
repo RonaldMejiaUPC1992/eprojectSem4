@@ -88,7 +88,7 @@
                                             <p:selectOneMenu id="ddlFeedbackType" value="#{controllerFeedback.selected.feedbackType}" style="width: 300px" required="true" requiredMessage="*This field is required">
                                                 <f:selectItems value="#{controllerFeedback.listFeedbackType}" var="feedbackType" itemLabel="#{feedbackType.feedbackTypeName}" itemValue="#{feedbackType}">                                                    
                                                 </f:selectItems>
-                                                <f:converter converterId="feedbackConvertor"/>
+                                                <f:converter converterId="feedbackTypeConverter"/>
                                             </p:selectOneMenu>
                                             <div><h:message styleClass="errorMsg" for="ddlFeedbackType"/></div>
                                         </label>
@@ -98,7 +98,7 @@
                                         <div class="form-txt">Description:</div>
                                         <label>
                                             <h:inputTextarea id="txtDescription" value="#{controllerFeedback.selected.description}" required="true" requiredMessage="*This field is required" validatorMessage="*Message is too short">
-                                                <f:validateRegex pattern="^[\w]{10}[\w]*$" />
+                                                <f:validateRegex pattern="[. ]{10}" />
                                             </h:inputTextarea>
                                             <h:message styleClass="errorMsg" for="txtDescription"/>
                                         </label>

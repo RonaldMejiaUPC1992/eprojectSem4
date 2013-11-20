@@ -50,7 +50,19 @@ public class PaymentType  implements java.io.Serializable {
         this.billings = billings;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(obj==null){
+            return false;
+        }
+        if(obj instanceof PaymentType){
+            return ((PaymentType)obj).paymentTypeId == this.paymentTypeId;
+        }else{
+            return false;
+        }
+    }
 
+    
 
 
 }

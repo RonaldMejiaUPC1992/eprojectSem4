@@ -4,6 +4,7 @@
  */
 package org.group2.controller;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 
@@ -21,13 +22,15 @@ import org.group2.model.AbstractModel;
  */
 @ManagedBean
 @ViewScoped
-public class ControllerBilling extends AbstractController {
+public class ControllerBilling extends AbstractController implements Serializable{
     
     List<PaymentType> listPaymentType;
+    List<RegisteredUnit> listRegisteredUnit;
         
     public ControllerBilling() {
         super(Billing.class);
         listPaymentType = new AbstractModel<PaymentType>(PaymentType.class){}.getAll();
+        listRegisteredUnit = new AbstractModel<RegisteredUnit>(RegisteredUnit.class){}.getAll(); 
     }
 
     public List<PaymentType> getListPaymentType() {
@@ -37,7 +40,13 @@ public class ControllerBilling extends AbstractController {
     public void setListPaymentType(List<PaymentType> listPaymentType) {
         this.listPaymentType = listPaymentType;
     }
-    
-    
+
+    public List<RegisteredUnit> getListRegisteredUnit() {
+        return listRegisteredUnit;
+    }
+
+    public void setListRegisteredUnit(List<RegisteredUnit> listRegisteredUnit) {
+        this.listRegisteredUnit = listRegisteredUnit;
+    }
     
 }

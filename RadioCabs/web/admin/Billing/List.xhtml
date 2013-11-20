@@ -15,12 +15,12 @@
                     <p:dataTable id="tbl" value="#{controllerBilling.list}" var="item"
                                  selectionMode="single" selection="#{controllerBilling.selected}" rowKey="#{item.billingId}" 
                                  paginator="true" rows="10" rowsPerPageTemplate="10,20,30" >
-                        <p:ajax event="rowSelect" update=":frmList:updateBtn"/>
-                        <p:ajax event="rowUnselect" update=":frmList:deleteBtn"/>
+                        <p:ajax event="rowSelect" update=":frmList:updateBtn :frmList:deleteBtn"/>
+                        <p:ajax event="rowUnselect" update=":frmList:deleteBtn :frmList:updateBtn"/>
                        
                         <p:column headerText="Billing Id">#{item.billingId}</p:column>
-                        <p:column headerText="Payment Type ">#{item.paymentType}</p:column>
                         <p:column headerText="Registered Unit ">#{item.registeredUnit.registrationId}</p:column>
+                        <p:column headerText="Payment Type ">#{item.paymentType.paymentTypeName}</p:column>                        
                         <p:column headerText="Money ">#{item.money}</p:column>
                         <p:column headerText="PurchaseDate ">#{item.purchaseDate}</p:column>
                         <p:column headerText="ExpriateDate ">#{item.expriateDate}</p:column>

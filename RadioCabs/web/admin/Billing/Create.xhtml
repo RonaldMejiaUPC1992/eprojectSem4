@@ -17,25 +17,24 @@
             <h:form id="frmCreate">
                 <p:growl id="grow"/>
                 <p:panelGrid id="pnlCreate" columns="4" rendered="#{controllerBilling.selected != null}">                    
-                   
-                    <h:outputLabel for="txtBillingId" value="Registration Id: "/>
-                    <p:inputText id="txtBillingId" value="#{controllerBilling.selected.billingId}"/>
-                    <h:outputLabel for="txtRegisteredUnit " value="Registered Unit: "/>
-                    <p:inputText id="txtRegisteredUnit" value="#{controllerBilling.selected.registeredUnit}"/>
+
+                    <h:outputLabel for="txtRegisteredUnit " value="Registration ID: "/>                    
+                    <p:selectOneMenu id="ddlRegisteredUnit" value="#{controllerBilling.selected.registeredUnit}" required="true" >  
+                        <f:selectItems value="#{controllerBilling.listRegisteredUnit}" var="registeredUnit" itemLabel="#{registeredUnit.registrationId}" itemValue="#{registeredUnit}"/>
+                        <f:converter converterId="registeredUnitConverter" />
+                    </p:selectOneMenu>
                     <h:outputLabel for="ddlPaymentType" value="Payment type: "/>
-                    <p:selectOneMenu id="ddlPaymentType" value="#{controllerBilling.selected.paymentType}" style="width:200px">  
-                        <f:selectItem itemLabel="Select One" itemValue="0" />  
-                        <f:selectItem itemLabel="PaymentType1" itemValue="1" />  
-                        <f:selectItem itemLabel="PaymentType2" itemValue="2" />  
-                        <f:selectItem itemLabel="PaymentType3" itemValue="3" />  
+                    <p:selectOneMenu id="ddlPaymentType" value="#{controllerBilling.selected.paymentType}">  
+                        <f:selectItems value="#{controllerBilling.listPaymentType}" var="paymentType" itemLabel="#{paymentType.paymentTypeName}" itemValue="#{paymentType}"/>
+                        <f:converter converterId="paymentTypeConverter" />
                     </p:selectOneMenu>
                     <h:outputLabel for="txtMoney" value="Money: "/>
                     <p:inputText id="txtMoney" value="#{controllerBilling.selected.money}"/>                    
                     <h:outputLabel for="txtPurchaseDate" value="Purchase Date: "/>
-                    <p:inputText id="txtPurchaseDate" value="#{controllerBilling.selected.PurchaseDate}"/>                 
+                    <p:inputText id="txtPurchaseDate" value="#{controllerBilling.selected.purchaseDate}"/>                 
                     <h:outputLabel for="txtExpriateDate" value="Expriate Date: "/>
                     <p:inputText id="txtExpriateDate" value="#{controllerBilling.selected.expriateDate}"/>
-                                    
+
                 </p:panelGrid>
                 <div style="margin: 5px">
                     <p:commandButton id="btnCreate" value="Create" update=":frmList grow" actionListener="#{controllerBilling.create(evt)}" oncomplete="wgCreate.hide()"/> 

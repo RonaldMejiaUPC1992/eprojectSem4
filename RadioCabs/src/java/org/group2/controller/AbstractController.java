@@ -41,12 +41,12 @@ public abstract class AbstractController<T> {
         return selected;
     }
 
-    public void setSelected(T selected) {        
+    public void setSelected(T selected) {
         this.selected = selected;
     }
 
     public List<T> getList() {
-        if (list == null) {            
+        if (list == null) {
             list = model.getAll();
         }
         return list;
@@ -58,9 +58,9 @@ public abstract class AbstractController<T> {
         }
         return list;
     }
-    
-    public List<T> search(String condtion) {        
-        List r = model.search(condtion);        
+
+    public List<T> search(String condtion) {
+        List r = model.search(condtion);
         return r;
     }
 
@@ -69,8 +69,8 @@ public abstract class AbstractController<T> {
     }
 
     public void prepareCreate(ActionEvent evt) {
-        try {            
-            selected = entityClass.newInstance();            
+        try {
+            selected = entityClass.newInstance();
         } catch (InstantiationException ex) {
             Logger.getLogger(AbstractController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
@@ -79,19 +79,31 @@ public abstract class AbstractController<T> {
     }
 
     public void create(ActionEvent evt) {
-        model.add(selected);
-        JsfUtil.addSuccessMessage("Create");
-        list = null;
+        try {
+            model.add(selected);
+            JsfUtil.addSuccessMessage("Create");
+            list = null;
+        } catch (Exception ex) {
+            JsfUtil.addErrorMessage(ex.getMessage());
+        }
     }
 
     public void update(ActionEvent evt) {
-        model.update(selected);
-        JsfUtil.addSuccessMessage("Update");
+        try {
+            model.update(selected);
+            JsfUtil.addSuccessMessage("Update");
+        } catch (Exception ex) {
+            JsfUtil.addErrorMessage(ex.getMessage());
+        }
     }
 
     public void delete(ActionEvent evt) {
-        model.delete(selected);
-        JsfUtil.addSuccessMessage("Delete");
-        list = null;
+        try {
+            model.delete(selected);
+            JsfUtil.addSuccessMessage("Delete");
+            list = null;
+        } catch (Exception ex) {
+            JsfUtil.addErrorMessage(ex.getMessage());
+        }
     }
 }

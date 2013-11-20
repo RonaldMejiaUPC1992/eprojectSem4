@@ -25,15 +25,15 @@
                         <h:outputLabel for="txtCity" value="City: "/>
                         <p:inputText id="txtCity" value="#{controllerFeedback.selected.city}"/>   
                         <h:outputLabel for="txtFeedbackType" value="Feedback Type "/>
-                        <p:selectOneMenu id="ddlFeedbackType" value="#{controllerFeedback.selected.feedbackType}" required="true" requiredMessage="*This field is required">
+                        <p:selectOneMenu id="ddlFeedbackType" value="#{controllerFeedback.selected.feedbackType}" required="true" requiredMessage="*This field is required" immediate="true">
                             <f:selectItems value="#{controllerFeedback.listFeedbackType}" var="feedbackType" itemLabel="#{feedbackType.feedbackTypeName}" itemValue="#{feedbackType}"/>
-                            <f:converter converterId="feedbackConvertor"/>
+                            <f:converter converterId="feedbackTypeConverter"/>
                         </p:selectOneMenu>                    
                         <h:outputLabel for="txtDescription" value="Description: "/>
                         <p:inputText id="txtDescription" value="#{controllerFeedback.selected.description}"/>
                     </p:panelGrid>
                     <div style="margin: 5px">
-                        <p:commandButton id="btnUpdate" value="Update" update=":frmList grow" actionListener="#{controllerFeedback.update(evt)}" oncomplete="wgUpdate.hide()"/>                        
+                        <p:commandButton id="btnUpdate" value="Update" update=":frmList grow" actionListener="#{controllerFeedback.update(evt)}" oncomplete="wgUpdate.hide();"/>                        
                     </div>
                 </h:form>
             </p:dialog>

@@ -30,17 +30,12 @@ public class ControllerFeedback extends AbstractController implements Serializab
         listFeedbackType = new AbstractModel<FeedbackType>(FeedbackType.class){}.getAll();               
     }
 
-    public List<FeedbackType> getListFeedbackType() {
-        selected = new Feedback();
+    public List<FeedbackType> getListFeedbackType() {        
         return listFeedbackType;
     }
 
     public void setListFeedbackType(List<FeedbackType> listFeedbackType) {
         this.listFeedbackType = listFeedbackType;
-    }
-    
-    public void sendFeedfack(ActionEvent evt){
-        System.out.println("====Call send feedback ???======");
     }
     
 }
