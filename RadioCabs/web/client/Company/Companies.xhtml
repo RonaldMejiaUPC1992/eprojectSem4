@@ -88,7 +88,7 @@
                                                 <div>Fax: <h:outputText value="#{company.faxNumber}"/></div>
                                             </div>    
                                             <p:commandLink styleClass="btn" oncomplete="wgDetail.show()" value="View Detail" update=":frmDetail">
-                                                <f:setPropertyActionListener value="#{driver}" target="#{controllerCompany.selected}" />                                            
+                                                <f:setPropertyActionListener value="#{company}" target="#{controllerCompany.selected}" />                                            
                                             </p:commandLink>
                                         </div>
                                         <div class="clear"></div>  
