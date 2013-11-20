@@ -10,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.servlet.http.HttpSession;
 import org.group2.entity.Billing;
 import org.group2.entity.PaymentType;
@@ -48,5 +49,13 @@ public class ControllerBilling extends AbstractController implements Serializabl
     public void setListRegisteredUnit(List<RegisteredUnit> listRegisteredUnit) {
         this.listRegisteredUnit = listRegisteredUnit;
     }
+
+    @Override
+    public void update(ActionEvent evt) {
+        System.out.println("Start Date: " + ((Billing)selected).getPurchaseDate());
+        super.update(evt);        
+    }
+    
+    
     
 }

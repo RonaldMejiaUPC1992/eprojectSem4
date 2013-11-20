@@ -94,6 +94,7 @@ public abstract class AbstractController<T> {
             JsfUtil.addSuccessMessage("Update");
         } catch (Exception ex) {
             JsfUtil.addErrorMessage(ex.getMessage());
+            ex.printStackTrace();
         }
     }
 

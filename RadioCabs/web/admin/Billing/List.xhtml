@@ -22,8 +22,16 @@
                         <p:column headerText="Registered Unit ">#{item.registeredUnit.registrationId}</p:column>
                         <p:column headerText="Payment Type ">#{item.paymentType.paymentTypeName}</p:column>                        
                         <p:column headerText="Money ">#{item.money}</p:column>
-                        <p:column headerText="PurchaseDate ">#{item.purchaseDate}</p:column>
-                        <p:column headerText="ExpriateDate ">#{item.expriateDate}</p:column>
+                        <p:column headerText="PurchaseDate ">
+                            <h:outputText value="#{item.purchaseDate}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT+7"/>
+                            </h:outputText>
+                        </p:column>
+                        <p:column headerText="ExpriateDate ">
+                            <h:outputText value="#{item.expriateDate}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT+7"/>
+                            </h:outputText>
+                        </p:column>
                        
                     </p:dataTable>
                     <div align="center" style="margin: 5px">                            

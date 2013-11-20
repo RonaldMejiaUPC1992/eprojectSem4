@@ -17,8 +17,9 @@
                     <h:inputHidden id="txtBillingId" value="#{controllerBilling.selected.billingId}"/>
                     <p:panelGrid id="pnlUpdate" columns="4">
 
-                        <h:outputLabel for="txtRegisteredUnit " value="Registration ID: "/>                    
-                        <p:selectOneMenu id="ddlRegisteredUnit" value="#{controllerBilling.selected.registeredUnit}">  
+                        <h:outputLabel for="ddlRegisteredUnit " value="Registration ID: "/>                    
+                        <p:selectOneMenu id="ddlRegisteredUnit" value="#{controllerBilling.selected.registeredUnit}" 
+                                         filter="true" filterMatchMode="startsWith">  
                             <f:selectItems value="#{controllerBilling.listRegisteredUnit}" var="registeredUnit" itemLabel="#{registeredUnit.registrationId}" itemValue="#{registeredUnit}"/>
                             <f:converter converterId="registeredUnitConverter" />
                         </p:selectOneMenu>
@@ -29,10 +30,13 @@
                         </p:selectOneMenu>
                         <h:outputLabel for="txtMoney" value="Money: "/>
                         <p:inputText id="txtMoney" value="#{controllerBilling.selected.money}"/>                    
-                        <h:outputLabel for="txtPurchaseDate" value="Purchase Date: "/>
-                        <p:inputText id="txtPurchaseDate" value="#{controllerBilling.selected.purchaseDate}"/>                 
-                        <h:outputLabel for="txtExpriateDate" value="Expriate Date: "/>
-                        <p:inputText id="txtExpriateDate" value="#{controllerBilling.selected.expriateDate}"/>
+                        <h:outputLabel for="calPurchaseDate" value="Purchase Date:"/>
+                        <p:calendar id="calPurchaseDate" value="#{controllerBilling.selected.purchaseDate}" showOn="button" pattern="dd/MM/yyyy">
+                            <f:convertDateTime pattern="dd/MM/yyyy"/>
+                        </p:calendar>
+                        <h:outputLabel for="calExpriateDate" value="Expriate Date:"/>
+                        <p:calendar id="calExpriateDate" value="#{controllerBilling.selected.expriateDate}" showOn="button" pattern="dd/MM/yyyy"/>                    
+                            
 
                     </p:panelGrid>
                     <div style="margin: 5px">
