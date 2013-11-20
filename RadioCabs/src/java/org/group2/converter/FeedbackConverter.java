@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.group2.convertor;
+package org.group2.converter;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -16,7 +16,7 @@ import org.group2.model.AbstractModel;
  * @author acer
  */
 @FacesConverter("feedbackConvertor")
-public class FeedbackConvertor implements Converter{
+public class FeedbackConverter implements Converter{
 
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {

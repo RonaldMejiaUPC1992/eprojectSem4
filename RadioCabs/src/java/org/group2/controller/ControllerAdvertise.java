@@ -24,7 +24,7 @@ public class ControllerAdvertise extends AbstractController {
     }
     
     @Override
-    public List getList() {        
+    public List getList(){
         return super.getList("registeredTypeID = 3");
     }
 

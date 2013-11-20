@@ -13,17 +13,17 @@
             <div class="widget">                 
                 <h:form id="frmList">                                        
                     <p:dataTable id="tbl" value="#{controllerFeedback.list}" var="item"
-                                 selectionMode="single" selection="#{controllerFeedback.selected}" rowKey="#{item.registrationId}" 
+                                 selectionMode="single" selection="#{controllerFeedback.selected}" rowKey="#{item.feedbackId}" 
                                  paginator="true" rows="10" rowsPerPageTemplate="10,20,30" >
-                        <p:ajax event="rowSelect" update=":frmList:updateBtn"/>
-                        <p:ajax event="rowUnselect" update=":frmList:deleteBtn"/>
+                        <p:ajax event="rowSelect" update=":frmList:updateBtn :frmList:deleteBtn"/>
+                        <p:ajax event="rowUnselect" update=":frmList:deleteBtn :frmList:updateBtn"/>
                        
                         <p:column headerText="Feedback Id">#{item.feedbackId}</p:column>
                         <p:column headerText="Name">#{item.name}</p:column>                     
                         <p:column headerText="City">#{item.city}</p:column>
-                        <p:column headerText="Mobile">#{item.mobile}</p:column>
+                        <p:column headerText="Mobile">#{item.moblie}</p:column>
                         <p:column headerText="Email">#{item.email}</p:column>
-                        <p:column headerText="Feedback Type">#{item.feedbackType}</p:column>
+                        <p:column headerText="Feedback Type">#{item.feedbackType.feedbackTypeName}</p:column>
                          <p:column headerText="Description">#{item.description}</p:column>
                         
                     </p:dataTable>

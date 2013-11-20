@@ -14,23 +14,23 @@
             <p:dialog widgetVar="wgUpdate" id="dlgUpdate" modal="true" appendToBody="true">
                 <h:form id="frmUpdate">
                     <p:growl id="grow"/>
-                    <p:panelGrid id="pnlUpdate" columns="4">
-
-                        <h:outputLabel for="txtFeedbackId" value="Registration Id: "/>
-                        <p:inputText id="txtFeedbackId" value="#{controllerFeedback.selected.feedbackId}"/>
-                        <h:outputLabel sfor="txtFeedbackName" value="Feedback Name: "/>
+                    <h:inputHidden id="txtFeedbackId" value="#{controllerFeedback.selected.feedbackId}"/>
+                    <p:panelGrid id="pnlUpdate" columns="4">                          
+                        <h:outputLabel for="txtFeedbackName" value="Name: "/>
                         <p:inputText id="txtFeedbackName" value="#{controllerFeedback.selected.name}"/>
                         <h:outputLabel for="txtMobileNumber" value="Mobile Number: "/>
-                        <p:inputText id="txtMobileNumber" value="#{controllerFeedback.selected.mobile}"/>
+                        <p:inputText id="txtMobileNumber" value="#{controllerFeedback.selected.moblie}"/>
                         <h:outputLabel for="txtEmail" value="Email: "/>
                         <p:inputText id="txtEmail" value="#{controllerFeedback.selected.email}"/>
                         <h:outputLabel for="txtCity" value="City: "/>
                         <p:inputText id="txtCity" value="#{controllerFeedback.selected.city}"/>   
                         <h:outputLabel for="txtFeedbackType" value="Feedback Type "/>
-                        <p:inputText id="txtFeedbackType" value="#{controllerFeedback.selected.feedbackType}"/>
+                        <p:selectOneMenu id="ddlFeedbackType" value="#{controllerFeedback.selected.feedbackType}" required="true" requiredMessage="*This field is required">
+                            <f:selectItems value="#{controllerFeedback.listFeedbackType}" var="feedbackType" itemLabel="#{feedbackType.feedbackTypeName}" itemValue="#{feedbackType}"/>
+                            <f:converter converterId="feedbackConvertor"/>
+                        </p:selectOneMenu>                    
                         <h:outputLabel for="txtDescription" value="Description: "/>
                         <p:inputText id="txtDescription" value="#{controllerFeedback.selected.description}"/>
-
                     </p:panelGrid>
                     <div style="margin: 5px">
                         <p:commandButton id="btnUpdate" value="Update" update=":frmList grow" actionListener="#{controllerFeedback.update(evt)}" oncomplete="wgUpdate.hide()"/>                        

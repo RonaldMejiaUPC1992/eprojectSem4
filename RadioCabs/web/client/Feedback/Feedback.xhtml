@@ -30,6 +30,9 @@
                         });
                     });
                 </script>
+                <f:metadata>  
+                    <f:event type="preRenderView" listener="#{controllerFeedback.prepareCreate(evt)}"></f:event>  
+                </f:metadata>  
                 <section id="content"><div class="ic"></div>
                     <div class="border-horiz"></div>                    
                     <div class="box-contact">
@@ -95,7 +98,7 @@
                                         <div class="form-txt">Description:</div>
                                         <label>
                                             <h:inputTextarea id="txtDescription" value="#{controllerFeedback.selected.description}" required="true" requiredMessage="*This field is required" validatorMessage="*Message is too short">
-                                                <f:validateRegex pattern="^.{20}" />
+                                                <f:validateRegex pattern="^[\w]{10}[\w]*$" />
                                             </h:inputTextarea>
                                             <h:message styleClass="errorMsg" for="txtDescription"/>
                                         </label>
@@ -104,7 +107,7 @@
                                 </div>
                                 <div class="clear"></div>
                                 <div class="btns">                                    
-                                    <h:commandLink id="btnSend" styleClass="btn" actionListener="#{controllerFeedback.sendFeedfack(evt)}" 
+                                    <h:commandLink id="btnSend" styleClass="btn" actionListener="#{controllerFeedback.create(evt)}" 
                                                    value="Send" data-type="submit"/>                                    
                                     <h:commandLink id="btnReset" styleClass="btn" value="Reset">
                                         <p:ajax update=":contact-form" resetValues="true" />

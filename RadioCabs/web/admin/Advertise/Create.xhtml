@@ -16,8 +16,7 @@
         <p:dialog widgetVar="wgCreate" id="dlgCreate" modal="true" appendToBody="true" resizable="false" style="margin:auto">
             <h:form id="frmCreate">
                 <p:growl id="grow"/>
-                <p:panelGrid id="pnlCreate" columns="4" rendered="#{controllerAdvertise.selected != null}">                    
-                    
+                <p:panelGrid id="pnlCreate" columns="4" rendered="#{controllerAdvertise.selected != null}"> 
                     <h:outputLabel for="txtRegistrationId" value="Registration Id: "/>
                     <p:inputText id="txtRegistrationId" value="#{controllerAdvertise.selected.registrationId}"/>
                     <h:outputLabel for="txtCompanyName" value="Company Name: "/>

@@ -18,18 +18,20 @@
                 <p:growl id="grow"/>
                 <p:panelGrid id="pnlCreate" columns="4" rendered="#{controllerFeedback.selected != null}">                    
 
-                    <h:outputLabel for="txtFeedbackId" value="Feedback Id: "/>
-                    <p:inputText id="txtFeedbackId" value="#{controllerFeedback.selected.feedbackId}"/>
-                    <h:outputLabel for="txtFeedbackName" value="Feedback Name: "/>
+                    <h:outputLabel for="txtFeedbackName" value="Name: "/>
                     <p:inputText id="txtFeedbackName" value="#{controllerFeedback.selected.name}"/>
                     <h:outputLabel for="txtMobileNumber" value="Mobile Number: "/>
-                    <p:inputText id="txtMobileNumber" value="#{controllerFeedback.selected.mobile}"/>
+                    <p:inputText id="txtMobileNumber" value="#{controllerFeedback.selected.moblie}"/>
                     <h:outputLabel for="txtEmail" value="Email: "/>
                     <p:inputText id="txtEmail" value="#{controllerFeedback.selected.email}"/>
                     <h:outputLabel for="txtCity" value="City: "/>
                     <p:inputText id="txtCity" value="#{controllerFeedback.selected.city}"/>   
                     <h:outputLabel for="txtFeedbackType" value="Feedback Type "/>
-                    <p:inputText id="txtFeedbackType" value="#{controllerFeedback.selected.feedbackType}"/>
+                    <p:selectOneMenu id="ddlFeedbackType" value="#{controllerFeedback.selected.feedbackType}" required="true" requiredMessage="*This field is required">
+                        <f:selectItems value="#{controllerFeedback.listFeedbackType}" var="feedbackType" itemLabel="#{feedbackType.feedbackTypeName}" itemValue="#{feedbackType}">                                                    
+                        </f:selectItems>
+                        <f:converter converterId="feedbackConvertor"/>
+                    </p:selectOneMenu>                    
                     <h:outputLabel for="txtDescription" value="Description: "/>
                     <p:inputText id="txtDescription" value="#{controllerFeedback.selected.description}"/>
 

@@ -6,7 +6,7 @@
     <class name="org.group2.entity.Feedback" table="feedback" schema="dbo" catalog="radiocabs">
         <id name="feedbackId" type="int">
             <column name="feedbackID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="feedbackType" class="org.group2.entity.FeedbackType" fetch="select">
             <column name="feedbackTypeID" not-null="true" />

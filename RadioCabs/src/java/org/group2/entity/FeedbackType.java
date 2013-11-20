@@ -50,8 +50,19 @@ public class FeedbackType  implements java.io.Serializable {
         this.feedbacks = feedbacks;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(obj==null){
+            return false;
+        }
+        if(obj instanceof FeedbackType){
+            return ((FeedbackType)obj).feedbackTypeId == this.feedbackTypeId;
+        }else{
+            return false;
+        }
+    }
 
-
+    
 
 }
 
