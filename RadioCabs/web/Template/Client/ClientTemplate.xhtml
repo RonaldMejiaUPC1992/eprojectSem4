@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <!--css-->
         <link rel="stylesheet" href="/RadioCabs/Resource/Client/css/reset.css" type="text/css" media="screen"/>
@@ -17,8 +18,8 @@
         <!--<script type="text/javascript" src="/RadioCabs/Resource/Client/js/jquery-1.7.1.min.js" ></script>-->
         <script type="text/javascript" src="/RadioCabs/Resource/Client/js/superfish.js"></script>
         <script type="text/javascript" src="/RadioCabs/Resource/Client/js/jquery.flexslider-min.js"></script>
-        
-        
+
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
         <script>            
@@ -39,7 +40,13 @@
     </h:head>
 
     <h:body>
-
+        <!--
+        <h:form>
+            <p:dock position="top">
+                <p:menuitem value="Home" icon="/Resource/Admin/images/addFiles.png"/>
+            </p:dock>
+        </h:form>
+        -->
         <ui:include src="Top.xhtml"/>
 
         <div id="content" class="center_content">

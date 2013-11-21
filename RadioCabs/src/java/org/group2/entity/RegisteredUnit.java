@@ -212,13 +212,16 @@ public class RegisteredUnit implements java.io.Serializable {
         return getListBillings().get(0);
     }
     
+    boolean status;
+    
     public boolean getStatus(){                        
         if(billings==null){
-            return false;
+            status = false;
         }else{            
             Date expiredDate = getLastestBilling().getExpriateDate();
-            return expiredDate.compareTo(new Date())>=0;
+            status = expiredDate.compareTo(new Date())>=0;
         }        
+        return status;
     }
 
     @Override

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition>            
+            <h:form>
+                <p:outputPanel>
+                    <div>
+                        <h:outputLabel for="txtDriverName" value="Driver Name"/>
+                        <p:inputText id ="txtDriverName" value="#{controllerDriver.searchedUnit.name}"/>
+                    </div>
+                    <div>
+                        <h:outputLabel for="txtCity" value="City"/>
+                        <p:inputText id="txtCity" value="#{controllerDriver.searchedUnit.city}"/>
+                    </div>
+                    <div>
+                        <h:outputLabel for="txtTelephone" value="Telephone"/>
+                        <p:inputText id="txtTelephone" value="#{controllerDriver.searchedUnit.telephone}"/>
+                    </div>
+                    <div>
+                        <h:outputLabel for="txtExperience" value="Experience"/>
+                        <p:inputText id="txtExperience" value="#{controllerDriver.searchedUnit.experience}"/>
+                    </div>
+                    <p:commandButton value="Search" actionListener="#{controllerDriver.searchByName(evt)}" update=":frmList"/>
+                </p:outputPanel>
+            </h:form>    
+        </ui:composition>
+    </h:body>
+</html>
+

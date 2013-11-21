@@ -100,7 +100,8 @@
                                     </div>
                                     <div class="oneLine">
                                         <div class="lineHeader">Status</div>
-                                        <h:outputText value="#{user.experience}"/> Year(s)
+                                        <c:if test="#{user.status}"><h:outputText value="Active" style="color:green;"/></c:if>
+                                        <c:if test="#{not user.status}"><h:outputText value="Deactive" style="color:red;"/></c:if>
                                         <div class="clear"/>
                                     </div>
                                 </div>

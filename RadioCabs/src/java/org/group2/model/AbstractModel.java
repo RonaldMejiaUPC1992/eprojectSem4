@@ -49,6 +49,18 @@ public abstract class AbstractModel<T> {
         return lst;
     }
     
+    public List<T> createHQLQuery(String hqlQuery){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction trans = session.beginTransaction();
+        trans.begin();
+        Query query = session.createQuery(hqlQuery);    
+        //System.out.println("======FROM " + entityClass.getName()+ " WHERE "+condition+"======");
+        List<T> lst = query.list();
+        trans.commit();
+        session.close();
+        return lst;
+    }
+    
     public List<T> search(String condition){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction trans = session.beginTransaction();

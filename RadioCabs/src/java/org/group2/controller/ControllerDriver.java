@@ -4,6 +4,7 @@
  */
 package org.group2.controller;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -18,23 +19,48 @@ import org.group2.entity.RegisteredUnit;
  *
  * @author DUONGHM
  */
-@ManagedBean(name="controllerDriver")
+@ManagedBean(name = "controllerDriver")
 @ViewScoped
-public class ControllerDriver extends AbstractController {
+public class ControllerDriver extends AbstractController implements Serializable {
 
-    public ControllerDriver(){
+    public ControllerDriver() {
         super(RegisteredUnit.class);
     }
 
     @Override
-    public List getList() {        
+    public List getList() {
         return super.getList("registeredTypeID = 2");
     }
 
     @Override
     public void create(ActionEvent evt) {
-        ((RegisteredUnit)selected).setRegisteredType(new RegisteredType(2, null));
+        ((RegisteredUnit) selected).setRegisteredType(new RegisteredType(2, null));
         super.create(evt);
     }
-    
+
+    public List getDisplayList() {
+        return super.createHQLQuery("select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 2 and b.expriateDate > CURRENT_DATE() " + condition);
+    }
+    RegisteredUnit searchedUnit = new RegisteredUnit();
+    String condition = "";
+
+    public RegisteredUnit getSearchedUnit() {
+        return searchedUnit;
+    }
+
+    public void setSearchedUnit(RegisteredUnit searchedUnit) {
+        this.searchedUnit = searchedUnit;
+    }
+
+    public void searchByName(ActionEvent evt) {
+        selected = new RegisteredUnit();
+        System.out.println("Name : " + searchedUnit.getName());
+        System.out.println("City : " + searchedUnit.getCity());
+        System.out.println("Telephone : " + searchedUnit.getTelephone());
+        System.out.println("Experience : " + searchedUnit.getExperience());
+        condition = " and r.name like '%" + searchedUnit.getName() + "%'";
+        condition += " and r.city like '%" + searchedUnit.getCity()+ "%'";
+        condition += " and r.telephone like '%" + searchedUnit.getTelephone() + "%'";
+        condition += " and r.experience = " + searchedUnit.getExperience();
+    }
 }

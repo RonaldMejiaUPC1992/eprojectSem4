@@ -69,9 +69,11 @@
                         <ui:include src="Right.xhtml"/>
                         <article class="grid_8">
                             <h3>Drivers</h3>
-                            <ui:include src="Detail.xhtml"/>
+                            <ui:include src="Find.xhtml"/>
+                            <ui:include src="Detail.xhtml"/>                            
                             <h:form id="frmList">
-                                <p:dataList id="dListDriver" value="#{controllerDriver.list}" var="driver" paginator="true" rows="3" rowsPerPageTemplate="5,10,15">  
+                                <p:dataList id="dListDriver" value="#{controllerDriver.displayList}" var="driver" paginator="true" rows="3" rowsPerPageTemplate="5,10,15">  
+
                                     <p:column>
                                         <figure class="box-img">
                                             <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg " alt="" />
@@ -82,15 +84,19 @@
                                                 <div>Name: <h:outputText value="#{driver.name}"/></div>
                                                 <div>Experience: <h:outputText value="#{driver.experience}"/> years</div>
                                                 <div>City: <h:outputText value="#{driver.city}"/></div>
-                                                <div>Tel: <h:outputText value="#{driver.telephone}"/></div>                                                
-                                            </div>    
-                                            <p:commandLink styleClass="btn" oncomplete="wgDetail.show()" value="View Detail" update=":frmDetail">
-                                                <f:setPropertyActionListener value="#{driver}" target="#{controllerDriver.selected}" />                                            
-                                            </p:commandLink>
+                                                <div>Tel: <h:outputText value="#{driver.telephone}"/></div>  
+                                                
+                                            </div>  
+                                            <div>
+                                                <p:commandLink styleClass="btn" oncomplete="wgDetail.show()" value="View Detail" update=":frmDetail">
+                                                    <f:setPropertyActionListener value="#{driver}" target="#{controllerDriver.selected}" />                                            
+                                                </p:commandLink>
+                                            </div>
                                         </div>
                                         <div class="clear"></div>  
                                         <br />
                                     </p:column>
+
                                 </p:dataList> 
                             </h:form>
 
