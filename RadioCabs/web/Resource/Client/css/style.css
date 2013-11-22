@@ -564,7 +564,7 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
     overflow: hidden;
 }
 #contact-form label {
-    min-height: 54px;
+    /*min-height: 54px;*/
     position: relative;
     margin: 0;
     overflow: hidden;

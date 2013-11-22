@@ -179,13 +179,13 @@
                                             <div>
                                                 <div class="form-txt">Membership Type: </div>
                                                 <label>
-                                                    <h:selectOneMenu id="ddlMembershipType" value="#{controllerCompany.selected.membershipType}">
-                                                        <f:selectItem itemLabel="Select One" itemValue="0" />  
+                                                    <p:selectOneMenu id="ddlMembershipType" value="#{controllerCompany.selected.membershipType}" required="true" requiredMessage="*Please Select One">
+                                                        <f:selectItem itemLabel="---Select One---" itemValue="" />  
                                                         <f:selectItem itemLabel="Premium" itemValue="1" />  
                                                         <f:selectItem itemLabel="Basic" itemValue="2" />  
                                                         <f:selectItem itemLabel="Gold" itemValue="3" />
-                                                    </h:selectOneMenu>
-                                                    <h:message styleClass="errorMsg" for="ddlMembershipType"/>
+                                                    </p:selectOneMenu>
+                                                    <div><h:message styleClass="errorMsg" for="ddlMembershipType"/></div>
                                                 </label>
                                                 <div class="clear"></div>
                                             </div>
