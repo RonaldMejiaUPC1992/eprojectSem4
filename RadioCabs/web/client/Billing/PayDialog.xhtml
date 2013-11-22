@@ -11,17 +11,15 @@
     <h:body>
         <ui:composition>
             <h:form id="frmPayment">
-                <p:dialog widgetVar="wgPayment" header="Payment Detail" modal="true" style="background: #FFFFFF" resizable="false">                    
-                    <div>
-                        Payment Type : 
-                        <p:selectOneMenu id="dllPaymentType" value="#{controllerBilling.selected.paymentType}">
+                <p:dialog widgetVar="wgPayment" header="Payment Detail" modal="true" style="background: #FFFFFF" resizable="false"> 
+                    <p:panelGrid id="pnlCreate" columns="4" rendered="#{controllerBilling.selected != null}">                        
+                        <h:outputLabel for="ddlPaymentType" value="Payment type: "/>
+                        <p:selectOneMenu id="ddlPaymentType" value="#{controllerBilling.selected.paymentType}">  
                             <f:selectItems value="#{controllerBilling.listPaymentType}" var="paymentType" itemLabel="#{paymentType.paymentTypeName}" itemValue="#{paymentType}"/>
-                            <p:ajax event="change" />
+                            <f:converter converterId="paymentTypeConverter" />
                         </p:selectOneMenu>
-                    </div>
-                    <div>
-                        Money : <p:inputText id="txtMoney" value="#{controllerBilling.selected.money}"/>
-                    </div>                    
+                        <p:commandButton id="btnCreate" value="Create" update=":frmInfor" actionListener="#{controllerBilling.paid(evt)}" oncomplete="wgPayment.hide()"/> 
+                    </p:panelGrid>
                 </p:dialog>
             </h:form>
         </ui:composition>

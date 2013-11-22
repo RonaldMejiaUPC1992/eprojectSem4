@@ -62,95 +62,96 @@
                 <c:if test="#{not empty sessionScope['clientUser']}">
                     <c:set var="user" value="#{sessionScope['clientUser']}" />
                 </c:if>
+                <ui:include src="/client/Billing/PayDialog.xhtml"/>
                 <section id="content"><div class="ic"></div>                    
                     <div class="border-horiz"></div>                    
                     <div class="container_12">
+                        <h:form id="frmInfor">
+                            <div class="box-viewInfor">
+                                <div class="colImage">
+                                    <figure class="box-img">
+                                        <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg" alt="" />
+                                    </figure>
 
-                        <div class="box-viewInfor">
-                            <div class="colImage">
-                                <figure class="box-img">
-                                    <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg" alt="" />
-                                </figure>
-
-                            </div>                            
-                            <div style="float: right">
-                                <div style="margin-left: 20px" class="headerID">
-                                    <h4>Driver ID: <h:outputText value="#{user.registrationId}"/></h4>
-                                </div>
-                                <div class="col1">
-                                    <div class="oneLine">
-                                        <div class="lineHeader">Name</div>
-                                        <h:outputText value="#{user.name}"/>
-                                        <div class="clear"/>
+                                </div>                            
+                                <div style="float: right">
+                                    <div style="margin-left: 20px" class="headerID">
+                                        <h4>Driver ID: <h:outputText value="#{user.registrationId}"/></h4>
                                     </div>
-                                    <div class="oneLine">
-                                        <div class="lineHeader">Contact</div>
-                                        <h:outputText value="#{user.contactPerson}"/>
-                                        <div class="clear"/>
-                                    </div>
-                                    <div class="oneLine">
-                                        <div class="lineHeader">Email</div>
-                                        <h:outputText value="#{user.email}" style="text-transform: none"/>
-                                        <div class="clear"/>
-                                    </div>
-                                    <div class="oneLine">
-                                        <div class="lineHeader">Experience</div>
-                                        <h:outputText value="#{user.experience}"/> Year(s)
-                                        <div class="clear"/>
-                                    </div>
-                                    <div class="oneLine">
-                                        <div class="lineHeader">Status</div>
-                                        <c:if test="#{user.status}"><h:outputText value="Active" style="color:green;"/></c:if>
-                                        <c:if test="#{not user.status}"><h:outputText value="Deactive" style="color:red;"/></c:if>
-                                        <div class="clear"/>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="oneLine">
-                                        <div class="lineHeader">Mobile</div> 
-                                        <h:outputText value="#{user.mobile}"/>
-                                        <div class="clear"/>
-                                    </div>
-                                    <div class="oneLine">
-                                        <div class="lineHeader">Tel</div>
-                                        <h:outputText value="#{user.telephone}"/>
-                                        <div class="clear"/>
-                                    </div>                                
-                                    <div class="oneLine">
-                                        <div class="lineHeader">Address</div>
-                                        <h:outputText value="#{user.address}"/>
-                                        <div class="clear"/>
-                                    </div>
-                                    <div class="oneLine">
-                                        <div class="lineHeader">City</div>
-                                        <h:outputText value="#{user.city}"/>
-                                        <div class="clear"/>
-                                    </div>
-                                    <div class="oneLine">
-                                        <div class="lineHeader">Expired Date</div> 
-                                        <c:choose>
-                                            <c:when test="#{empty user.listBillings}">
-                                                No Billing 
-                                            </c:when>                                            
-                                            <c:otherwise>
-                                                #{user.lastestBilling.expriateDate}
-                                            </c:otherwise>
-                                        </c:choose>
-                                        <div class="clear"/>
-                                    </div>                                     
-                                    <c:if test="#{user.status eq false}">
+                                    <div class="col1">
                                         <div class="oneLine">
-                                            <div class="lineHeader">&nbsp;</div> 
-                                            <h:form>                                            
-                                                <p:commandLink styleClass="btn" oncomplete="wgPayment.show()" value="Purchase"/>
-                                            </h:form>
+                                            <div class="lineHeader">Name</div>
+                                            <h:outputText value="#{user.name}"/>
+                                            <div class="clear"/>
                                         </div>
-                                    </c:if>
-                                </div>                                
-                            </div>                                        
-                            <div class="clear"></div>
-                            <ui:include src="/client/Billing/PayDialog.xhtml"/>
-                        </div>
+                                        <div class="oneLine">
+                                            <div class="lineHeader">Contact</div>
+                                            <h:outputText value="#{user.contactPerson}"/>
+                                            <div class="clear"/>
+                                        </div>
+                                        <div class="oneLine">
+                                            <div class="lineHeader">Email</div>
+                                            <h:outputText value="#{user.email}" style="text-transform: none"/>
+                                            <div class="clear"/>
+                                        </div>
+                                        <div class="oneLine">
+                                            <div class="lineHeader">Experience</div>
+                                            <h:outputText value="#{user.experience}"/> Year(s)
+                                            <div class="clear"/>
+                                        </div>
+                                        <div class="oneLine">
+                                            <div class="lineHeader">Status</div>
+                                            <c:if test="#{user.status}"><h:outputText value="Active" style="color:green;"/></c:if>
+                                            <c:if test="#{not user.status}"><h:outputText value="Deactive" style="color:red;"/></c:if>
+                                            <div class="clear"/>
+                                        </div>
+                                    </div>
+                                    <div class="col2">
+                                        <div class="oneLine">
+                                            <div class="lineHeader">Mobile</div> 
+                                            <h:outputText value="#{user.mobile}"/>
+                                            <div class="clear"/>
+                                        </div>
+                                        <div class="oneLine">
+                                            <div class="lineHeader">Tel</div>
+                                            <h:outputText value="#{user.telephone}"/>
+                                            <div class="clear"/>
+                                        </div>                                
+                                        <div class="oneLine">
+                                            <div class="lineHeader">Address</div>
+                                            <h:outputText value="#{user.address}"/>
+                                            <div class="clear"/>
+                                        </div>
+                                        <div class="oneLine">
+                                            <div class="lineHeader">City</div>
+                                            <h:outputText value="#{user.city}"/>
+                                            <div class="clear"/>
+                                        </div>
+                                        <div class="oneLine">
+                                            <div class="lineHeader">Expired Date</div> 
+                                            <c:choose>
+                                                <c:when test="#{empty user.listBillings}">
+                                                    No Billing 
+                                                </c:when>                                            
+                                                <c:otherwise>
+                                                    #{user.lastestBilling.expriateDate}
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <div class="clear"/>
+                                        </div>                                     
+                                        <c:if test="#{user.status eq false}">
+                                            <div class="oneLine">
+                                                <div class="lineHeader">&nbsp;</div> 
+                                                <h:form>                                            
+                                                    <p:commandLink styleClass="btn" oncomplete="wgPayment.show()" value="Purchase"/>
+                                                </h:form>
+                                            </div>
+                                        </c:if>
+                                    </div>                                
+                                </div>                                        
+                                <div class="clear"></div>                                
+                            </div>
+                        </h:form>
                     </div>
                 </section>                        
             </ui:define>
