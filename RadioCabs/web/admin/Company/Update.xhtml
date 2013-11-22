@@ -37,6 +37,10 @@
                         </p:inputText>
                         <h:outputLabel for="txtAddress" value="Address: "/>
                         <p:inputText id="txtAddress" value="#{controllerCompany.selected.address}"/>
+                        <h:outputLabel for="txtTelephone" value="Telephone: "/>
+                        <p:inputText id="txtTelephone" value="#{controllerCompany.selected.telephone}">
+                            <f:validateRegex pattern="^[0-9.]*$" />
+                        </p:inputText>
                         <h:outputLabel for="txtMobileNumber" value="Mobile Number: "/>
                         <p:inputText id="txtMobileNumber" value="#{controllerCompany.selected.mobile}">
                             <f:validateRegex pattern="^0[0-9.]{9,10}$" />

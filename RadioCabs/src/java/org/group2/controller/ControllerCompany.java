@@ -58,7 +58,7 @@ public class ControllerCompany extends AbstractController implements Serializabl
         selected = new RegisteredUnit();        
         condition = " and r.name like '%" + searchedUnit.getName() + "%'";
         condition += " and r.address like '%" + searchedUnit.getAddress()+ "%'";
-        //condition += " and r.telephone like '%" + searchedUnit.getTelephone() + "%'";        
+        condition += " and r.telephone like '%" + searchedUnit.getTelephone() + "%'";        
     }
 }
 
