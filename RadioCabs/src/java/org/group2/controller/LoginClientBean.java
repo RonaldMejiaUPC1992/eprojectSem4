@@ -47,4 +47,12 @@ public class LoginClientBean {
             return "";
         }
     }
+    
+    public String logout(){
+        FacesContext context = FacesContext.getCurrentInstance();
+        HttpSession session =
+                (HttpSession) context.getExternalContext().getSession(true);
+        session.removeAttribute("clientUser");
+        return "/client/index.xhtml";
+    }
 }

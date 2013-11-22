@@ -33,7 +33,12 @@
 
                                     <c:if test="#{not empty sessionScope['clientUser']}">
                                         <li id="ViewInfor">
-                                            <a href="#">View Infor</a>
+                                            <a href="/RadioCabs/faces/client/ViewInfor.xhtml">View Infor</a>
+                                        </li>
+                                        <li>
+                                            <h:form id="frmLogout">
+                                                <h:commandLink action="#{loginClientBean.logout()}">Logout</h:commandLink>
+                                            </h:form>
                                         </li>
                                     </c:if>
                                 </ul>
