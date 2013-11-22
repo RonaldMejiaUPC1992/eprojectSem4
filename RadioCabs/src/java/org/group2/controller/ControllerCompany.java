@@ -4,6 +4,7 @@
  */
 package org.group2.controller;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -17,7 +18,7 @@ import org.group2.entity.RegisteredUnit;
  */
 @ManagedBean
 @ViewScoped
-public class ControllerCompany extends AbstractController {
+public class ControllerCompany extends AbstractController implements Serializable{
     
     public ControllerCompany(){
         super(RegisteredUnit.class);
@@ -37,6 +38,7 @@ public class ControllerCompany extends AbstractController {
     public List getDisplayList() {
         //return super.createHQLQuery("select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 2 and b.expriateDate > CURRENT_DATE() " + condition);
         String hqlQuery = "select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 1 and b.expriateDate > CURRENT_DATE() " + condition;                
+        System.out.println(hqlQuery);
         return super.createHQLQuery(hqlQuery);
     }
     
@@ -52,11 +54,11 @@ public class ControllerCompany extends AbstractController {
     }
 
     public void searchByName(ActionEvent evt) {
+        System.out.println("Call Search");
         selected = new RegisteredUnit();        
         condition = " and r.name like '%" + searchedUnit.getName() + "%'";
-        condition += " and r.city like '%" + searchedUnit.getCity()+ "%'";
-        condition += " and r.telephone like '%" + searchedUnit.getTelephone() + "%'";
-        condition += " and r.experience >= " + searchedUnit.getExperience();
+        condition += " and r.address like '%" + searchedUnit.getAddress()+ "%'";
+        //condition += " and r.telephone like '%" + searchedUnit.getTelephone() + "%'";        
     }
 }
 
