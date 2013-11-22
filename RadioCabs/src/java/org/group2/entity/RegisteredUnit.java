@@ -188,9 +188,8 @@ public class RegisteredUnit implements java.io.Serializable {
     public void setBillings(Set<Billing> billings) {
         this.billings = billings;
     }
-
     private List<Billing> listBillings;
-    
+
     public List<Billing> getListBillings() {
         //billings (set) is not reload ???
         HibernateUtil.getSessionFactory().openSession().refresh(this);
@@ -201,40 +200,42 @@ public class RegisteredUnit implements java.io.Serializable {
                 public int compare(Billing o1, Billing o2) {
                     return o2.getExpriateDate().compareTo(o1.getExpriateDate());
                 }
-            });            
+            });
             return listBillings;
         } else {
             return null;
         }
     }
-    
-    public Billing getLastestBilling(){        
+
+    public Billing getLastestBilling() {
         return getListBillings().get(0);
     }
-    
-    boolean status;
-    
-    public boolean getStatus(){                        
-        if(billings==null){
+    boolean status = false;
+
+    public boolean getStatus() {
+        List bills = getListBillings();
+        if (bills == null || bills.isEmpty()) {
             status = false;
-        }else{            
+        } else {
             Date expiredDate = getLastestBilling().getExpriateDate();
-            status = expiredDate.compareTo(new Date())>=0;
-        }        
+            if (expiredDate == null) {
+                status = false;
+            } else {
+                status = expiredDate.compareTo(new Date()) >= 0;
+            }
+        }
         return status;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if(obj==null){
+        if (obj == null) {
             return false;
         }
-        if(obj instanceof RegisteredUnit){
-            return ((RegisteredUnit)obj).registrationId.equals(this.registrationId) ;
-        }else{
+        if (obj instanceof RegisteredUnit) {
+            return ((RegisteredUnit) obj).registrationId.equals(this.registrationId);
+        } else {
             return false;
         }
     }
-    
-    
 }

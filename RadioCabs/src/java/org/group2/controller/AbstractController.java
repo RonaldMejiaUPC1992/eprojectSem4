@@ -47,6 +47,8 @@ public abstract class AbstractController<T> {
 
     public List<T> getList() {
         if (list == null) {
+            model = new AbstractModel<T>(entityClass) {
+            };
             list = model.getAll();
         }
         return list;
@@ -62,11 +64,11 @@ public abstract class AbstractController<T> {
         return r;
     }
 
-    public List<T> createHQLQuery(String hqlQuery){
+    public List<T> createHQLQuery(String hqlQuery) {
         list = model.createHQLQuery(hqlQuery);
         return list;
     }
-    
+
     public void setList(List<T> list) {
         this.list = list;
     }

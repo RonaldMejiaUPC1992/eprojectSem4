@@ -16,18 +16,26 @@ import org.group2.model.AbstractModel;
  * @author DUONGHM
  */
 @FacesConverter("paymentTypeConverter")
-public class PaymentTypeConverter implements Converter{
+public class PaymentTypeConverter implements Converter {
 
     @Override
-    public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
-        //return new PaymentType(Integer.parseInt(string));
-        return new AbstractModel(PaymentType.class){}.search("paymentTypeId = " + string).get(0);
+    public Object getAsObject(FacesContext fc, UIComponent uic, String string) {        
+        try {
+            Integer.parseInt(string);
+            return new AbstractModel(PaymentType.class) {
+            }.search("paymentTypeId = " + string).get(0);
+        } catch (Exception ex) {
+            return null;
+        }
     }
 
     @Override
     public String getAsString(FacesContext fc, UIComponent uic, Object o) {
-        int v = ((PaymentType)o).getPaymentTypeId();
-        return String.valueOf(v);
+        if (o != null && o instanceof PaymentType) {
+            int v = ((PaymentType) o).getPaymentTypeId();
+            return String.valueOf(v);
+        } else {
+            return null;
+        }
     }
-    
 }
