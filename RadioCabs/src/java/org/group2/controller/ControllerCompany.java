@@ -34,57 +34,29 @@ public class ControllerCompany extends AbstractController {
         super.create(evt);
     }
     
-    
-}
-/*public class ControllerCompany {
-
-    public ControllerCompany() {   
-        selected = new RegisteredUnit();
+    public List getDisplayList() {
+        //return super.createHQLQuery("select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 2 and b.expriateDate > CURRENT_DATE() " + condition);
+        String hqlQuery = "select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 1 and b.expriateDate > CURRENT_DATE() " + condition;                
+        return super.createHQLQuery(hqlQuery);
     }
     
-    RegisteredUnit selected;
-    List<RegisteredUnit> list;
+    RegisteredUnit searchedUnit = new RegisteredUnit();
+    String condition = "";
 
-    public RegisteredUnit getSelected() {
-        return selected;
+    public RegisteredUnit getSearchedUnit() {
+        return searchedUnit;
     }
 
-    public void setSelected(RegisteredUnit selected) {
-        this.selected = selected;
+    public void setSearchedUnit(RegisteredUnit searchedUnit) {
+        this.searchedUnit = searchedUnit;
     }
 
-    public List<RegisteredUnit> getList() {
-        if(list==null){
-            list = new ModelCompany(RegisteredUnit.class).getAll();
-        }
-        return list;
-    }
-
-    public void setList(List<RegisteredUnit> list) {
-        this.list = list;
-    }
-    
-    public void prepareCreate(ActionEvent evt){
+    public void searchByName(ActionEvent evt) {
         selected = new RegisteredUnit();        
+        condition = " and r.name like '%" + searchedUnit.getName() + "%'";
+        condition += " and r.city like '%" + searchedUnit.getCity()+ "%'";
+        condition += " and r.telephone like '%" + searchedUnit.getTelephone() + "%'";
+        condition += " and r.experience >= " + searchedUnit.getExperience();
     }
+}
 
-    public void create(ActionEvent evt) {               
-        ModelCompany model = new ModelCompany(RegisteredUnit.class);
-        model.add(selected);
-        list = null;
-        JsfUtil.addSuccessMessage("Create");
-    }
-
-    public void update(ActionEvent evt) {
-        ModelCompany model = new ModelCompany(RegisteredUnit.class);
-        model.update(selected);
-        JsfUtil.addSuccessMessage("Update");
-    }
-
-    public void delete(ActionEvent evt) {
-        ModelCompany model = new ModelCompany(RegisteredUnit.class);
-        model.delete(selected);
-        list = null;
-        JsfUtil.addSuccessMessage("Delete");        
-    }
-}*/

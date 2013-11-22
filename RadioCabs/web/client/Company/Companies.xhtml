@@ -69,34 +69,41 @@
                     <div class="border-horiz"></div>
                     <div class="container_12">
                         <ui:include src="Right.xhtml"/>
-                        <article class="grid_8">
-                            <h3>Companies</h3>
+                        <article class="grid_8">                            
                             <ui:include src="Detail.xhtml"/>
-                            <h:form id="frmList">
-                                <p:dataList id="dListDriver" value="#{controllerCompany.list}" var="company" paginator="true" rows="3" rowsPerPageTemplate="5,10,15">  
-                                    <p:column>
-                                        <figure class="box-img">
-                                            <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg " alt="" />
-                                        </figure>
-                                        <div class="overflow">
-                                            <h4><h:outputText value="#{company.registrationId}"/></h4>
-                                            <div>
-                                                <div>Name: <h:outputText value="#{company.name}"/></div>
-                                                <div>Contact Person: <h:outputText value="#{company.contactPerson}"/> years</div>
-                                                <div>Address: <h:outputText value="#{company.address}"/></div>
-                                                <div>Tel: <h:outputText value="#{company.telephone}"/></div>  
-                                                <div>Fax: <h:outputText value="#{company.faxNumber}"/></div>
-                                            </div>    
-                                            <p:commandLink styleClass="btn" oncomplete="wgDetail.show()" value="View Detail" update=":frmDetail">
-                                                <f:setPropertyActionListener value="#{company}" target="#{controllerCompany.selected}" />                                            
-                                            </p:commandLink>
-                                        </div>
-                                        <div class="clear"></div>  
-                                        <br />
-                                    </p:column>
-                                </p:dataList> 
-                            </h:form>
-                        </article>
+                            <div class="myBox">
+                                <h3>List Companies</h3>
+                                <h:form id="frmList">                                
+                                    <p:dataList id="dListDriver" value="#{controllerCompany.displayList}" var="company" paginator="true" 
+                                                paginatorTemplate="{PreviousPageLink} {PageLinks} {NextPageLink} {RowsPerPageDropdown}"
+                                                rows="3" rowsPerPageTemplate="3,5,10"
+                                                paginatorPosition="bottom">  
+                                        <p:column>
+                                            <figure class="box-img">
+                                                <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg " alt="" />
+                                            </figure>
+                                            <div class="overflow">
+                                                <h4>ID: <h:outputText value="#{company.registrationId}"/></h4>
+                                                <div>
+                                                    <div>Name: <h:outputText value="#{company.name}"/></div>
+                                                    <div>Contact: <h:outputText value="#{company.contactPerson}"/></div>
+                                                    <div>Address: <h:outputText value="#{company.address}"/></div>
+                                                    <div>Tel: <h:outputText value="#{company.telephone}"/></div>  
+                                                    <div>Fax: <h:outputText value="#{company.faxNumber}"/></div>
+                                                </div>
+                                                <div style="margin-top: 5px">
+                                                    <p:commandLink styleClass="btn" oncomplete="wgDetail.show()" value="View Detail" update=":frmDetail">
+                                                        <f:setPropertyActionListener value="#{company}" target="#{controllerCompany.selected}" />                                            
+                                                    </p:commandLink>
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>  
+                                            <br />
+                                        </p:column>
+                                    </p:dataList> 
+                                </h:form>
+                            </div>
+                        </article>                    
                         <div class="clear"></div>
                     </div>
                 </section>
