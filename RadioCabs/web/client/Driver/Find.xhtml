@@ -9,27 +9,48 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <ui:composition>            
-            <h:form>
-                <p:outputPanel>
-                    <div>
-                        <h:outputLabel for="txtDriverName" value="Driver Name"/>
-                        <p:inputText id ="txtDriverName" value="#{controllerDriver.searchedUnit.name}"/>
-                    </div>
-                    <div>
-                        <h:outputLabel for="txtCity" value="City"/>
-                        <p:inputText id="txtCity" value="#{controllerDriver.searchedUnit.city}"/>
-                    </div>
-                    <div>
-                        <h:outputLabel for="txtTelephone" value="Telephone"/>
-                        <p:inputText id="txtTelephone" value="#{controllerDriver.searchedUnit.telephone}"/>
-                    </div>
-                    <div>
-                        <h:outputLabel for="txtExperience" value="Experience"/>
-                        <p:inputText id="txtExperience" value="#{controllerDriver.searchedUnit.experience}"/>
-                    </div>
-                    <p:commandButton value="Search" actionListener="#{controllerDriver.searchByName(evt)}" update=":frmList"/>
-                </p:outputPanel>
+        <ui:composition>                        
+            <h:form id="frmSearch">
+                <table>
+                    <tr>
+                        <td>
+                            <h:outputLabel for="txtDriverName" value="Driver Name"/>
+                        </td>
+                        <td>
+                            <p:inputText id ="txtDriverName" value="#{controllerDriver.searchedUnit.name}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel for="txtCity" value="City"/>
+                        </td> 
+                        <td>
+                            <p:inputText id="txtCity" value="#{controllerDriver.searchedUnit.city}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel for="txtTelephone" value="Telephone"/>
+                        </td>
+                        <td>
+                            <p:inputText id="txtTelephone" value="#{controllerDriver.searchedUnit.telephone}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel for="txtExperience" value="Min Experience"/>
+                        </td>
+                        <td>
+                            <p:inputText id="txtExperience" value="#{controllerDriver.searchedUnit.experience}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p:commandButton value="Search" actionListener="#{controllerDriver.searchByName(evt)}" update=":frmList"/>
+                        </td>
+                    </tr>
+                </table>
             </h:form>    
         </ui:composition>
     </h:body>

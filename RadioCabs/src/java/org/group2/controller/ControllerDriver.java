@@ -39,7 +39,9 @@ public class ControllerDriver extends AbstractController implements Serializable
     }
 
     public List getDisplayList() {
-        return super.createHQLQuery("select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 2 and b.expriateDate > CURRENT_DATE() " + condition);
+        //return super.createHQLQuery("select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 2 and b.expriateDate > CURRENT_DATE() " + condition);
+        String hqlQuery = "select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 2 and b.expriateDate > CURRENT_DATE() " + condition;                
+        return super.createHQLQuery(hqlQuery);
     }
     RegisteredUnit searchedUnit = new RegisteredUnit();
     String condition = "";
@@ -53,14 +55,10 @@ public class ControllerDriver extends AbstractController implements Serializable
     }
 
     public void searchByName(ActionEvent evt) {
-        selected = new RegisteredUnit();
-        System.out.println("Name : " + searchedUnit.getName());
-        System.out.println("City : " + searchedUnit.getCity());
-        System.out.println("Telephone : " + searchedUnit.getTelephone());
-        System.out.println("Experience : " + searchedUnit.getExperience());
+        selected = new RegisteredUnit();        
         condition = " and r.name like '%" + searchedUnit.getName() + "%'";
         condition += " and r.city like '%" + searchedUnit.getCity()+ "%'";
         condition += " and r.telephone like '%" + searchedUnit.getTelephone() + "%'";
-        condition += " and r.experience = " + searchedUnit.getExperience();
+        condition += " and r.experience >= " + searchedUnit.getExperience();
     }
 }
