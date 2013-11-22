@@ -17,16 +17,25 @@
                     <h:inputHidden id="txtFeedbackId" value="#{controllerFeedback.selected.feedbackId}"/>
                     <p:panelGrid id="pnlUpdate" columns="4">                          
                         <h:outputLabel for="txtFeedbackName" value="Name: "/>
-                        <p:inputText id="txtFeedbackName" value="#{controllerFeedback.selected.name}"/>
+                        <p:inputText id="txtFeedbackName" value="#{controllerFeedback.selected.name}">
+                            <f:validateRegex pattern="^[a-zA-Z ']+$" />
+                        </p:inputText>
                         <h:outputLabel for="txtMobileNumber" value="Mobile Number: "/>
-                        <p:inputText id="txtMobileNumber" value="#{controllerFeedback.selected.moblie}"/>
+                        <p:inputText id="txtMobileNumber" value="#{controllerFeedback.selected.moblie}">
+                            <f:validateRegex pattern="^0[0-9.]{9,10}$" />
+                        </p:inputText>
                         <h:outputLabel for="txtEmail" value="Email: "/>
-                        <p:inputText id="txtEmail" value="#{controllerFeedback.selected.email}"/>
+                        <p:inputText id="txtEmail" value="#{controllerFeedback.selected.email}">
+                            <f:validateRegex pattern="^(([\w-\s]+)|([\w-]+(?:\.[\w-]+)*)|([\w-\s]+)([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i" />                                       
+                        </p:inputText>
                         <h:outputLabel for="txtCity" value="City: "/>
-                        <p:inputText id="txtCity" value="#{controllerFeedback.selected.city}"/>   
+                        <p:inputText id="txtCity" value="#{controllerFeedback.selected.city}">
+                            <f:validateRegex pattern="^[a-zA-Z ']+$" />
+                        </p:inputText>   
                         <h:outputLabel for="txtFeedbackType" value="Feedback Type "/>
-                        <p:selectOneMenu id="ddlFeedbackType" value="#{controllerFeedback.selected.feedbackType}" required="true" requiredMessage="*This field is required" immediate="true">
-                            <f:selectItems value="#{controllerFeedback.listFeedbackType}" var="feedbackType" itemLabel="#{feedbackType.feedbackTypeName}" itemValue="#{feedbackType}"/>
+                        <p:selectOneMenu id="ddlFeedbackType" value="#{controllerFeedback.selected.feedbackType}" required="true" requiredMessage="*This field is required">
+                            <f:selectItems value="#{controllerFeedback.listFeedbackType}" var="feedbackType" itemLabel="#{feedbackType.feedbackTypeName}" itemValue="#{feedbackType}">                                                    
+                            </f:selectItems>
                             <f:converter converterId="feedbackTypeConverter"/>
                         </p:selectOneMenu>                    
                         <h:outputLabel for="txtDescription" value="Description: "/>
