@@ -16,7 +16,7 @@
                     <p:panelGrid id="pnlCreate" columns="2" rendered="#{controllerBilling.selected != null}">                        
                         <h:outputLabel for="ddlPaymentType" value="Payment type: "/>
                         <p:selectOneMenu id="ddlPaymentType" value="#{controllerBilling.selected.paymentType}">
-                            <f:selectItem itemValue="0" />
+                            <f:selectItem itemLabel="---Select One---" itemValue="" />
                             <f:selectItems value="#{controllerBilling.listPaymentType}" var="paymentType" itemLabel="#{paymentType.paymentTypeName}" itemValue="#{paymentType}"/>
                             <f:converter converterId="paymentTypeConverter" />                            
                             <p:ajax process="@this" event="change" update=":frmPayment:txtMoney" listener="#{controllerBilling.updateMoney(evt)}"/>

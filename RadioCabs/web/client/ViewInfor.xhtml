@@ -8,20 +8,21 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-
-        <c:if test="#{not empty sessionScope['clientUser']}">
-            <c:choose>
-                <c:when test="#{sessionScope['clientUser'].registeredType.registeredTypeId == 1}">
-                    <ui:include src="Company/CompanyViewInfor.xhtml"/>
-                </c:when>
-                <c:when test="#{sessionScope['clientUser'].registeredType.registeredTypeId == 2}">
-                    <ui:include src="Driver/DriverViewInfor.xhtml"/>
-                </c:when>
-                <c:otherwise>
-                    Are you hacker ???
-                </c:otherwise>
-            </c:choose>
-        </c:if>
+        <ui:composition>
+            <c:if test="#{not empty sessionScope['clientUser']}">
+                <c:choose>
+                    <c:when test="#{sessionScope['clientUser'].registeredType.registeredTypeId == 1}">
+                        <ui:include src="Company/CompanyViewInfor.xhtml"/>
+                    </c:when>
+                    <c:when test="#{sessionScope['clientUser'].registeredType.registeredTypeId == 2}">
+                        <ui:include src="Driver/DriverViewInfor.xhtml"/>
+                    </c:when>
+                    <c:otherwise>
+                        Are you hacker ???
+                    </c:otherwise>
+                </c:choose>
+            </c:if>
+        </ui:composition>        
 
     </h:body>
 </html>
