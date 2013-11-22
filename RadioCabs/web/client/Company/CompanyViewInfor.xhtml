@@ -76,7 +76,21 @@
                                 </div>                            
                                 <div style="float: right">
                                     <div style="margin-left: 20px" class="headerID">
-                                        <h4>Company ID: <h:outputText value="#{user.registrationId}"/></h4>
+                                        <h4>
+                                            Company ID: <h:outputText value="#{user.registrationId}"/> - 
+                                            <c:choose>
+                                                <c:when test="#{user.membershipType eq 0}">
+                                                    Free
+                                                </c:when>
+                                                <c:when test="#{user.membershipType eq 1}">
+                                                    Basic
+                                                </c:when>
+                                                <c:when test="#{user.membershipType eq 2}">
+                                                    Premium
+                                                </c:when>                                                
+                                            </c:choose>
+                                            Account
+                                        </h4>
                                     </div>
                                     <div class="col1">
                                         <div class="oneLine">
@@ -90,20 +104,24 @@
                                             <div class="clear"/>
                                         </div>
                                         <div class="oneLine">
-                                            <div class="lineHeader">Email</div>
-                                            <h:outputText value="#{user.email}" style="text-transform: none"/>
+                                            <div class="lineHeader">Designation</div>
+                                            <h:outputText value="#{user.designation}"/>
                                             <div class="clear"/>
                                         </div>
                                         <div class="oneLine">
-                                            <div class="lineHeader">Experience</div>
-                                            <h:outputText value="#{user.experience}"/> Year(s)
+                                            <div class="lineHeader">Email</div>
+                                            <h:outputText value="#{user.email}" style="text-transform: none"/>
                                             <div class="clear"/>
-                                        </div>
+                                        </div>                                        
                                         <div class="oneLine">
                                             <div class="lineHeader">Status</div>
                                             <c:if test="#{user.status}"><h:outputText value="Active" style="color:green;"/></c:if>
                                             <c:if test="#{not user.status}"><h:outputText value="Deactive" style="color:red;"/></c:if>
                                             <div class="clear"/>
+                                        </div>
+                                        <div class="oneLine">
+                                            <div class="lineHeader">&nbsp;</div> 
+                                            <a class="btn" href="/RadioCabs/faces/client/Billing/BillingDetail.xhtml">Billing History</a>
                                         </div>
                                     </div>
                                     <div class="col2">
@@ -116,17 +134,17 @@
                                             <div class="lineHeader">Tel</div>
                                             <h:outputText value="#{user.telephone}"/>
                                             <div class="clear"/>
-                                        </div>                                
+                                        </div> 
+                                        <div class="oneLine">
+                                            <div class="lineHeader">Fax</div>
+                                            <h:outputText value="#{user.faxNumber}"/>
+                                            <div class="clear"/>
+                                        </div>
                                         <div class="oneLine">
                                             <div class="lineHeader">Address</div>
                                             <h:outputText value="#{user.address}"/>
                                             <div class="clear"/>
-                                        </div>
-                                        <div class="oneLine">
-                                            <div class="lineHeader">City</div>
-                                            <h:outputText value="#{user.city}"/>
-                                            <div class="clear"/>
-                                        </div>
+                                        </div>                                        
                                         <div class="oneLine">
                                             <div class="lineHeader">Expired Date</div> 
                                             <c:choose>

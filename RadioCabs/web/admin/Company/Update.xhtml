@@ -54,14 +54,12 @@
                             <f:validateRegex pattern="^(([\w-\s]+)|([\w-]+(?:\.[\w-]+)*)|([\w-\s]+)([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i" />
                         </p:inputText>
                         <h:outputLabel for="ddlMembershipType" value="Membership type: "/>
-                        <c:if test="#{not empty controllerCompany.selected}">
-                            <p:selectOneMenu id="ddlMembershipType" value="#{controllerCompany.selected.membershipType}">  
-                                <f:selectItem itemLabel="Select One" itemValue="0" />  
-                                <f:selectItem itemLabel="Premium" itemValue="1" />  
-                                <f:selectItem itemLabel="Basic" itemValue="2" />  
-                                <f:selectItem itemLabel="Gold" itemValue="3" />  
-                            </p:selectOneMenu>
-                        </c:if>
+                        <p:selectOneMenu id="ddlMembershipType" value="#{controllerCompany.selected.membershipType}" required="true" >  
+                            <f:selectItem itemLabel="---Select One---" itemValue="" />  
+                            <f:selectItem itemLabel="Free" itemValue="0" />  
+                            <f:selectItem itemLabel="Basic" itemValue="1" />  
+                            <f:selectItem itemLabel="Premium" itemValue="2" />  
+                        </p:selectOneMenu>
                     </p:panelGrid>
                     <div style="margin: 5px">
                         <p:commandButton id="btnUpdate" value="Update" update=":frmList grow" actionListener="#{controllerCompany.update(evt)}" oncomplete="wgUpdate.hide()"/>                        
