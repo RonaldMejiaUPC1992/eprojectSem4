@@ -4,6 +4,7 @@
  */
 package org.group2.controller;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
@@ -18,7 +19,7 @@ import org.group2.entity.Administrator;
  */
 @ManagedBean
 @ViewScoped
-public class ControllerAdministrator extends AbstractController{
+public class ControllerAdministrator extends AbstractController implements Serializable{
     
     public ControllerAdministrator() {
         super(Administrator.class);

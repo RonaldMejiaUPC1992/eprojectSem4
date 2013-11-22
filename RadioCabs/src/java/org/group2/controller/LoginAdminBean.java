@@ -4,6 +4,7 @@
  */
 package org.group2.controller;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -17,7 +18,7 @@ import org.group2.entity.Administrator;
  */
 @ManagedBean
 @RequestScoped
-public class LoginAdminBean {
+public class LoginAdminBean implements Serializable{
 
     public LoginAdminBean() {
     }

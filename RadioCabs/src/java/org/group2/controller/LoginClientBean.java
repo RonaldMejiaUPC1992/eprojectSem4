@@ -4,6 +4,7 @@
  */
 package org.group2.controller;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -17,7 +18,7 @@ import org.group2.entity.RegisteredUnit;
  */
 @ManagedBean
 @RequestScoped
-public class LoginClientBean {
+public class LoginClientBean implements Serializable{
     
     RegisteredUnit user = new RegisteredUnit();
     
@@ -53,6 +54,18 @@ public class LoginClientBean {
         HttpSession session =
                 (HttpSession) context.getExternalContext().getSession(true);
         session.removeAttribute("clientUser");
-        return "/client/index.xhtml";
+        return "/client/index.xhtml?faces-redirect=true";
+    }
+    
+    public String gotoDetail(){
+        return "/client/ViewInfor.xhtml?faces-redirect=true";
+    }
+    
+    public String gotoBillingHistory(){
+        return "/client/Billing/BillingDetail.xhtml?faces-redirect=true";
+    }
+    
+    public String gotoHomepage(){
+        return "/client/index.xhtml?faces-redirect=true";
     }
 }

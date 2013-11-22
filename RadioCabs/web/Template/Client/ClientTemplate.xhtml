@@ -4,7 +4,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
         <!--css-->
         <link rel="stylesheet" href="/RadioCabs/Resource/Client/css/reset.css" type="text/css" media="screen"/>
@@ -41,13 +41,26 @@
     </h:head>
 
     <h:body>
-        <!--
-        <h:form>
-            <p:dock position="top">
-                <p:menuitem value="Home" icon="/Resource/Admin/images/addFiles.png"/>
-            </p:dock>
-        </h:form>
-        -->
+        <style type="text/css">
+            .btnHeader{
+                width: 60px;   
+                padding: 3px;
+            }
+            .btnHeader:hover{
+                border: solid;
+            }
+        </style>
+        <c:if test="#{not empty sessionScope['clientUser']}">
+            <div style="position: fixed; z-index: 1000; right:0px">
+                <h:form id="frmHeader">                
+                    <h:commandButton image="/Resource/Client/images/dockImg/Home-alt-icon.png" styleClass="btnHeader" value="Home" action="#{loginClientBean.gotoHomepage()}" />
+                    <h:commandButton image="/Resource/Client/images/dockImg/person_details_user-128.png" styleClass="btnHeader" value="Information" action="#{loginClientBean.gotoDetail()}" />
+                    <h:commandButton image="/Resource/Client/images/dockImg/File-History-icon.png" styleClass="btnHeader" value="History" action="#{loginClientBean.gotoBillingHistory()}"/>                
+                    <h:commandButton image="/Resource/Client/images/dockImg/gnome_session_logout.png" styleClass="btnHeader" action="#{loginClientBean.logout()}" />
+                </h:form>        
+            </div>
+        </c:if>
+
         <ui:include src="Top.xhtml"/>
 
         <div id="content" class="center_content">

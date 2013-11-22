@@ -4,6 +4,7 @@
  */
 package org.group2.controller;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -17,7 +18,7 @@ import org.group2.entity.RegisteredUnit;
  */
 @ManagedBean
 @ViewScoped
-public class ControllerAdvertise extends AbstractController {
+public class ControllerAdvertise extends AbstractController implements Serializable{
     
     public ControllerAdvertise() {
         super(RegisteredUnit.class);
@@ -33,4 +34,10 @@ public class ControllerAdvertise extends AbstractController {
         ((RegisteredUnit)selected).setRegisteredType(new RegisteredType(3, null));
         super.create(evt);
     }
+    
+    public List getDisplayList() {        
+        String hqlQuery = "select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 3 and b.expriateDate > CURRENT_DATE() ";                        
+        return super.createHQLQuery(hqlQuery);
+    }
+    
 }
