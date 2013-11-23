@@ -23,12 +23,14 @@
                                     <li id="Drivers"><a href="/RadioCabs/faces/client/Driver/Drivers.xhtml">Drivers</a> </li>
                                     <li id="Advertise"><a href="/RadioCabs/faces/client/Advertisement/AdvertiseRegister.xhtml">Advertise</a> </li>
                                     <li id="Feedback"><a href="/RadioCabs/faces/client/Feedback/Feedback.xhtml">Feedback</a> </li>
-                                    <li id="Signup"><a href="#">Register</a> 
-                                        <ul>
-                                            <li><a href="/RadioCabs/faces/client/Driver/DriverRegister.xhtml">Driver Register</a></li>
-                                            <li><a href="/RadioCabs/faces/client/Company/CompanyRegister.xhtml">Company Register</a></li>                                            
-                                        </ul>
-                                    </li>
+                                    <c:if test="#{empty sessionScope['clientUser']}">
+                                        <li id="Signup"><a href="#">Register</a> 
+                                            <ul>
+                                                <li><a href="/RadioCabs/faces/client/Driver/DriverRegister.xhtml">Driver Register</a></li>
+                                                <li><a href="/RadioCabs/faces/client/Company/CompanyRegister.xhtml">Company Register</a></li>                                            
+                                            </ul>
+                                        </li>
+                                    </c:if>
                                     <ui:include src="Login.xhtml"/>
                                 </ul>
                             </nav>

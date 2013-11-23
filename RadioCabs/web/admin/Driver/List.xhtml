@@ -18,16 +18,36 @@
                         <p:ajax event="rowSelect" update=":frmList:updateBtn :frmList:deleteBtn"/>
                         <p:ajax event="rowUnselect" update=":frmList:deleteBtn :frmList:updateBtn"/>
                         
-                        <p:column headerText="Registration Id">#{item.registrationId}</p:column>
-                        <p:column headerText="Name">#{item.name}</p:column>
-                        <p:column headerText="Address">#{item.address}</p:column>
-                        <p:column headerText="Contact Person">#{item.contactPerson}</p:column>
-                        <p:column headerText="City">#{item.city}</p:column>
-                        <p:column headerText="Mobile">#{item.mobile}</p:column>
-                        <p:column headerText="Telephone">#{item.telephone}</p:column>
-                        <p:column headerText="Email">#{item.email}</p:column>
-                        <p:column headerText="Experience">#{item.experience}</p:column>
-                         <p:column headerText="Description">#{item.description}</p:column>
+                        <p:column headerText="Registration Id" sortBy="#{item.registrationId}" filterBy="#{item.registrationId}" filterPosition="bottom" filterMatchMode="contains">
+                            <h:outputText value="#{item.registrationId}"/>
+                        </p:column>
+                        <p:column headerText="Name" sortBy="#{item.name}" filterBy="#{item.name}" filterPosition="bottom" filterMatchMode="contains">
+                            <h:outputText value="#{item.name}"/>
+                        </p:column>
+                        <p:column headerText="Address" sortBy="#{item.address}" filterBy="#{item.address}" filterPosition="bottom" filterMatchMode="contains">
+                            #{item.address}
+                        </p:column>
+                        <p:column headerText="Contact Person" sortBy="#{item.contactPerson}" filterBy="#{item.contactPerson}" filterPosition="bottom" filterMatchMode="contains">
+                            #{item.contactPerson}
+                        </p:column>
+                        <p:column headerText="City" sortBy="#{item.city}" filterBy="#{item.city}" filterPosition="bottom" filterMatchMode="contains">
+                            #{item.city}
+                        </p:column>
+                        <p:column headerText="Mobile" sortBy="#{item.mobile}" filterBy="#{item.mobile}" filterPosition="bottom" filterMatchMode="contains">
+                            #{item.mobile}
+                        </p:column>
+                        <p:column headerText="Telephone" sortBy="#{item.telephone}" filterBy="#{item.telephone}" filterPosition="bottom" filterMatchMode="contains">
+                            #{item.telephone}
+                        </p:column>
+                        <p:column headerText="Email" sortBy="#{item.email}" filterBy="#{item.email}" filterPosition="bottom" filterMatchMode="contains">
+                            #{item.email}
+                        </p:column>
+                        <p:column headerText="Experience" sortBy="#{item.experience}" filterBy="#{item.experience}" filterPosition="bottom" filterMatchMode="contains">
+                            #{item.experience}
+                        </p:column>
+                        <p:column headerText="Description" sortBy="#{item.description}" filterBy="#{item.description}" filterPosition="bottom" filterMatchMode="contains">
+                             #{item.description}
+                         </p:column>
                         
                     </p:dataTable>
                     <div align="center" style="margin: 5px">                            
