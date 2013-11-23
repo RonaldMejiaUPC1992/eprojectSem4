@@ -93,9 +93,9 @@ public abstract class AbstractController<T> {
         }
     }
 
-    public void update(ActionEvent evt) {
+    public void update(ActionEvent evt) {        
         try {
-            model.update(selected);
+            model.update(selected);            
             JsfUtil.addSuccessMessage("Update");
         } catch (Exception ex) {
             JsfUtil.addErrorMessage(ex.getMessage());

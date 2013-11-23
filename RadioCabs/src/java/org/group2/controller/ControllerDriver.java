@@ -38,6 +38,13 @@ public class ControllerDriver extends AbstractController implements Serializable
         super.create(evt);
     }
 
+    @Override
+    public void update(ActionEvent evt) {        
+        super.update(evt);
+    }
+    
+    
+
     public List getDisplayList() {
         //return super.createHQLQuery("select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 2 and b.expriateDate > CURRENT_DATE() " + condition);
         String hqlQuery = "select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 2 and b.expriateDate > CURRENT_DATE() " + condition;                
@@ -60,5 +67,5 @@ public class ControllerDriver extends AbstractController implements Serializable
         condition += " and r.city like '%" + searchedUnit.getCity()+ "%'";
         condition += " and r.telephone like '%" + searchedUnit.getTelephone() + "%'";
         condition += " and r.experience >= " + searchedUnit.getExperience();
-    }
+    }    
 }
