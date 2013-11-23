@@ -9,12 +9,22 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <ui:composition>                        
+        <ui:composition>           
+            <style type="text/css">
+                table, table td {
+                    padding-bottom: 10px;
+                    padding-left: 10px;
+                    border: none;
+                    border-collapse: collapse;
+                }
+            </style>
             <h:form id="frmSearch">
+                <p style="font-size: large;"><span>Search Driver</span></p>
+                <hr style="margin-bottom: 10px; margin-top: 0px; border: 0; border-top: 1px solid red;"/>
                 <table>
                     <tr>
                         <td>
-                            <h:outputLabel for="txtDriverName" value="Driver Name"/>
+                            <h:outputLabel for="txtDriverName" value="Name"/>
                         </td>
                         <td>
                             <p:inputText id ="txtDriverName" value="#{controllerDriver.searchedUnit.name}"/>
@@ -38,7 +48,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <h:outputLabel for="txtExperience" value="Min Experience"/>
+                            <h:outputLabel for="txtExperience" value="Min Exp"/>
                         </td>
                         <td>
                             <p:inputText id="txtExperience" value="#{controllerDriver.searchedUnit.experience}"/>

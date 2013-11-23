@@ -8,41 +8,37 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <ui:composition>                        
-            <h:form id="frmSearch">
-                <table>
+        <ui:composition>
+            <style type="text/css">
+                table, table td {
+                    padding-bottom: 10px;
+                    padding-left: 10px;
+                    border: none;
+                    border-collapse: collapse;
+                }
+            </style>
+            <h:form method="get" action="/search" id="frmSearch">
+                <p style="font-size: large;"><span>Search Company</span></p>
+                <hr style="margin-bottom: 10px; margin-top: 0px; border: 0; border-top: 1px solid red;"/>
+                <table border="1">
                     <tr>
-                        <td>
-                            <h:outputLabel for="txtCompanyName" value="Name"/>
-                        </td>
-                        <td>
-                            <p:inputText id ="txtCompanyName" value="#{controllerCompany.searchedUnit.name}"/>
-                        </td>
+                        <td><h:outputLabel for="txtCompanyName" value="Name"/></td>
+                        <td><p:inputText id ="txtCompanyName" value="#{controllerCompany.searchedUnit.name}"/></td>
                     </tr>
                     <tr>
-                        <td>
-                            <h:outputLabel for="txtAddress" value="Address"/>
-                        </td> 
-                        <td>
-                            <p:inputText id="txtAddress" value="#{controllerCompany.searchedUnit.address}"/>
-                        </td>
+                        <td><h:outputLabel for="txtAddress" value="Address"/></td>
+                        <td><p:inputText id="txtAddress" value="#{controllerCompany.searchedUnit.address}"/></td>
                     </tr>
                     <tr>
-                        <td>
-                            <h:outputLabel for="txtTelephone" value="Telephone"/>
-                        </td>
-                        <td>
-                            <p:inputText id="txtTelephone" value="#{controllerCompany.searchedUnit.telephone}"/>
-                        </td>
-                    </tr>                    
+                        <td><h:outputLabel for="txtTelephone" value="Telephone"/></td>
+                        <td><p:inputText id="txtTelephone" value="#{controllerCompany.searchedUnit.telephone}"/></td>
+                    </tr>
                     <tr>
                         <td></td>
-                        <td>
-                            <p:commandButton value="Search" actionListener="#{controllerCompany.searchByName(evt)}" update=":frmList"/>
-                        </td>
+                        <td><p:commandButton value="Search" actionListener="#{controllerCompany.searchByName(evt)}" update=":frmList"/></td>
                     </tr>
                 </table>
-            </h:form>    
+            </h:form>  
         </ui:composition>
     </h:body>
 </html>
