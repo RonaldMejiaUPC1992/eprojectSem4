@@ -20,6 +20,16 @@
                     <p:commandButton value="No" onclick="wgDelete.hide();" type="button" />
                 </h:form>
             </p:confirmDialog>
+            
+            <p:confirmDialog message="Are you sure to delete ?"
+                             header="Delete" severity="alert"
+                             widgetVar="wgDeleteMany">
+                <h:form id="frmDeleteMany">
+                    <p:growl id="grow"/>
+                    <p:commandButton value="Yes" oncomplete="wgDeleteMany.hide()" actionListener="#{controllerDriver.deleteMany(evt)}" update=":frmList grow"/>                                            
+                    <p:commandButton value="No" onclick="wgDeleteMany.hide();" type="button" />
+                </h:form>
+            </p:confirmDialog>
 
         </ui:composition>
     </h:body>
