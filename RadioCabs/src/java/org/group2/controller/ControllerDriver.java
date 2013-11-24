@@ -14,6 +14,7 @@ import javax.faces.event.ActionEvent;
 import org.group2.entity.Billing;
 import org.group2.entity.RegisteredType;
 import org.group2.entity.RegisteredUnit;
+import org.primefaces.event.RowEditEvent;
 
 /**
  *
@@ -28,7 +29,7 @@ public class ControllerDriver extends AbstractController implements Serializable
     }
 
     @Override
-    public List getList() {
+    public List getList() {        
         return super.getList("registeredTypeID = 2");
     }
 
@@ -39,7 +40,7 @@ public class ControllerDriver extends AbstractController implements Serializable
     }
 
     @Override
-    public void update(ActionEvent evt) {        
+    public void update(ActionEvent evt) {          
         super.update(evt);
     }
     
@@ -67,5 +68,5 @@ public class ControllerDriver extends AbstractController implements Serializable
         condition += " and r.city like '%" + searchedUnit.getCity()+ "%'";
         condition += " and r.telephone like '%" + searchedUnit.getTelephone() + "%'";
         condition += " and r.experience >= " + searchedUnit.getExperience();
-    }    
+    }        
 }

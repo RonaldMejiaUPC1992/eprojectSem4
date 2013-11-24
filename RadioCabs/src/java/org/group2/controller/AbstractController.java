@@ -13,6 +13,7 @@ import org.group2.util.HibernateUtil;
 import org.group2.util.JsfUtil;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
+import org.primefaces.event.RowEditEvent;
 
 /**
  *
@@ -24,16 +25,22 @@ public abstract class AbstractController<T> {
     AbstractModel<T> model;
     T selected;
     List<T> list;
+    List<T> selectedItems;
 
     public AbstractController() {
     }
 
     public AbstractController(Class<T> entityClass) {
-
-        this.entityClass = entityClass;
-        //selected = entityClass.newInstance();
-        model = new AbstractModel<T>(entityClass) {
-        };
+        try {
+            this.entityClass = entityClass;
+            selected = entityClass.newInstance();
+            model = new AbstractModel<T>(entityClass) {
+            };
+        } catch (InstantiationException ex) {
+            Logger.getLogger(AbstractController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(AbstractController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
@@ -55,8 +62,18 @@ public abstract class AbstractController<T> {
     }
 
     public List<T> getList(String condtion) {
-        list = model.getAll(condtion);
+        if (list == null) {
+            list = model.getAll(condtion);
+        }
         return list;
+    }
+
+    public List<T> getSelectedItems() {
+        return selectedItems;
+    }
+
+    public void setSelectedItems(List<T> selectedItems) {
+        this.selectedItems = selectedItems;
     }
 
     public List<T> search(String condtion) {
@@ -89,17 +106,52 @@ public abstract class AbstractController<T> {
             JsfUtil.addSuccessMessage("Create");
             list = null;
         } catch (Exception ex) {
+            ex.printStackTrace();
             JsfUtil.addErrorMessage(ex.getMessage());
         }
     }
 
-    public void update(ActionEvent evt) {        
+    public void onEdit(RowEditEvent evt) {
+        selected = (T) evt.getObject();
         try {
-            model.update(selected);            
+            model.update(selected);
             JsfUtil.addSuccessMessage("Update");
         } catch (Exception ex) {
             JsfUtil.addErrorMessage(ex.getMessage());
             ex.printStackTrace();
+        }
+    }
+
+    public void update(ActionEvent evt) {
+        try {
+            model.update(selected);
+            JsfUtil.addSuccessMessage("Update");
+        } catch (Exception ex) {
+            JsfUtil.addErrorMessage(ex.getMessage());
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteObject(T obj) {
+        try {
+            model.delete(obj);
+            JsfUtil.addSuccessMessage("Delete");
+            list = null;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JsfUtil.addErrorMessage(ex.getMessage());
+        }
+    }
+
+    public void deleteMany(ActionEvent evt) {
+        try {
+            for (int i = 0; i < selectedItems.size(); i++) {
+                model.delete(selectedItems.get(i));
+            }
+            list = null;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JsfUtil.addErrorMessage(ex.getMessage());
         }
     }
 
@@ -109,6 +161,7 @@ public abstract class AbstractController<T> {
             JsfUtil.addSuccessMessage("Delete");
             list = null;
         } catch (Exception ex) {
+            ex.printStackTrace();
             JsfUtil.addErrorMessage(ex.getMessage());
         }
     }

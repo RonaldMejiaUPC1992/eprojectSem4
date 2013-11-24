@@ -237,5 +237,5 @@ public class RegisteredUnit implements java.io.Serializable {
         } else {
             return false;
         }
-    }
+    }    
 }
