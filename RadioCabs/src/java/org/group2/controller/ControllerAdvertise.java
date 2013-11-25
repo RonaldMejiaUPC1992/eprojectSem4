@@ -19,9 +19,9 @@ import org.group2.entity.RegisteredUnit;
 @ManagedBean
 @ViewScoped
 public class ControllerAdvertise extends AbstractController implements Serializable{
-    
+
     public ControllerAdvertise() {
-        super(RegisteredUnit.class);
+        super(RegisteredUnit.class);        
     }
     
     @Override
@@ -30,7 +30,8 @@ public class ControllerAdvertise extends AbstractController implements Serializa
     }
 
     @Override
-    public void create(ActionEvent evt) {
+    public void create(ActionEvent evt) {    
+        System.out.println("===Call create===");
         ((RegisteredUnit)selected).setRegisteredType(new RegisteredType(3, null));
         super.create(evt);
     }

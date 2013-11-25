@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Driver</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <style type="text/css">
+                .btnCreate{
+                    background: url('/RadioCabs/Resource/Admin/images/icons/dark/add.png');
+                }
+            </style>
+            <div class="widget">                 
+                <h:form id="frmList">  
+                    <p:growl id="grow"/>
+                    <p:dataTable id="tbl" value="#{controllerBilling.list}" var="item"
+                                 selection="#{controllerBilling.selectedItems}"
+                                 rowKey="#{item.billingId}"
+                                 paginator="true" rows="10" rowsPerPageTemplate="10,20,30" 
+                                 paginatorPosition="bottom"                                 
+                                 editable="true"
+                                 >                        
+                        <p:ajax event="rowEdit" update=":frmList:grow" listener="#{controllerBilling.onEdit}" />                        
+                        <p:ajax event="rowEditCancel" />
+
+                        <p:column selectionMode="multiple" style="width: 5px"/>
+                        <f:facet name="header">
+                            Drivers
+                            <div style="float: left">
+                                <p:commandButton value="" iconPos="middle" id="createBtn" 
+                                                 style="background: url('/RadioCabs/Resource/Admin/images/icons/dark/add.png'); background-repeat: no-repeat; background-position: center; height: 60px; width: 40px;"
+                                                 oncomplete="wgCreate.show()" update=":frmCreate" 
+                                                 actionListener="#{controllerBilling.prepareCreate(evt)}">                                                                    
+                                </p:commandButton>&nbsp;
+                                <p:commandButton value="" iconPos="middle" id="deleteBtn" 
+                                                 style="background: url('/RadioCabs/Resource/Admin/images/icons/dark/close.png'); background-repeat: no-repeat; background-position: center; height: 60px; width: 40px;"
+                                                 update=":frmList" 
+                                                 oncomplete="wgDeleteMany.show()">                                                                    
+                                </p:commandButton>
+                            </div>
+                            <div class="clear"/>
+                        </f:facet>
+
+                        <p:column headerText="ID" 
+                                  filterBy="#{item.billingId}" filterMatchMode="contains" filterPosition="bottom" filterStyle="width:50px"
+                                  sortBy="#{item.billingId}">
+                            <p:cellEditor>  
+                                <f:facet name="output">  
+                                    <h:outputText value="#{item.billingId}" /> 
+                                </f:facet>  
+                                <f:facet name="input">  
+                                    <p:inputText value="#{item.billingId}" style="width:100%" disabled="true"/>  
+                                </f:facet>  
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column headerText="User"
+                                  filterBy="#{item.registeredUnit.registrationId}" filterMatchMode="contains" filterPosition="bottom"
+                                  sortBy="#{item.registeredUnit.registrationId}">
+                            <p:cellEditor>  
+                                <f:facet name="output">  
+                                    <h:outputText value="#{item.registeredUnit.registrationId}" />  
+                                </f:facet>  
+                                <f:facet name="input">  
+                                    <p:selectOneMenu id="ddlRegisteredUnit" value="#{controllerBilling.selected.registeredUnit}" 
+                                                     filter="true" filterMatchMode="startsWith" style="width: 100%">  
+                                        <f:selectItems value="#{controllerBilling.listRegisteredUnit}" var="registeredUnit" itemLabel="#{registeredUnit.registrationId}" itemValue="#{registeredUnit}"/>
+                                        <f:converter converterId="registeredUnitConverter" />
+                                    </p:selectOneMenu>
+                                </f:facet>  
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column headerText="Type"
+                                  filterBy="#{item.paymentType.paymentTypeName}" filterMatchMode="contains" filterPosition="bottom"
+                                  sortBy="#{item.paymentType.paymentTypeName}">                            
+                            <p:cellEditor>  
+                                <f:facet name="output">  
+                                    <h:outputText value="#{item.paymentType.paymentTypeName}" />  
+                                </f:facet>  
+                                <f:facet name="input">  
+                                    <p:inputText value="#{item.paymentType.paymentTypeName}" style="width:100%"/>  
+                                </f:facet>  
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column headerText="Money"
+                                  filterBy="#{item.money}" filterMatchMode="contains" filterPosition="bottom"
+                                  sortBy="#{item.money}">
+                            <p:cellEditor>  
+                                <f:facet name="output">  
+                                    <h:outputText value="#{item.money}" />  
+                                </f:facet>  
+                                <f:facet name="input">  
+                                    <p:inputText value="#{item.money}" style="width:100%"/>  
+                                </f:facet>  
+                            </p:cellEditor>                            
+                        </p:column>
+
+                        <p:column headerText="Purchase Date"
+                                  filterBy="#{item.purchaseDate}" filterMatchMode="contains" filterPosition="bottom" filterStyle="width:50px;"
+                                  sortBy="#{item.purchaseDate}">                            
+                            <p:cellEditor>  
+                                <f:facet name="output">  
+                                    <h:outputText value="#{item.purchaseDate}" >  
+                                        <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT+7"/>
+                                    </h:outputText>
+                                </f:facet>  
+                                <f:facet name="input">  
+                                    <p:calendar id="calPurchaseDate" value="#{controllerBilling.selected.purchaseDate}" showOn="button" pattern="dd/MM/yyyy"/>
+                                </f:facet>  
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column headerText="Expired Date"
+                                  filterBy="#{item.expriateDate}" filterMatchMode="contains" filterPosition="bottom" filterStyle="width:50px;"
+                                  sortBy="#{item.expriateDate}">                            
+                            <p:cellEditor>  
+                                <f:facet name="output">  
+                                    <h:outputText value="#{item.expriateDate}" >  
+                                        <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT+7"/>
+                                    </h:outputText>
+                                </f:facet>  
+                                <f:facet name="input">  
+                                    <p:calendar id="calExpriateDate" value="#{controllerBilling.selected.expriateDate}" showOn="button" pattern="dd/MM/yyyy"/>
+                                </f:facet>  
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column style="width: 5px; border-right: none; ">  
+                            <p:rowEditor />                            
+                        </p:column>
+
+                        <p:column style="width: 5px; border-left: none;">
+                            <p:commandButton oncomplete="wgDelete.show()" value=""
+                                             style="background: url('/RadioCabs/Resource/Admin/images/icons/dark/close.png'); background-repeat: no-repeat; background-position: center; height: 60px; width: 30px; border: none; margin: 0; padding: 0px;">
+                                <f:setPropertyActionListener value="#{item}" target="#{controllerBilling.selected}" />
+                            </p:commandButton>
+                        </p:column>
+
+                    </p:dataTable>                    
+                    <p:blockUI block="tbl" trigger="tbl">
+                        Waiting <br/>
+                        <p:graphicImage value="/Resource/Admin/images/ajaxloadingbar.gif"/>
+                    </p:blockUI>
+                </h:form>
+            </div>
+        </ui:composition>
+    </h:body>
+</html>
+
