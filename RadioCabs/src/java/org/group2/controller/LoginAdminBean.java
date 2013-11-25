@@ -42,7 +42,7 @@ public class LoginAdminBean implements Serializable{
             HttpSession session =
                     (HttpSession) context.getExternalContext().getSession(true);
             session.setAttribute("adminUser", admin);
-            return "/admin/Company/Company.xhtml?faces-redirect=true";
+            return "/admin_v2/Company/Company.xhtml?faces-redirect=true";
         } else {
             return "";
         }
@@ -53,6 +53,6 @@ public class LoginAdminBean implements Serializable{
         HttpSession session =
                 (HttpSession) context.getExternalContext().getSession(true);
         session.removeAttribute("adminUser");
-        return "LOGOUT";
+        return "/admin_v2/Login/Login.xhtml?faces-redirect=true";
     }
 }

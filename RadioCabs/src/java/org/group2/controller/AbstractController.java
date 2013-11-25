@@ -90,7 +90,7 @@ public abstract class AbstractController<T> {
         this.list = list;
     }
 
-    public void prepareCreate(ActionEvent evt) {
+    public void prepareCreate(ActionEvent evt) {        
         try {
             selected = entityClass.newInstance();
         } catch (InstantiationException ex) {

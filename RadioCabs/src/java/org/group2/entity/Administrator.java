@@ -53,8 +53,30 @@ public class Administrator  implements java.io.Serializable {
         this.role = role;
     }
 
+    public String getRoleStr(){
+        switch(role){
+            case 1:
+                return "Administrator";                
+            case 2:
+                return "Moderator";
+            case 3:
+                return "Assisstant";
+            default:
+                return "No Role";
+        }
+    }
 
-
+    @Override
+    public boolean equals(Object obj) {
+        if(obj==null){
+            return false;
+        }
+        if(obj instanceof Administrator){
+            return ((Administrator)obj).getAdminId() == this.getAdminId();
+        }else{
+            return false;
+        }
+    }
 
 }
 

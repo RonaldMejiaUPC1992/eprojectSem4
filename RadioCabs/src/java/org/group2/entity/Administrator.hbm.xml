@@ -6,7 +6,7 @@
     <class name="org.group2.entity.Administrator" table="administrator" schema="dbo" catalog="radiocabs">
         <id name="adminId" type="int">
             <column name="adminID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="email" type="string">
             <column name="email" length="100" not-null="true" unique="true" />
