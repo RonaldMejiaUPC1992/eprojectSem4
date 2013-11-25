@@ -12,18 +12,17 @@
         <Node id="admin/Login/Login.xhtml" x="10734" y="32" zoom="true"/>
         <Node id="Template/Admin/Footer.xhtml" x="6146" y="32" zoom="true"/>
         <Node id="admin/Feedback/Feedback.xhtml" x="11670" y="32" zoom="true"/>
-        <Node id="admin/Advertise/Create.xhtml" x="14061" y="32" zoom="true"/>
         <Node id="admin/Billing/Delete.xhtml" x="6825" y="32" zoom="true"/>
+        <Node id="admin/Advertise/Create.xhtml" x="14061" y="32" zoom="true"/>
         <Node id="Template/Admin/AdminTemplate_bak.xhtml" x="8195" y="32" zoom="true"/>
-        <Node id="client/welcomePrimefaces.xhtml" x="3138" y="32" zoom="true"/>
-        <Node id="Template/Client/ClientTemplate.xhtml" x="374" y="32" zoom="true"/>
         <Node id="client/index.xhtml" x="4126" y="32" zoom="true"/>
+        <Node id="Template/Client/ClientTemplate.xhtml" x="374" y="32" zoom="true"/>
         <Node id="welcomePrimefaces.xhtml" x="14975" y="32" zoom="true"/>
         <Node id="resources/ezcomp/List.xhtml" x="12027" y="32" zoom="true"/>
+        <Node id="admin/Driver/Driver.xhtml" x="3811" y="32" zoom="true"/>
+        <Node id="admin/Advertise/List.xhtml" x="7532" y="32" zoom="true"/>
         <Node id="admin/Administrator/Update.xhtml" x="13039" y="32" zoom="true"/>
         <Node id="admin/Company/Delete.xhtml" x="13404" y="32" zoom="true"/>
-        <Node id="admin/Advertise/List.xhtml" x="7532" y="32" zoom="true"/>
-        <Node id="admin/Driver/Driver.xhtml" x="3811" y="32" zoom="true"/>
         <Node id="admin/Driver/Update.xhtml" x="10111" y="32" zoom="true"/>
         <Node id="admin/Feedback/Delete.xhtml" x="12701" y="32" zoom="true"/>
         <Node id="admin/Company/Create.xhtml" x="14637" y="32" zoom="true"/>
@@ -31,16 +30,16 @@
         <Node id="Template/Admin/Left.xhtml" x="2815" y="32" zoom="true"/>
         <Node id="admin/Advertise/Delete.xhtml" x="12364" y="32" zoom="true"/>
         <Node id="Resource/Client/documentation/ContactForm/ContactFormManual.html" x="8897" y="32" zoom="true"/>
-        <Node id="admin/Administrator/Delete.xhtml" x="5468" y="32" zoom="true"/>
-        <Node id="admin/Feedback/List.xhtml" x="9467" y="32" zoom="true"/>
         <Node id="admin/Billing/List.xhtml" x="2194" y="32" zoom="true"/>
+        <Node id="admin/Feedback/List.xhtml" x="9467" y="32" zoom="true"/>
+        <Node id="admin/Administrator/Delete.xhtml" x="5468" y="32" zoom="true"/>
         <Node id="admin/Feedback/Create.xhtml" x="34" y="32" zoom="true"/>
-        <Node id="admin/Company/List.xhtml" x="13740" y="32" zoom="true"/>
         <Node id="admin/Billing/Billing.xhtml" x="3496" y="32" zoom="true"/>
+        <Node id="admin/Company/List.xhtml" x="13740" y="32" zoom="true"/>
         <Node id="Template/Admin/TopNavigator.xhtml" x="4737" y="32" zoom="true"/>
-        <Node id="admin/Driver/List.xhtml" x="10432" y="32" zoom="true"/>
-        <Node id="index.xhtml" x="14400" y="32" zoom="true"/>
         <Node id="admin/Driver/Create.xhtml" x="1159" y="32" zoom="true"/>
+        <Node id="index.xhtml" x="14400" y="32" zoom="true"/>
+        <Node id="admin/Driver/List.xhtml" x="10432" y="32" zoom="true"/>
         <Node id="admin/Administrator/Create.xhtml" x="1478" y="32" zoom="true"/>
         <Node id="admin/Administrator/List.xhtml" x="11043" y="32" zoom="true"/>
         <Node id="admin/Billing/Create.xhtml" x="2496" y="32" zoom="true"/>

@@ -6,7 +6,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Driver</title>
+        <title>Advertise</title>
     </h:head>
     <h:body>
         <ui:composition>
@@ -18,24 +18,24 @@
             <div class="widget">                 
                 <h:form id="frmList">  
                     <p:growl id="grow"/>
-                    <p:dataTable id="tbl" value="#{controllerCompany.list}" var="item"
-                                 selection="#{controllerCompany.selectedItems}"
+                    <p:dataTable id="tbl" value="#{controllerAdvertise.list}" var="item"
+                                 selection="#{controllerAdvertise.selectedItems}"
                                  rowKey="#{item.registrationId}"
                                  paginator="true" rows="10" rowsPerPageTemplate="10,20,30" 
                                  paginatorPosition="bottom"                                 
                                  editable="true"
                                  >                        
-                        <p:ajax event="rowEdit" update=":frmList:grow" listener="#{controllerCompany.onEdit}" />                        
+                        <p:ajax event="rowEdit" update=":frmList:grow" listener="#{controllerAdvertise.onEdit}" />                        
                         <p:ajax event="rowEditCancel" />
 
                         <p:column selectionMode="multiple" style="width: 5px"/>
                         <f:facet name="header">
-                            Companies
+                            Advertise
                             <div style="float: left">
                                 <p:commandButton value="" iconPos="middle" id="createBtn" 
                                                  style="background: url('/RadioCabs/Resource/Admin/images/icons/dark/add.png'); background-repeat: no-repeat; background-position: center; height: 60px; width: 40px;"
                                                  oncomplete="wgCreate.show()" update=":frmCreate" 
-                                                 actionListener="#{controllerCompany.prepareCreate(evt)}">                                                                    
+                                                 actionListener="#{controllerAdvertise.prepareCreate(evt)}">                                                                    
                                 </p:commandButton>&nbsp;
                                 <p:commandButton value="" iconPos="middle" id="deleteBtn" 
                                                  style="background: url('/RadioCabs/Resource/Admin/images/icons/dark/close.png'); background-repeat: no-repeat; background-position: center; height: 60px; width: 40px;"
@@ -72,32 +72,6 @@
                             </p:cellEditor>
                         </p:column>
 
-                        <p:column headerText="Address"
-                                  filterBy="#{item.address}" filterMatchMode="contains" filterPosition="bottom"
-                                  sortBy="#{item.address}">                            
-                            <p:cellEditor>  
-                                <f:facet name="output">  
-                                    <h:outputText value="#{item.address}" />  
-                                </f:facet>  
-                                <f:facet name="input">  
-                                    <p:inputText value="#{item.address}" style="width:100%"/>  
-                                </f:facet>  
-                            </p:cellEditor>
-                        </p:column>
-
-                        <p:column headerText="Contact Person"
-                                  filterBy="#{item.contactPerson}" filterMatchMode="contains" filterPosition="bottom"
-                                  sortBy="#{item.contactPerson}">
-                            <p:cellEditor>  
-                                <f:facet name="output">  
-                                    <h:outputText value="#{item.contactPerson}" />  
-                                </f:facet>  
-                                <f:facet name="input">  
-                                    <p:inputText value="#{item.contactPerson}" style="width:100%"/>  
-                                </f:facet>  
-                            </p:cellEditor>                            
-                        </p:column>
-
                         <p:column headerText="Designation"
                                   filterBy="#{item.designation}" filterMatchMode="contains" filterPosition="bottom" filterStyle="width:50px;"
                                   sortBy="#{item.designation}">                            
@@ -111,15 +85,43 @@
                             </p:cellEditor>
                         </p:column>
 
-                        <p:column headerText="Email"
-                                  filterBy="#{item.email}" filterMatchMode="contains" filterPosition="bottom" filterStyle="width:50px;"
-                                  sortBy="#{item.email}">                            
+                        <p:column headerText="Address"
+                                  filterBy="#{item.address}" filterMatchMode="contains" filterPosition="bottom"
+                                  sortBy="#{item.address}">                            
                             <p:cellEditor>  
                                 <f:facet name="output">  
-                                    <h:outputText value="#{item.email}" />  
+                                    <h:outputText value="#{item.address}" />  
                                 </f:facet>  
                                 <f:facet name="input">  
-                                    <p:inputText value="#{item.email}" style="width:100%"/>  
+                                    <p:inputText value="#{item.address}" style="width:100%"/>  
+                                </f:facet>  
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column headerText="Mobile"
+                                  filterBy="#{item.mobile}" filterMatchMode="contains" filterPosition="bottom"
+                                  sortBy="#{item.mobile}">                            
+                            <p:cellEditor>  
+                                <f:facet name="output">  
+                                    <h:outputText value="#{item.mobile}" />  
+                                </f:facet>  
+                                <f:facet name="input">  
+                                    <p:inputText value="#{item.mobile}" style="width: 100%">                                        
+                                    </p:inputText>  
+                                </f:facet>  
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column headerText="Tel"
+                                  filterBy="#{item.telephone}" filterMatchMode="contains" filterPosition="bottom"
+                                  sortBy="#{item.telephone}">                            
+                            <p:cellEditor>  
+                                <f:facet name="output">  
+                                    <h:outputText value="#{item.telephone}" />  
+                                </f:facet>  
+                                <f:facet name="input">  
+                                    <p:inputText value="#{item.telephone}" style="width: 100%">                                        
+                                    </p:inputText>  
                                 </f:facet>  
                             </p:cellEditor>
                         </p:column>
@@ -137,16 +139,28 @@
                             </p:cellEditor>
                         </p:column>
 
-                        <p:column headerText="Mobile"
-                                  filterBy="#{item.mobile}" filterMatchMode="contains" filterPosition="bottom"
-                                  sortBy="#{item.mobile}">                            
+                        <p:column headerText="Email"
+                                  filterBy="#{item.email}" filterMatchMode="contains" filterPosition="bottom" filterStyle="width:50px;"
+                                  sortBy="#{item.email}">                            
                             <p:cellEditor>  
                                 <f:facet name="output">  
-                                    <h:outputText value="#{item.mobile}" />  
+                                    <h:outputText value="#{item.email}" />  
                                 </f:facet>  
                                 <f:facet name="input">  
-                                    <p:inputText id="txtEmail" value="#{item.mobile}" style="width: 100%">                                        
-                                    </p:inputText>  
+                                    <p:inputText value="#{item.email}" style="width:100%"/>  
+                                </f:facet>  
+                            </p:cellEditor>
+                        </p:column>
+                        
+                        <p:column headerText="Description"
+                                  filterBy="#{item.description}" filterMatchMode="contains" filterPosition="bottom" filterStyle="width:50px;"
+                                  sortBy="#{item.description}">                            
+                            <p:cellEditor>  
+                                <f:facet name="output">  
+                                    <h:outputText value="#{item.description}" />  
+                                </f:facet>  
+                                <f:facet name="input">  
+                                    <p:inputText value="#{item.description}" style="width:100%"/>  
                                 </f:facet>  
                             </p:cellEditor>
                         </p:column>
@@ -158,7 +172,7 @@
                         <p:column style="width: 5px; border-left: none;">
                             <p:commandButton oncomplete="wgDelete.show()" value=""
                                              style="background: url('/RadioCabs/Resource/Admin/images/icons/dark/close.png'); background-repeat: no-repeat; background-position: center; height: 60px; width: 30px; border: none; margin: 0; padding: 0px;">
-                                <f:setPropertyActionListener value="#{item}" target="#{controllerCompany.selected}" />
+                                <f:setPropertyActionListener value="#{item}" target="#{controllerAdvertise.selected}" />
                             </p:commandButton>
                         </p:column>
 

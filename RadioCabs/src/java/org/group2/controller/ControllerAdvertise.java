@@ -18,26 +18,25 @@ import org.group2.entity.RegisteredUnit;
  */
 @ManagedBean
 @ViewScoped
-public class ControllerAdvertise extends AbstractController implements Serializable{
+public class ControllerAdvertise extends AbstractController implements Serializable {
 
     public ControllerAdvertise() {
-        super(RegisteredUnit.class);        
+        super(RegisteredUnit.class);
     }
-    
+
     @Override
-    public List getList(){
+    public List getList() {
         return super.getList("registeredTypeID = 3");
     }
 
     @Override
-    public void create(ActionEvent evt) {    
-        System.out.println("===Call create===");
-        ((RegisteredUnit)selected).setRegisteredType(new RegisteredType(3, null));
+    public void create(ActionEvent evt) {
+        ((RegisteredUnit) selected).setRegisteredType(new RegisteredType(3, null));
         super.create(evt);
     }
-    
-    public List getDisplayList() {        
-        String hqlQuery = "select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 3 and b.expriateDate > CURRENT_DATE() ";                        
+
+    public List getDisplayList() {
+        String hqlQuery = "select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 3 and b.expriateDate > CURRENT_DATE() ";
         return super.createHQLQuery(hqlQuery);
     }
     

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Advertise</title>        
+        <style type="text/css">
+            .ui-panelgrid td, .ui-panelgrid tr {
+                border: 0 !important;
+            }
+        </style>
+    </h:head>
+    <h:body>        
+        <p:dialog widgetVar="wgCreate" id="dlgCreate" modal="true" appendToBody="true" resizable="false" style="margin:auto">
+            <h:form id="frmCreate">
+                <p:growl id="grow"/>
+                <p:panelGrid id="pnlCreate" columns="4" rendered="#{controllerAdvertise.selected != null}"> 
+                    <h:outputLabel for="txtRegistrationId" value="Registration Id: "/>
+                    <p:inputText id="txtRegistrationId" value="#{controllerAdvertise.selected.registrationId}">
+                        <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+                    </p:inputText>
+                    <h:outputLabel for="txtCompanyName" value="Company Name: "/>
+                    <p:inputText id="txtCompanyName" value="#{controllerAdvertise.selected.name}">
+                        <f:validateRegex pattern="^[a-zA-Z ']+$" />
+                    </p:inputText>                                      
+                    <h:outputLabel for="txtDesignation" value="Designation: "/>
+                    <p:inputText id="txtDesignation" value="#{controllerAdvertise.selected.designation}">
+                        <f:validateRegex pattern="^[a-zA-Z ']+$" />
+                    </p:inputText>
+                    <h:outputLabel for="txtAddress" value="Address: "/>
+                    <p:inputText id="txtAddress" value="#{controllerAdvertise.selected.address}"/>
+                    <h:outputLabel for="txtMobileNumber" value="Mobile Number: "/>
+                    <p:inputText id="txtMobileNumber" value="#{controllerAdvertise.selected.mobile}">
+                        <f:validateRegex pattern="^0[0-9.]{9,10}$" />
+                    </p:inputText>
+                    <h:outputLabel for="txtTelephone" value="Telephone: "/>
+                    <p:inputText id="txtTelephone" value="#{controllerAdvertise.selected.telephone}">
+                        <f:validateRegex pattern="^[0-9.]*$" />
+                    </p:inputText>
+                    <h:outputLabel for="txtFaxNumber" value="Fax Number: "/>
+                    <p:inputText id="txtFaxNumber" value="#{controllerAdvertise.selected.faxNumber}">
+                        <f:validateRegex pattern="^[0-9.]*$" />
+                    </p:inputText>
+                    <h:outputLabel for="txtEmail" value="Email: "/>
+                    <p:inputText id="txtEmail" value="#{controllerAdvertise.selected.email}">
+                        <f:validateRegex pattern="^(([\w-\s]+)|([\w-]+(?:\.[\w-]+)*)|([\w-\s]+)([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i" />
+                    </p:inputText>                                    
+                    <h:outputLabel for="txtDescription" value="Description: "/>
+                    <p:inputText id="txtDescription" value="#{controllerAdvertise.selected.description}"/>
+                                  
+                </p:panelGrid>
+                <div style="margin: 5px">
+                    <p:commandButton id="btnCreate" value="Create" update=":frmList grow" actionListener="#{controllerAdvertise.create(evt)}" oncomplete="wgCreate.hide()"/> 
+                </div>
+            </h:form>
+        </p:dialog>
+
+    </h:body>
+</html>
+
