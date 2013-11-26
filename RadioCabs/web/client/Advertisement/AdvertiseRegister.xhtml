@@ -12,7 +12,7 @@
 
             <ui:define name="content">
                 <style type="text/css">
-                    #Signup {
+                    #Advertise {
                         background:url(/RadioCabs/Resource/Client/images/tail-item.gif);
                         box-shadow:inset 0 1px 3px #c5c2a9;
                         -moz-box-shadow: inset 0 1px 3px #c5c2a9;
@@ -41,10 +41,20 @@
                             <div class="box-register">
                                 <h3>Book an Advertisement</h3>
                                 <h:form id="contact-form">
-                                    <div class="success"> Contact form submitted! <strong>We will be in touch soon.</strong> </div>                                
+                                    <div class="success"> Advertise order submitted! <strong>We will be in touch soon.</strong> </div>                                
                                     <fieldset>
 
                                         <div class="coll-1">
+                                            <div>
+                                                <div class="form-txt">ID:</div>
+                                                <label>
+                                                    <h:inputText id="txtAdvertiseID" value="#{controllerAdvertise.selected.registrationId}" required="true" requiredMessage="*This field is required" validatorMessage="*Advertise's ID is not valid">                                                
+                                                        <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtAdvertiseID" />
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
                                             <div>
                                                 <div class="form-txt">Company Name: </div>
                                                 <label>
@@ -77,8 +87,8 @@
                                             <div>
                                                 <div class="form-txt">Mobile: </div>
                                                 <label>
-                                                    <h:inputText id="txtMobile" value="#{controllerAdvertise.selected.mobile}" required="true" requiredMessage="*This field is required" validatorMessage="*City is not valid">
-                                                        <f:validateRegex pattern="^[a-zA-Z ']+$" />
+                                                    <h:inputText id="txtMobile" value="#{controllerAdvertise.selected.mobile}" required="true" requiredMessage="*This field is required" validatorMessage="*Mobile is not valid">
+                                                        <f:validateRegex pattern="^0[0-9.]{9,10}$" />
                                                     </h:inputText>
                                                     <h:message styleClass="errorMsg" for="txtMobile"/>
                                                 </label>
@@ -89,7 +99,7 @@
                                             <div>
                                                 <div class="form-txt">Telephone: </div>
                                                 <label>
-                                                    <h:inputText id="txtTelephone" value="#{controllerAdvertise.selected.telephone}" required="true" requiredMessage="*This field is required" validatorMessage="*Mobile is not valid">
+                                                    <h:inputText id="txtTelephone" value="#{controllerAdvertise.selected.telephone}" required="true" requiredMessage="*This field is required" validatorMessage="*Telephone is not valid">
                                                         <f:validateRegex pattern="^0[0-9.]{9,10}$" />
                                                     </h:inputText>
                                                     <h:message styleClass="errorMsg" for="txtTelephone"/>
@@ -99,7 +109,7 @@
                                             <div>
                                                 <div class="form-txt">Fax Number: </div>
                                                 <label>
-                                                    <h:inputText id="txtFax" value="#{controllerAdvertise.selected.faxNumber}" required="true" requiredMessage="*This field is required" validatorMessage="*Telephone is not valid">
+                                                    <h:inputText id="txtFax" value="#{controllerAdvertise.selected.faxNumber}" required="true" requiredMessage="*This field is required" validatorMessage="*Fax Number is not valid">
                                                         <f:validateRegex pattern="^0[0-9.]{9,10}$" />
                                                     </h:inputText>
                                                     <h:message styleClass="errorMsg" for="txtFax"/>
