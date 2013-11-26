@@ -33,6 +33,7 @@ public class RegisteredUnit implements java.io.Serializable {
     private String telephone;
     private String email;
     private Set<Billing> billings = new HashSet<Billing>(0);
+    private String photo;
 
     public RegisteredUnit() {
     }
@@ -227,6 +228,14 @@ public class RegisteredUnit implements java.io.Serializable {
         return status;
     }
 
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+    
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {

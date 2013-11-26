@@ -4,6 +4,7 @@
  */
 package org.group2.controller;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +12,11 @@ import java.util.Set;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.group2.entity.Billing;
 import org.group2.entity.RegisteredType;
 import org.group2.entity.RegisteredUnit;
+import org.primefaces.event.FileUploadEvent;
 import org.primefaces.event.RowEditEvent;
 
 /**
@@ -68,5 +71,10 @@ public class ControllerDriver extends AbstractController implements Serializable
         condition += " and r.city like '%" + searchedUnit.getCity()+ "%'";
         condition += " and r.telephone like '%" + searchedUnit.getTelephone() + "%'";
         condition += " and r.experience >= " + searchedUnit.getExperience();
-    }        
+    }
+    
+    public void handleImageUpload(FileUploadEvent evt){
+        //if((RegisteredUnit))
+        //File dest = new File(condition)
+    }
 }

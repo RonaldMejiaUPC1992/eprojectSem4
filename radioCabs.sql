@@ -33,7 +33,8 @@ create table registeredUnit(
 	mobile varchar(20),
 	telephone varchar(20),
 	email varchar(100),
-	registeredTypeID int references registeredType(registeredTypeID),		
+	registeredTypeID int references registeredType(registeredTypeID),
+	photo varchar(200)
 )
 go
 create table billing(

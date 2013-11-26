@@ -72,7 +72,11 @@
                                     <figure class="box-img">
                                         <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg" alt="" />
                                     </figure>
-
+                                    <div style="text-align: center; margin-top: 5px">
+                                        <p:fileUpload fileUploadListener="#{controllerDriver.handleImageUpload(evt)}" 
+                                                      mode="simple" dragDropSupport="false"  sizeLimit="100000"                                                       
+                                                      allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+                                    </div>
                                 </div>                            
                                 <div style="float: right">
                                     <div style="margin-left: 20px" class="headerID">

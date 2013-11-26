@@ -56,5 +56,8 @@
             </key>
             <one-to-many class="org.group2.entity.Billing" />
         </set>
+        <property name="photo" type="string">
+            <column name="phto" length="200" />
+        </property>
     </class>
 </hibernate-mapping>
