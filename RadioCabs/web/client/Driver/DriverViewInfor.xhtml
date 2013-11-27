@@ -73,15 +73,15 @@
                                     <figure class="box-img">
                                         <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg" alt="" />
                                     </figure>
-                                    <div style="text-align: center; margin-top: 5px">                                        
+                                    <div style="text-align: center; margin-top: 10px">                                        
                                         <!--<p:fileUpload mode="advanced" sizeLimit="1000000" 
                                                       allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
                                                       fileUploadListener=""/>-->
                                         <p:fileUpload mode="simple" value="#{controllerDriver.uploadFile}" />
-                                        <p:commandButton value="Submit" ajax="false" actionListener="#{controllerDriver.upload}"/>
+                                        <p:commandButton style="float: right;" value="Submit" ajax="false" actionListener="#{controllerDriver.upload}"/>
                                     </div>
                                 </div>                            
-                                <div style="float: right">
+                                <div style="float: right;">
                                     <div style="margin-left: 20px" class="headerID">
                                         <h4>Driver ID: <h:outputText value="#{user.registrationId}"/></h4>
                                     </div>

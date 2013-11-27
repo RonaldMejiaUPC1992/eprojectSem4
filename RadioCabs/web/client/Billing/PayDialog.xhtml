@@ -10,21 +10,35 @@
     </h:head>
     <h:body>
         <ui:composition>
+            <style type="text/css">
+                #tblPay {
+                    border: 1px;
+                }
+            </style>
             <h:form id="frmPayment">
                 <p:growl id="grow"/>
                 <p:dialog widgetVar="wgPayment" header="Payment Detail" modal="true" style="background: #FFFFFF" resizable="false"> 
-                    <p:panelGrid id="pnlCreate" columns="2" rendered="#{controllerBilling.selected != null}">                        
-                        <h:outputLabel for="ddlPaymentType" value="Payment type: "/>
-                        <p:selectOneMenu id="ddlPaymentType" value="#{controllerBilling.selected.paymentType}">
-                            <f:selectItem itemLabel="---Select One---" itemValue="" />
-                            <f:selectItems value="#{controllerBilling.listPaymentType}" var="paymentType" itemLabel="#{paymentType.paymentTypeName}" itemValue="#{paymentType}"/>
-                            <f:converter converterId="paymentTypeConverter" />                            
-                            <p:ajax process="@this" event="change" update=":frmPayment:txtMoney" listener="#{controllerBilling.updateMoney(evt)}"/>
-                        </p:selectOneMenu>
-                        <h:outputLabel for="txtMoney" value="Money"/>
-                        <h:outputText id="txtMoney" value="#{controllerBilling.displayMoney}"/> USD
-                        <p:commandButton id="btnCreate" value="Pay Now" update=":frmInfor grow" actionListener="#{controllerBilling.paid(evt)}" oncomplete="wgPayment.hide()"/> 
-                    </p:panelGrid>
+                    <table id="tblPay" width="400px">
+                        <tr style="height: 40px;">
+                            <td><h:outputLabel for="ddlPaymentType" value="Payment type: "/></td>
+                            <td>
+                                <p:selectOneMenu id="ddlPaymentType" value="#{controllerBilling.selected.paymentType}">
+                                    <f:selectItem itemLabel="---Select One---" itemValue="" />
+                                    <f:selectItems value="#{controllerBilling.listPaymentType}" var="paymentType" itemLabel="#{paymentType.paymentTypeName}" itemValue="#{paymentType}"/>
+                                    <f:converter converterId="paymentTypeConverter" />                            
+                                    <p:ajax process="@this" event="change" update=":frmPayment:txtMoney" listener="#{controllerBilling.updateMoney(evt)}"/>
+                                </p:selectOneMenu>
+                            </td>
+                        </tr>
+                        <tr style="height: 30px;">
+                            <td><h:outputLabel for="txtMoney" value="Balance"/></td>
+                            <td><h:outputText id="txtMoney" value="#{controllerBilling.displayMoney}"/> USD</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><p:commandButton id="btnCreate" value="Pay Now" update=":frmInfor grow" actionListener="#{controllerBilling.paid(evt)}" oncomplete="wgPayment.hide()"/> </td>
+                        </tr>
+                    </table>                     
                 </p:dialog>
             </h:form>
         </ui:composition>

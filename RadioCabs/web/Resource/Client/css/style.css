@@ -425,6 +425,7 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
 /*----- btns -----*/
 
 .btn {
+    margin-top: 15px;
     display:inline-block;
     color:#fff;
     padding:8px 16px;

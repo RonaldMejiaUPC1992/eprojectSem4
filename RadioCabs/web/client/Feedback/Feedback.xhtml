@@ -11,12 +11,16 @@
             <ui:define name="content">
                 <style type="text/css">
                     #Feedback {
-                        background:url(images/tail-item.gif);
+                        background:url(/RadioCabs/Resource/Client/images/tail-item.gif);
                         box-shadow:inset 0 1px 3px #c5c2a9;
                         -moz-box-shadow: inset 0 1px 3px #c5c2a9;
                         -webkit-box-shadow: inset 0 1px 3px #c5c2a9;
                     }       
-
+                    
+                    #Feedback a {
+                        color:#d53827;
+                    }
+                    
                     .errorMsg{
                         color: red;
                         font-size: 8pt;
@@ -98,7 +102,7 @@
                                         <div>
                                             <div class="form-txt">Description:</div>
                                             <label>
-                                                <h:inputTextarea id="txtDescription" value="#{controllerFeedback.selected.description}" required="true" requiredMessage="*This field is required" validatorMessage="*Message is too short">
+                                                <h:inputTextarea style="height: 147px;" id="txtDescription" value="#{controllerFeedback.selected.description}" required="true" requiredMessage="*This field is required" validatorMessage="*Message is too short">
                                                     
                                                 </h:inputTextarea>
                                                 <h:message styleClass="errorMsg" for="txtDescription"/>
@@ -107,12 +111,12 @@
                                         </div>
                                     </div>
                                     <div class="clear"></div>
-                                    <div class="btns">                                    
-                                        <h:commandLink id="btnSend" styleClass="btn" actionListener="#{controllerFeedback.create(evt)}" 
-                                                       value="Send" data-type="submit"/>                                    
+                                    <div class="btns">                                                                                                               
                                         <h:commandLink id="btnReset" styleClass="btn" value="Reset">
                                             <p:ajax update=":contact-form" resetValues="true" />
-                                        </h:commandLink>                                    
+                                        </h:commandLink> 
+                                        <h:commandLink id="btnSend" styleClass="btn" actionListener="#{controllerFeedback.create(evt)}" 
+                                                       value="Send" data-type="submit"/>
                                     </div>
                                 </fieldset>
                             </h:form>
