@@ -71,14 +71,24 @@
                             <div class="box-viewInfor">
                                 <div class="colImage">
                                     <figure class="box-img">
-                                        <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg" alt="" />
+                                        <c:if test="#{empty sessionScope['clientUser'].photo}">
+                                            <p:graphicImage style="width: 220px;" url="/Resource/DefaultIcon/driver2.png" />
+                                        </c:if>
+                                        <c:if test="#{not empty sessionScope['clientUser'].photo}">
+                                            <p:graphicImage style="width: 220px" url="/Images/Drivers/#{sessionScope['clientUser'].photo}" />
+                                        </c:if>
                                     </figure>
-                                    <div style="text-align: center; margin-top: 10px">                                        
-                                        <!--<p:fileUpload mode="advanced" sizeLimit="1000000" 
-                                                      allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
-                                                      fileUploadListener=""/>-->
-                                        <p:fileUpload mode="simple" value="#{controllerDriver.uploadFile}" />
-                                        <p:commandButton style="float: right;" value="Submit" ajax="false" actionListener="#{controllerDriver.upload}"/>
+                                    <div style="width: 235px; text-align: center">                                                                                                                                                              
+                                        <p:commandLink styleClass="btn" value="Update Image" oncomplete="wgUpdateImg.show()"/>
+                                        <p:growl id="grow"/>
+                                        <p:dialog widgetVar="wgUpdateImg" header="Update Image">
+                                            <h:form>
+                                                <p:outputPanel>
+                                                    Image : <p:fileUpload mode="simple" value="#{controllerUploadFile.uploadFile}" /><br/>                                                    
+                                                        <p:commandButton style="margin-top: 10px;" value="Update" ajax="false" actionListener="#{controllerUploadFile.updateImage(evt)}" oncomplete="wgUpdateImg.hide()" />
+                                                </p:outputPanel>
+                                            </h:form>
+                                        </p:dialog>
                                     </div>
                                 </div>                            
                                 <div style="float: right;">

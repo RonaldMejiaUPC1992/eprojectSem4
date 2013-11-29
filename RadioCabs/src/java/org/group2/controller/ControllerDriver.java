@@ -17,9 +17,10 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 import org.group2.entity.RegisteredType;
 import org.group2.entity.RegisteredUnit;
-import org.primefaces.component.fileupload.FileUpload;
+import org.group2.util.JsfUtil;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
@@ -30,27 +31,27 @@ import org.primefaces.model.UploadedFile;
 @ManagedBean(name = "controllerDriver")
 @ViewScoped
 public class ControllerDriver extends AbstractController implements Serializable {
-
+    
     public ControllerDriver() {
         super(RegisteredUnit.class);
     }
-
+    
     @Override
     public List getList() {
         return super.getList("registeredTypeID = 2");
     }
-
+    
     @Override
     public void create(ActionEvent evt) {
         ((RegisteredUnit) selected).setRegisteredType(new RegisteredType(2, null));
         super.create(evt);
     }
-
+    
     @Override
     public void update(ActionEvent evt) {
         super.update(evt);
     }
-
+    
     public List getDisplayList() {
         //return super.createHQLQuery("select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 2 and b.expriateDate > CURRENT_DATE() " + condition);
         String hqlQuery = "select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 2 and b.expriateDate > CURRENT_DATE() " + condition;
@@ -58,15 +59,15 @@ public class ControllerDriver extends AbstractController implements Serializable
     }
     RegisteredUnit searchedUnit = new RegisteredUnit();
     String condition = "";
-
+    
     public RegisteredUnit getSearchedUnit() {
         return searchedUnit;
     }
-
+    
     public void setSearchedUnit(RegisteredUnit searchedUnit) {
         this.searchedUnit = searchedUnit;
     }
-
+    
     public void searchByName(ActionEvent evt) {
         selected = new RegisteredUnit();
         condition = " and r.name like '%" + searchedUnit.getName() + "%'";
@@ -74,11 +75,11 @@ public class ControllerDriver extends AbstractController implements Serializable
         condition += " and r.telephone like '%" + searchedUnit.getTelephone() + "%'";
         condition += " and r.experience >= " + searchedUnit.getExperience();
     }
-
+    
     public void handleImageUpload(FileUploadEvent evt) {
         try {
-            String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/");                 
-            File targetFile = new File(path+"Images/Drivers/"+evt.getFile().getFileName());            
+            String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/");
+            File targetFile = new File(path + "Images/Drivers/" + evt.getFile().getFileName());
             InputStream inputStream = evt.getFile().getInputstream();
             OutputStream out = new FileOutputStream(targetFile);
             int read = 0;
@@ -95,17 +96,13 @@ public class ControllerDriver extends AbstractController implements Serializable
         }
     }
     
-    UploadedFile uploadFile;
-
-    public UploadedFile getUploadFile() {
-        return uploadFile;
-    }
-
-    public void setUploadFile(UploadedFile uploadFile) {
-        this.uploadFile = uploadFile;
-    }
-    
-    public void upload(){
-        System.out.println(uploadFile.getFileName());
-    }
+    /*
+     public void upload(){
+     if(uploadFile != null){
+     System.out.println(uploadFile.getFileName());
+     JsfUtil.addSuccessMessage(uploadFile.getFileName());
+     }else{
+     JsfUtil.addErrorMessage("Please select file");
+     }
+     }*/
 }
