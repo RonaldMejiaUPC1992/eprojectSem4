@@ -9,11 +9,21 @@
     </h:head>
     <h:body>
         <ui:composition>
+            <style>
+                tr:hover{
+                    color: darkorange;
+                    font-weight: bold;
+                }
+                img:hover{
+                    border: solid #803939;
+                }                           
+            </style>
             <h:form id="frmDetail">
-                <p:dialog id="dlgDetail" header="Driver Detail" widgetVar="wgDetail" modal="true" style="background: #FFFFFF" resizable="false">  
+                <p:dialog id="dlgDetail" header="Driver #{controllerDriver.selected.registrationId} Detail" widgetVar="wgDetail" modal="true" style="background: oldlace" resizable="false">  
                     <p:outputPanel id="carDetail" style="width: 800px; padding-bottom: 10px;" layout="block" rendered="#{not empty controllerDriver.selected}">  
                         <figure class="box-img">
-                            <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg " alt="" />
+                            <p:graphicImage style="width: 220px" url="/Images/#{controllerDriver.selected.photo}" rendered="#{not empty controllerDriver.selected.photo}" />                                                    
+                            <p:graphicImage style="width: 220px;" url="/Resource/DefaultIcon/driver2.png" rendered="#{empty controllerDriver.selected.photo}" />  
                         </figure>
                         <div class="overflow">
                             <h4><h:outputText value="#{controllerDriver.selected.registrationId}"/></h4>

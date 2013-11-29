@@ -9,14 +9,24 @@
     </h:head>
     <h:body>
         <ui:composition>
+            <style>
+                tr:hover{
+                    color: darkorange;
+                    font-weight: bold;
+                }
+                img:hover{
+                    border: solid #803939;
+                }                           
+            </style>
             <h:form id="frmDetail">
-                <p:dialog id="dlgDetail" header="Company Detail" widgetVar="wgDetail" modal="true" style="background: #FFFFFF" resizable="false">  
-                    <p:outputPanel id="carDetail" style="width: 800px; padding-bottom: 10px;" layout="block" rendered="#{not empty controllerCompany.selected}">  
+                <p:dialog id="dlgDetail" header="Company #{controllerCompany.selected.registrationId} Detail" widgetVar="wgDetail" modal="true" style="background: oldlace" resizable="false">  
+                    <p:outputPanel id="carDetail" style="width: 700px; padding-bottom: 10px;" layout="block" rendered="#{not empty controllerCompany.selected}">  
                         <figure class="box-img">
-                            <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg " alt="" />
+                            <p:graphicImage style="width: 220px" url="/Images/#{controllerCompany.selected.photo}" rendered="#{not empty controllerCompany.selected.photo}" />                                                    
+                            <p:graphicImage style="width: 220px;" url="/Resource/DefaultIcon/company2.png" rendered="#{empty controllerCompany.selected.photo}" />
                         </figure>
                         <div class="overflow">
-                            <h4><h:outputText value="#{controllerCompany.selected.registrationId}"/></h4>
+                            <h4 style="margin-bottom: 3px;">Company ID: <h:outputText value="#{controllerCompany.selected.registrationId}"/></h4>
                             <table cellpadding="5px">
                                 <tr>
                                     <td>Name:</td>
@@ -49,11 +59,7 @@
                                 <tr>
                                     <td>Fax Number: </td>
                                     <td><h:outputText value="#{controllerCompany.selected.faxNumber}"/></td>
-                                </tr>
-                                <tr>
-                                    <td>Membership Type: </td>
-                                    <td><h:outputText value="#{controllerCompany.selected.membershipType}"/></td>
-                                </tr>
+                                </tr>                                
                             </table>
                         </div>
                         <div class="clear"></div>

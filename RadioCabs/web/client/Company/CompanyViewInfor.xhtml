@@ -66,14 +66,30 @@
                 <section id="content"><div class="ic"></div>                    
                     <div class="border-horiz"></div>                    
                     <div class="container_12">
-                        <h:form id="frmInfor">
+                        <h:form id="frmInfor" enctype="multipart/form-data">
                             <div class="box-viewInfor">
                                 <div class="colImage">
                                     <figure class="box-img">
-                                        <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg" alt="" />
+                                        <c:if test="#{empty sessionScope['clientUser'].photo}">
+                                            <p:graphicImage style="width: 220px;" url="/Resource/DefaultIcon/company2.png" />
+                                        </c:if>
+                                        <c:if test="#{not empty sessionScope['clientUser'].photo}">
+                                            <p:graphicImage style="width: 220px" url="/Images/#{sessionScope['clientUser'].photo}" />
+                                        </c:if>
                                     </figure>
-
-                                </div>                            
+                                    <div style="width: 235px; text-align: center">                                                                                                                                                              
+                                        <p:commandLink styleClass="btn" value="Update Image" oncomplete="wgUpdateImg.show()"/>
+                                        <p:growl id="grow"/>
+                                        <p:dialog widgetVar="wgUpdateImg" header="Update Image">
+                                            <h:form>
+                                                <p:outputPanel>
+                                                    Image : <p:fileUpload mode="simple" value="#{controllerUploadFile.uploadFile}" /><br/>                                                    
+                                                    <p:commandButton style="margin-top: 10px;" value="Update" ajax="false" actionListener="#{controllerUploadFile.updateImage(evt)}" oncomplete="wgUpdateImg.hide()" />
+                                                </p:outputPanel>
+                                            </h:form>
+                                        </p:dialog>
+                                    </div>
+                                </div>                          
                                 <div style="float: right">
                                     <div style="margin-left: 20px" class="headerID">
                                         <h4>

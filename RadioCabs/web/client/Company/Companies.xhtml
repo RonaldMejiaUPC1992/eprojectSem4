@@ -21,7 +21,7 @@
                         -moz-box-shadow: inset 0 1px 3px #c5c2a9;
                         -webkit-box-shadow: inset 0 1px 3px #c5c2a9;
                     }
-                    
+
                     #Company a {
                         color:#d53827;
                     }
@@ -83,26 +83,33 @@
                                                 rows="3" rowsPerPageTemplate="3,5,10"
                                                 paginatorPosition="bottom">  
                                         <p:column>
-                                            <figure class="box-img">
-                                                <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg " alt="" />
-                                            </figure>
-                                            <div class="overflow">
-                                                <h4>ID: <h:outputText value="#{company.registrationId}"/></h4>
-                                                <div>
-                                                    <div>Name: <h:outputText value="#{company.name}"/></div>
-                                                    <div>Contact: <h:outputText value="#{company.contactPerson}"/></div>
-                                                    <div>Address: <h:outputText value="#{company.address}"/></div>
-                                                    <div>Tel: <h:outputText value="#{company.telephone}"/></div>  
-                                                    <div>Fax: <h:outputText value="#{company.faxNumber}"/></div>
+                                            <div style="margin-bottom: 20px;">
+                                                <figure class="box-img">
+                                                    <c:if test="#{empty company.photo}">
+                                                        <p:graphicImage style="width: 220px" url="/Images/#{company.photo}" rendered="#{not empty company.photo}" />                                                    
+                                                        <p:graphicImage style="width: 220px;" url="/Resource/DefaultIcon/company2.png" rendered="#{empty company.photo}" />  
+                                                    </c:if>
+                                                    <c:if test="#{not empty company.photo}">
+                                                        <p:graphicImage style="width: 220px" url="/Images/#{company.photo}" />
+                                                    </c:if>
+                                                </figure>
+                                                <div class="overflow">
+                                                    <h4>ID: <h:outputText value="#{company.registrationId}"/></h4>
+                                                    <div>                                                    
+                                                        <div>Name: <h:outputText value="#{company.name}"/></div>
+                                                        <div>Contact: <h:outputText value="#{company.contactPerson}"/></div>
+                                                        <div>Address: <h:outputText value="#{company.address}"/></div>
+                                                        <div>Tel: <h:outputText value="#{company.telephone}"/></div>  
+                                                        <div>Fax: <h:outputText value="#{company.faxNumber}"/></div>
+                                                    </div>
+                                                    <div style="margin-top: 5px">
+                                                        <p:commandLink styleClass="btn" oncomplete="wgDetail.show()" value="View Detail" update=":frmDetail">
+                                                            <f:setPropertyActionListener value="#{company}" target="#{controllerCompany.selected}" />                                            
+                                                        </p:commandLink>
+                                                    </div>
                                                 </div>
-                                                <div style="margin-top: 5px">
-                                                    <p:commandLink styleClass="btn" oncomplete="wgDetail.show()" value="View Detail" update=":frmDetail">
-                                                        <f:setPropertyActionListener value="#{company}" target="#{controllerCompany.selected}" />                                            
-                                                    </p:commandLink>
-                                                </div>
-                                            </div>
-                                            <div class="clear"></div>  
-                                            <br />
+                                                <div class="clear"></div>  
+                                            </div>                                            
                                         </p:column>
                                     </p:dataList> 
                                 </h:form>

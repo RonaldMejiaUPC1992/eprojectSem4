@@ -19,11 +19,11 @@
                         -moz-box-shadow: inset 0 1px 3px #c5c2a9;
                         -webkit-box-shadow: inset 0 1px 3px #c5c2a9;
                     }
-                    
+
                     #Drivers a {
                         color:#d53827;
                     }
-                    
+
                     .ui-widget-content {
                         background: none repeat scroll 0 0 transparent ;
                         border: none;
@@ -84,26 +84,28 @@
                                                 rowsPerPageTemplate="3,5,10"
                                                 paginatorPosition="bottom">  
 
-                                        <p:column>
-                                            <figure class="box-img">
-                                                <img src="/RadioCabs/Resource/Client/images/page5-img2.jpg " alt="" />
-                                            </figure>
-                                            <div class="overflow">
-                                                <h4><h:outputText value="#{driver.registrationId}"/></h4>
-                                                <div>
-                                                    <div>Name: <h:outputText value="#{driver.name}"/></div>
-                                                    <div>Experience: <h:outputText value="#{driver.experience}"/> years</div>
-                                                    <div>City: <h:outputText value="#{driver.city}"/></div>
-                                                    <div>Tel: <h:outputText value="#{driver.telephone}"/></div>
-                                                </div>  
-                                                <div style="margin-top: 5px;">
-                                                    <p:commandLink styleClass="btn" oncomplete="wgDetail.show()" value="View Detail" update=":frmDetail">
-                                                        <f:setPropertyActionListener value="#{driver}" target="#{controllerDriver.selected}" />                                            
-                                                    </p:commandLink>
+                                        <p:column> 
+                                            <div style="margin-bottom: 20px;">
+                                                <figure class="box-img">                                                
+                                                    <p:graphicImage style="width: 220px" url="/Images/#{driver.photo}" rendered="#{not empty driver.photo}" />                                                    
+                                                    <p:graphicImage style="width: 220px;" url="/Resource/DefaultIcon/driver2.png" rendered="#{empty driver.photo}" />                                                
+                                                </figure>
+                                                <div class="overflow">
+                                                    <h4><h:outputText value="#{driver.registrationId}"/></h4>
+                                                    <div>                                                    
+                                                        <div>Name: <h:outputText value="#{driver.name}"/></div>
+                                                        <div>Experience: <h:outputText value="#{driver.experience}"/> years</div>
+                                                        <div>City: <h:outputText value="#{driver.city}"/></div>
+                                                        <div>Tel: <h:outputText value="#{driver.telephone}"/></div>
+                                                    </div>  
+                                                    <div style="margin-top: 5px;">
+                                                        <p:commandLink styleClass="btn" oncomplete="wgDetail.show()" value="View Detail" update=":frmDetail">
+                                                            <f:setPropertyActionListener value="#{driver}" target="#{controllerDriver.selected}" />                                            
+                                                        </p:commandLink>
+                                                    </div>
                                                 </div>
+                                                <div class="clear"></div>  
                                             </div>
-                                            <div class="clear"></div>  
-                                            <br />
                                         </p:column>
 
                                     </p:dataList> 

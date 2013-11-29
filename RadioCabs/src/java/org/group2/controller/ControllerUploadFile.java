@@ -45,7 +45,7 @@ public class ControllerUploadFile {
         if (uploadFile != null) {
             try {
                 String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/");
-                File targetFile = new File(path + "Images/Drivers/" + uploadFile.getFileName());
+                File targetFile = new File(path + "Images/" + uploadFile.getFileName());
                 InputStream inputStream = uploadFile.getInputstream();
                 OutputStream out = new FileOutputStream(targetFile);
                 int read = 0;
@@ -56,10 +56,7 @@ public class ControllerUploadFile {
                 inputStream.close();
                 out.flush();
                 out.close();
-
-                
-                //RegisteredUnit selected = (RegisteredUnit) new AbstractModel(RegisteredUnit.class) {
-                //}.search("where registrationID = '" + registrationID + "'").get(0);
+                                
                 RegisteredUnit selected = (RegisteredUnit) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("clientUser");
                 selected.setPhoto(uploadFile.getFileName());
                 Session session = HibernateUtil.getSessionFactory().openSession();

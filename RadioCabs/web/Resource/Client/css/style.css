@@ -745,7 +745,7 @@ footer {
     margin-top: 18px;
     padding: 20px 30px 30px ;
     width:1000px;
-    height: 250px;
+    min-height: 250px;
     border-radius:18px;
     -moz-border-radius:18px;
     -webkit-border-radius:18px;
@@ -807,4 +807,9 @@ footer {
 
 #frmSearch input[type="text"]:focus {
     width: 130px;
+}
+
+#frmList li:hover{
+    background: oldlace;
+    color: #262f36;
 }
