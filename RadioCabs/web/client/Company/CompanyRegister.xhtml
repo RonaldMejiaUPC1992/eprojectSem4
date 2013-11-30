@@ -48,54 +48,16 @@
 
                 <section id="content"><div class="ic"></div>                    
                     <div class="border-horiz"></div>                    
-                    <div class="container_12">
-                        <!--<article class="side-bar extra">
-                            <h3><strong>3</strong> Steps <em>To become<br/>
-                                    our driver</em> </h3>
-                            <ul class="list-dropcap1">
-                                <li>
-                                    <div class="wrapper">
-                                        <div class="dropcap">1</div>
-                                        <h4>Enter a driver<br/>
-                                            course</h4>
-                                    </div>
-                                    <p>First, you must learn how to drive a car, and take the driver's license</p>
-                                </li>
-                                <li>
-                                    <div class="wrapper">
-                                        <div class="dropcap">2</div>
-                                        <h4>Pass our Practical Test</h4>
-                                    </div>
-                                    <p>Our test will help us to choose who are the best drivers, match with our requirements</p>
-                                </li>
-                                <li>
-                                    <div class="wrapper">
-                                        <div class="dropcap">3</div>
-                                        <h4>At last: Join our company</h4>
-                                    </div>
-                                    <p>Become our driver, and we are a family!</p>
-                                </li>
-                            </ul>
-                        </article>
-                        -->
+                    <div class="container_12">                        
                         <article class="grid_8">                            
                             <div class="box-register">
                                 <h3>Company Register</h3>
                                 <h:form id="contact-form">
+                                    <p:growl/>
                                     <div class="success"> Contact form submitted! <strong>We will be in touch soon.</strong> </div>                                
                                     <fieldset>
 
                                         <div class="coll-1">
-                                            <div>
-                                                <div class="form-txt">Company Name:</div>
-                                                <label>
-                                                    <h:inputText id="txtCompanyID" value="#{controllerCompany.selected.registrationId}" required="true" requiredMessage="*This field is required" validatorMessage="*Driver ID is not valid">                                                
-                                                        <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
-                                                    </h:inputText>
-                                                    <h:message styleClass="errorMsg" for="txtCompanyID" />
-                                                </label>
-                                                <div class="clear"></div>
-                                            </div>
                                             <div>
                                                 <div class="form-txt">Company ID:</div>
                                                 <label>
@@ -107,12 +69,32 @@
                                                 <div class="clear"></div>
                                             </div>
                                             <div>
+                                                <div class="form-txt">Company Name:</div>
+                                                <label>
+                                                    <h:inputText id="txtCompanyID" value="#{controllerCompany.selected.registrationId}" required="true" requiredMessage="*This field is required" validatorMessage="*Driver ID is not valid">                                                
+                                                        <f:validateRegex pattern="^[a-zA-Z0-9 ]+$" />
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtCompanyID" />
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>                                            
+                                            <div>
                                                 <div class="form-txt">Password:</div>
                                                 <label>
                                                     <h:inputSecret id="txtPassword" value="#{controllerCompany.selected.password}" required="true" requiredMessage="*This field is required" validatorMessage="*Password must have more than 6 letter">
                                                         <f:validateRegex pattern=".{6}" />
                                                     </h:inputSecret>
                                                     <h:message styleClass="errorMsg" for="txtPassword" />
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div>
+                                                <div class="form-txt">Email:</div>
+                                                <label>
+                                                    <h:inputText id="txtEmail" value="#{controllerCompany.selected.email}" style="text-transform: none" required="true" requiredMessage="*This field is required" validatorMessage="*Email is not valid">
+                                                        <f:validateRegex pattern="^(([\w-\s]+)|([\w-]+(?:\.[\w-]+)*)|([\w-\s]+)([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i" />
+                                                    </h:inputText>
+                                                    <h:message styleClass="errorMsg" for="txtEmail"/>
                                                 </label>
                                                 <div class="clear"></div>
                                             </div>
@@ -134,20 +116,23 @@
                                                     </h:inputText>
                                                     <h:message styleClass="errorMsg" for="txtDesignation"/>
                                                 </label>
-                                            </div> 
-                                            <div>
-                                                <div class="form-txt">Address:</div>
-                                                <label>
-                                                    <h:inputText id="txtAddress" value="#{controllerCompany.selected.address}" required="true" requiredMessage="*This field is required">                                                                                                    
-                                                    </h:inputText>
-                                                    <h:message styleClass="errorMsg" for="txtAddress" />
-                                                </label>
-                                                <div class="clear"></div>
-                                            </div>
-
+                                            </div>                                             
                                         </div>
 
                                         <div class="coll-2">
+                                            <div>
+                                                <div class="form-txt">Membership Type: </div>
+                                                <label>
+                                                    <p:selectOneMenu id="ddlMembershipType" value="#{controllerCompany.selected.membershipType}" required="true" requiredMessage="*Please Select One" style="width: 300px;">
+                                                        <f:selectItem itemLabel="---Select One---" itemValue="" />  
+                                                        <f:selectItem itemLabel="Free" itemValue="1" />  
+                                                        <f:selectItem itemLabel="Basic" itemValue="2" />  
+                                                        <f:selectItem itemLabel="Premium" itemValue="3" />
+                                                    </p:selectOneMenu>
+                                                    <div><h:message styleClass="errorMsg" for="ddlMembershipType"/></div>
+                                                </label>
+                                                <div class="clear"></div>
+                                            </div>
                                             <div>
                                                 <div class="form-txt">Mobile:</div>
                                                 <label>
@@ -176,28 +161,13 @@
                                                     <h:message styleClass="errorMsg" for="txtFax"/>
                                                 </label>
                                                 <div class="clear"></div>
-                                            </div>
+                                            </div>                                            
                                             <div>
-                                                <div class="form-txt">Email:</div>
+                                                <div class="form-txt">Address:</div>
                                                 <label>
-                                                    <h:inputText id="txtEmail" value="#{controllerCompany.selected.email}" style="text-transform: none" required="true" requiredMessage="*This field is required" validatorMessage="*Email is not valid">
-                                                        <f:validateRegex pattern="^(([\w-\s]+)|([\w-]+(?:\.[\w-]+)*)|([\w-\s]+)([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i" />
-                                                    </h:inputText>
-                                                    <h:message styleClass="errorMsg" for="txtEmail"/>
-                                                </label>
-                                                <div class="clear"></div>
-                                            </div>
-
-                                            <div>
-                                                <div class="form-txt">Membership Type: </div>
-                                                <label>
-                                                    <p:selectOneMenu id="ddlMembershipType" value="#{controllerCompany.selected.membershipType}" required="true" requiredMessage="*Please Select One">
-                                                        <f:selectItem itemLabel="---Select One---" itemValue="" />  
-                                                        <f:selectItem itemLabel="Free" itemValue="1" />  
-                                                        <f:selectItem itemLabel="Basic" itemValue="2" />  
-                                                        <f:selectItem itemLabel="Premium" itemValue="3" />
-                                                    </p:selectOneMenu>
-                                                    <div><h:message styleClass="errorMsg" for="ddlMembershipType"/></div>
+                                                    <h:inputTextarea id="txtAddress" value="#{controllerCompany.selected.address}" required="true" requiredMessage="*This field is required" style="height: 89px;">                                                                                                    
+                                                    </h:inputTextarea>
+                                                    <h:message styleClass="errorMsg" for="txtAddress" />
                                                 </label>
                                                 <div class="clear"></div>
                                             </div>
