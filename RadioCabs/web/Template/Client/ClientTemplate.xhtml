@@ -49,7 +49,22 @@
             .btnHeader:hover{
                 border: solid;
             }
+            .hide{
+                display: none;
+            }            
         </style>
+        <script type="text/javascript">
+            function hideImg(){                               
+                if(document.getElementById('imgSwitch').style.display == "none"){
+                    document.getElementById('imgSwitch').style.display = "";
+                    document.getElementById('imgShowHide').src = "/RadioCabs/Resource/Admin/images/leftArrow.png";
+                }else if(document.getElementById('imgSwitch').style.display == ""){
+                    document.getElementById('imgSwitch').style.display = "none";
+                    document.getElementById('imgShowHide').src = "/RadioCabs/Resource/Admin/images/rightArrow.png"
+                }
+                
+            }
+        </script>
         <c:if test="#{not empty sessionScope['clientUser']}">
             <div style="position: fixed; z-index: 1000; right:0px">
                 <h:form id="frmHeader">                
@@ -61,33 +76,33 @@
             </div>
         </c:if>
 
-        <ui:include src="Top.xhtml"/>
+        <ui:include src="Top.xhtml"/>        
 
-        <div id="content" class="center_content">
-            <div style="position: fixed; z-index: 1000; left:0px">
+        <div id="content" class="center_content">            
+            <div style="position: fixed; z-index: 1000; left:0px">                   
+                <img id="imgShowHide" src="/RadioCabs/Resource/Admin/images/leftArrow.png" width="10px;" onclick="hideImg()"/>                
                 <p:imageSwitch id="imgSwitch" effect="fade" style="width:300px;height:188px;">  
                     <ui:repeat value="#{controllerAdvertise.displayList}" var="item">                          
-                        <div>
-                            <p:graphicImage style="width: 220px" url="/Images/#{item.photo}" rendered="#{not empty item.photo}">
+                        <div style="background: oldlace; width: 220px;">
+                            <p:graphicImage width="100%" url="/Images/#{item.photo}" rendered="#{not empty item.photo}">
                                 <div>
-                                    <div>Company name: #{item.name}</div>
-                                    <div>Telephone: #{item.telephone}</div>
+                                    <div><h4>#{item.name}</h4></div>
+                                    <div>Tel: #{item.telephone}</div>
                                     <div>Mobile: #{item.mobile}</div>
                                     <div>Email: #{item.email}</div>
                                 </div>
                             </p:graphicImage>
-                            <p:graphicImage style="width: 220px;" url="/Resource/DefaultIcon/driver2.png" rendered="#{empty item.photo}" >                               
+                            <p:graphicImage width="100%" url="/Resource/DefaultIcon/company2.png" rendered="#{empty item.photo}" >                               
                                 <div>
-                                    <div>Company name: #{item.name}</div>
-                                    <div>Telephone: #{item.telephone}</div>
+                                    <div><h4>#{item.name}</h4></div>
+                                    <div>Tel: #{item.telephone}</div>
                                     <div>Mobile: #{item.mobile}</div>
                                     <div>Email: #{item.email}</div>
                                 </div>
                             </p:graphicImage>
                         </div>                          
                     </ui:repeat>  
-                </p:imageSwitch>
-                advertise here
+                </p:imageSwitch>                
             </div>
             <ui:insert name="content">
                 <!-- Contents here -->                                
