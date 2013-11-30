@@ -371,7 +371,7 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
     float:left;
     margin:20px 20px 0 -30px;
     padding:0 10px 7px 40px;
-    background:#fff;
+    /*background:#fff;*/
     border-radius:18px;
     -moz-border-radius:18px;
     -webkit-border-radius:18px;
@@ -379,6 +379,11 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
     -moz-box-shadow: 0 0 3px #c5c2a9;
     -webkit-box-shadow:0 0 3px #c5c2a9;
 }	
+.side-bar:hover{
+    box-shadow:0 0 10px black;
+    -moz-box-shadow: 0 0 10px black;
+    -webkit-box-shadow:0 0 10px black;
+}
 .side-bar.extra{padding:18px 10px 0 40px}	
 .side-bar.extra1{padding:0px 20px 27px 30px}		
 .list-1 {padding:6px 0 23px}
@@ -769,7 +774,7 @@ footer {
 }
 
 .myBox{
-    background:#FFFFFF;
+    /*background:#FFFFFF;*/
     margin-top: 18px;
     padding: 0px 30px 30px ;        
     border-radius:18px;
@@ -778,6 +783,12 @@ footer {
     box-shadow:0 0 3px #c5c2a9;
     -moz-box-shadow: 0 0 3px #c5c2a9;
     -webkit-box-shadow:0 0 3px #c5c2a9;
+}
+
+.myBox:hover{
+    box-shadow:0 0 10px black;
+    -moz-box-shadow: 0 0 10px black;
+    -webkit-box-shadow:0 0 10px black;
 }
 
 #frmSearch {
@@ -810,6 +821,13 @@ footer {
 }
 
 #frmList li:hover{
+    border-radius:18px;
+    -moz-border-radius:18px;
+    -webkit-border-radius:18px;
+    box-shadow:0 0 3px #c5c2a9;
+    -moz-box-shadow: 0 0 3px #c5c2a9;
+    -webkit-box-shadow:0 0 3px #c5c2a9;
+    padding: 10px;
     background: oldlace;
     color: #262f36;
 }
