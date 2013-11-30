@@ -831,3 +831,8 @@ footer {
     background: oldlace;
     color: #262f36;
 }
+
+.form-txt:hover{
+    color: darkorange;
+    font-weight: bold;
+}
