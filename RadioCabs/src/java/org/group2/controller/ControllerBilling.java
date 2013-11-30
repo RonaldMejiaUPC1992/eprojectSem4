@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
@@ -19,6 +20,7 @@ import org.group2.entity.PaymentType;
 import org.group2.entity.RegisteredUnit;
 import org.group2.model.AbstractModel;
 import org.group2.util.JsfUtil;
+import sun.reflect.generics.visitor.Reifier;
 
 /**
  *
@@ -71,7 +73,7 @@ public class ControllerBilling extends AbstractController implements Serializabl
         HttpSession session =
                 (HttpSession) context.getExternalContext().getSession(true);
         RegisteredUnit user = (RegisteredUnit) session.getAttribute("clientUser");
-        if (((Billing) selected).getPaymentType() != null) {            
+        if (((Billing) selected).getPaymentType() != null) {
             if (((Billing) selected).getPaymentType().getPaymentTypeId() == 1) {
                 switch (user.getRegisteredType().getRegisteredTypeId()) {
                     case 1:
@@ -93,7 +95,7 @@ public class ControllerBilling extends AbstractController implements Serializabl
             } else {
                 displayMoney = 0;
             }
-        }else{
+        } else {
             displayMoney = 0;
         }
     }
@@ -142,6 +144,69 @@ public class ControllerBilling extends AbstractController implements Serializabl
             JsfUtil.addSuccessMessage("Purchase success");
         } else {
             JsfUtil.addErrorMessage("Cannot purchase");
+        }
+    }
+    @ManagedProperty(value = "#{controllerAdvertise}")
+    private ControllerAdvertise controllerAdvertise;
+
+    public ControllerAdvertise getControllerAdvertise() {
+        return controllerAdvertise;
+    }
+
+    public void setControllerAdvertise(ControllerAdvertise controllerAdvertise) {
+        this.controllerAdvertise = controllerAdvertise;
+    }
+
+    public void paidForAdvertise(ActionEvent evt) {
+        RegisteredUnit advertiseUser = ((RegisteredUnit)controllerAdvertise.selected);
+        ((Billing) selected).setRegisteredUnit(advertiseUser);
+
+        Date now = new Date();
+        ((Billing) selected).setPurchaseDate(now);
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(now);
+        
+        switch (((Billing) selected).getPaymentType().getPaymentTypeId()){
+            case 1:
+                cal.add(Calendar.MONTH, 1);
+                ((Billing) selected).setMoney(15);
+                ((Billing) selected).setExpriateDate(cal.getTime());
+                break;
+            case 2:
+                cal.add(Calendar.MONTH, 3);
+                ((Billing) selected).setMoney(40);
+                ((Billing) selected).setExpriateDate(cal.getTime());
+                break;
+            default:
+                ((Billing) selected).setMoney(0);
+                ((Billing) selected).setExpriateDate(null);
+                break;
+        }
+        
+        super.create(evt);
+                
+    }
+
+    public void updateMoneyForAdvertise() {
+        try {
+            if (((Billing) selected).getPaymentType() != null) {
+                switch (((Billing) selected).getPaymentType().getPaymentTypeId()) {
+                    case 1:
+                        displayMoney = 15;
+                        break;
+                    case 2:
+                        displayMoney = 40;
+                        break;
+                    default:
+                        displayMoney = 0;
+                        break;
+                }
+            } else {
+                displayMoney = 0;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 }

@@ -66,16 +66,22 @@
         <div id="content" class="center_content">
             <div style="position: fixed; z-index: 1000; left:0px">
                 <p:imageSwitch id="imgSwitch" effect="fade" style="width:300px;height:188px;">  
-                    <ui:repeat value="#{controllerDriver.displayList}" var="item">                          
+                    <ui:repeat value="#{controllerAdvertise.displayList}" var="item">                          
                         <div>
                             <p:graphicImage style="width: 220px" url="/Images/#{item.photo}" rendered="#{not empty item.photo}">
                                 <div>
-                                    See me
+                                    <div>Company name: #{item.name}</div>
+                                    <div>Telephone: #{item.telephone}</div>
+                                    <div>Mobile: #{item.mobile}</div>
+                                    <div>Email: #{item.email}</div>
                                 </div>
                             </p:graphicImage>
                             <p:graphicImage style="width: 220px;" url="/Resource/DefaultIcon/driver2.png" rendered="#{empty item.photo}" >                               
                                 <div>
-                                    see me 2 ??
+                                    <div>Company name: #{item.name}</div>
+                                    <div>Telephone: #{item.telephone}</div>
+                                    <div>Mobile: #{item.mobile}</div>
+                                    <div>Email: #{item.email}</div>
                                 </div>
                             </p:graphicImage>
                         </div>                          

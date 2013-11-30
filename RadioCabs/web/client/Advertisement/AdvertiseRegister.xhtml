@@ -44,10 +44,9 @@
                         <article class="grid_8">                            
                             <div class="box-register">
                                 <h3>Book an Advertisement</h3>
-                                <h:form id="contact-form">
-                                    <div class="success"> Advertise order submitted! <strong>We will be in touch soon.</strong> </div>                                
+                                <h:form id="contact-form" enctype="multipart/form-data">
+                                    <p:growl/>
                                     <fieldset>
-
                                         <div class="coll-1">
                                             <div>
                                                 <div class="form-txt">ID:</div>
@@ -63,7 +62,7 @@
                                                 <div class="form-txt">Company Name: </div>
                                                 <label>
                                                     <h:inputText id="txtName" value="#{controllerAdvertise.selected.name}" required="true" requiredMessage="*This field is required" validatorMessage="*Driver ID is not valid">                                                
-                                                        <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+                                                        <f:validateRegex pattern="^[a-zA-Z0-9 ]+$" />
                                                     </h:inputText>
                                                     <h:message styleClass="errorMsg" for="txtName" />
                                                 </label>
@@ -92,7 +91,7 @@
                                                 <div class="form-txt">Mobile: </div>
                                                 <label>
                                                     <h:inputText id="txtMobile" value="#{controllerAdvertise.selected.mobile}" required="true" requiredMessage="*This field is required" validatorMessage="*Mobile is not valid">
-                                                        <f:validateRegex pattern="^0[0-9.]{9,10}$" />
+                                                        <f:validateRegex pattern="^0[0-9.]{9,15}$" />
                                                     </h:inputText>
                                                     <h:message styleClass="errorMsg" for="txtMobile"/>
                                                 </label>
@@ -104,7 +103,7 @@
                                                 <div class="form-txt">Telephone: </div>
                                                 <label>
                                                     <h:inputText id="txtTelephone" value="#{controllerAdvertise.selected.telephone}" required="true" requiredMessage="*This field is required" validatorMessage="*Telephone is not valid">
-                                                        <f:validateRegex pattern="^0[0-9.]{9,10}$" />
+                                                        <f:validateRegex pattern="^[0-9.]*" />
                                                     </h:inputText>
                                                     <h:message styleClass="errorMsg" for="txtTelephone"/>
                                                 </label>
@@ -114,7 +113,7 @@
                                                 <div class="form-txt">Fax Number: </div>
                                                 <label>
                                                     <h:inputText id="txtFax" value="#{controllerAdvertise.selected.faxNumber}" required="true" requiredMessage="*This field is required" validatorMessage="*Fax Number is not valid">
-                                                        <f:validateRegex pattern="^0[0-9.]{9,10}$" />
+                                                        <f:validateRegex pattern="^[0-9.]*" />
                                                     </h:inputText>
                                                     <h:message styleClass="errorMsg" for="txtFax"/>
                                                 </label>
@@ -148,10 +147,56 @@
                                             <h:commandLink id="btnReset" styleClass="btn" value="Reset">
                                                 <p:ajax update=":contact-form" resetValues="true" />
                                             </h:commandLink>       
-                                            <h:commandLink id="btnRegister" styleClass="btn" actionListener="#{controllerAdvertise.create(evt)}"
+                                            <p:commandLink id="btnRegister" styleClass="btn" oncomplete="wgPayAndUploadImg.show()"
                                                            value="Register" data-type="submit"/>
                                         </div>
                                     </fieldset>
+
+                                    <p:dialog widgetVar="wgPayAndUploadImg" resizable="false"  header="Finish book advertise">
+                                        <p:outputPanel style="padding: 20px;">
+                                            <div style="float: left; margin-right: 20px;">
+                                                <h4>Select payment type</h4>
+                                                <hr/>
+                                                <table id="tblPay" style="margin: auto;">
+                                                    <tr style="height: 50px;">
+                                                        <td style="width: 120px;">
+                                                            <h:outputLabel for="ddlPaymentType" value="Payment type: "/>
+                                                        </td>
+                                                        <td>
+                                                            <p:selectOneMenu id="ddlPaymentType" value="#{controllerBilling.selected.paymentType}" style="width: 150px;" required="true" >
+                                                                <f:selectItem itemLabel="---Select---" itemValue=""  noSelectionOption="true"/>
+                                                                <f:selectItems value="#{controllerBilling.listPaymentType}" var="paymentType" itemLabel="#{paymentType.paymentTypeName}" itemValue="#{paymentType}"/>
+                                                                <f:converter converterId="paymentTypeConverter" />                            
+                                                                <p:ajax process="@this" event="change" update=":contact-form:txtMoney" listener="#{controllerBilling.updateMoneyForAdvertise()}"/>
+                                                                <f:validateRequired for="ddlPaymentType"  />
+                                                            </p:selectOneMenu>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="height: 50px;">
+                                                        <td><h:outputLabel for="txtMoney" value="Balance"/></td>
+                                                        <td><h:outputText id="txtMoney" value="#{controllerBilling.displayMoney}"/> USD</td>
+                                                    </tr>                                                
+                                                </table>
+                                            </div>
+                                            <div style="float:right; margin-left: 20px;">
+                                                <h4>Upload your image</h4>
+                                                <hr/>
+                                                <table style="margin: auto; margin-top: 20px;">
+                                                    <tr>
+                                                        <td></td>
+                                                        <td><p:fileUpload mode="simple" value="#{controllerUploadFile.uploadFile}" /></td>
+                                                    </tr>
+                                                </table>
+                                                <div style="float: right">
+                                                    <p:commandButton style="margin-top: 10px;" value="Register" ajax="false">
+                                                        <f:actionListener binding="#{controllerAdvertise.create(evt)}"/>
+                                                        <f:actionListener binding="#{controllerBilling.paidForAdvertise(evt)}"/>
+                                                        <f:actionListener binding="#{controllerUploadFile.updateImageForAdvertise(evt)}"/>
+                                                    </p:commandButton>
+                                                </div>
+                                            </div>
+                                        </p:outputPanel>
+                                    </p:dialog>
                                 </h:form>
                             </div>
                         </article>

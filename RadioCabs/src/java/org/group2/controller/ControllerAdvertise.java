@@ -11,6 +11,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 import org.group2.entity.RegisteredType;
 import org.group2.entity.RegisteredUnit;
+import org.primefaces.event.FlowEvent;
 
 /**
  *
@@ -39,5 +40,5 @@ public class ControllerAdvertise extends AbstractController implements Serializa
         String hqlQuery = "select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 3 and b.expriateDate > CURRENT_DATE() ";
         return super.createHQLQuery(hqlQuery);
     }
-    
+            
 }
