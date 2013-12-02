@@ -108,7 +108,7 @@ public class SecurityFilter implements Filter {
 
         String pageRequested = req.getRequestURI().toString();
         if (session.getAttribute("adminUser") == null && !pageRequested.contains("Login.xhtml")) {
-            resp.sendRedirect("/RadioCabs/faces/admin/Login/Login.xhtml");
+            resp.sendRedirect("/RadioCabs/faces/admin_v2/Login/Login.xhtml");
         } else {
             chain.doFilter(request, response);
         }
