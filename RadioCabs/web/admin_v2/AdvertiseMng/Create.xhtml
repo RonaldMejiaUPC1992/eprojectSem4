@@ -8,12 +8,12 @@
         <title>Advertise</title>        
         <style type="text/css">
             .ui-panelgrid td, .ui-panelgrid tr {
-                border: 0 !important;
+                border: 0 !important;                
             }
         </style>
     </h:head>
     <h:body>        
-        <p:dialog widgetVar="wgCreate" id="dlgCreate" modal="true" appendToBody="true" resizable="false" style="margin:auto">
+        <p:dialog widgetVar="wgCreate" id="dlgCreate" modal="true" appendToBody="true" resizable="false" style="margin:auto" header="Create">
             <h:form id="frmCreate">
                 <p:growl id="grow"/>
                 <p:panelGrid id="pnlCreate" columns="4" rendered="#{controllerAdvertise.selected != null}"> 
