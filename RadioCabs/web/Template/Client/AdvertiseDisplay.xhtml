@@ -23,38 +23,78 @@
             </script>
             <style>
                 #advertiseDisplay:hover{
-                    background: oldlace;
+                    /*background: oldlace;*/
+                }
+                table, table td {
+                    padding-bottom: 10px;
+                    padding-left: 10px;
+                    border: none;
+                    border-collapse: collapse;
                 }
             </style>
-            <div id="advertiseDisplay" style="position: fixed; z-index: 100; padding-bottom: 0px; background: white; height: auto"
-                 >                   
-                <div style="width: 100%; background: none;">
-                    <img id="imgShowHide" src="/RadioCabs/Resource/Admin/images/leftArrow.png" width="10px;" onclick="hideImg()"/>                
+            <article id="advertiseDisplay" style="position: fixed; z-index: 100; padding-bottom: 0px; background: white; height: auto; width: 220px"
+                 class="side-bar extra1">                   
+                <div style="width: 100%; background: none; margin-top: 10px;">
+                    <img id="imgShowHide" src="/RadioCabs/Resource/Admin/images/leftArrow.png" width="10px;" onclick="hideImg()" style="float: left;"/>       
+                    <h4 style="text-align: center">Advertisement</h4>
                 </div>
-                <p:imageSwitch id="imgSwitch" effect="shuffle" speed="100" style="width:220px; font-family: sans-serif; text-transform: none; text-align: center; background: white">  
+                <p:imageSwitch id="imgSwitch" effect="shuffle" speed="100" style="width:220px; text-transform: none; margin: 10px; background: white">  
                     <ui:repeat value="#{controllerAdvertise.displayList}" var="item">                          
                         <div style="width: 220px; color: saddlebrown; ">
                             <p:graphicImage width="200px" height="180px" url="/Images/#{item.photo}" rendered="#{not empty item.photo}" >
-                                <div>
-                                    <div><h4>#{item.name}</h4></div>
-                                    <div>Tel: #{item.telephone}</div>
-                                    <div>Mobile: #{item.mobile}</div>
-                                    <div>Email: #{item.email}</div>
+                                <div>    
+                                    <p style="font-size: large; text-align: center"><span>#{item.name}</span></p>
+                                    <hr style="margin-bottom: 10px; margin-top: 0px; border: 0; border-top: 1px solid red;"/>
+                                    <table>
+                                        <tr>
+                                            <td><h:outputLabel value="Name:"/></td>
+                                            <td>#{item.name}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><h:outputLabel value="Tel:"/></td>
+                                            <td>#{item.telephone}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><h:outputLabel value="Mobile:"/></td>
+                                            <td>#{item.mobile}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><h:outputLabel value="Email:"/></td>
+                                            <td>#{item.email}</td>
+                                        </tr>
+                                    </table>
                                 </div>
+
                             </p:graphicImage>
                             <p:graphicImage width="200px" height="180px" url="/Resource/DefaultIcon/company2.png" rendered="#{empty item.photo}" >                               
                                 <div>
-                                    <div><h4>#{item.name}</h4></div>
-                                    <div>Tel: #{item.telephone}</div>
-                                    <div>Mobile: #{item.mobile}</div>
-                                    <div>Email: #{item.email}</div>
+                                    <p style="font-size: large; text-align: center"><span>#{item.name}</span></p>
+                                    <hr style="margin-bottom: 10px; margin-top: 0px; border: 0; border-top: 1px solid red;"/>
+                                    <table border="1">
+                                        <tr>
+                                            <td><h:outputLabel value="Name:"/></td>
+                                            <td>#{item.name}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><h:outputLabel value="Tel:"/></td>
+                                            <td>#{item.telephone}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><h:outputLabel value="Mobile:"/></td>
+                                            <td>#{item.mobile}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><h:outputLabel value="Email:"/></td>
+                                            <td>#{item.email}</td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </p:graphicImage>                            
                         </div>                          
                     </ui:repeat>  
                 </p:imageSwitch>   
                 <br/>
-            </div>
+            </article>
         </ui:composition>
     </h:body>
 </html>
