@@ -52,16 +52,16 @@
                         <article class="grid_8">                            
                             <div class="box-register">
                                 <h3>Driver Register</h3>
-                                <h:form id="contact-form">
-                                    <p:growl/>                               
-                                    <fieldset>
-
+                                <h:form id="contact-form">                                         
+                                    <h:messages style="font-size: large" id="errInsert" styleClass="errorMsg" for="errInsert" />
+                                    <h:message style="font-size: large; color: #0d93ff" id="sucInsert" for="sucInsert" />
+                                    <fieldset>                                                                                   
                                         <div class="coll-1">
                                             <div>
                                                 <div class="form-txt">Driver ID:</div>
                                                 <label>
                                                     <h:inputText id="txtDriverID" value="#{controllerDriver.selected.registrationId}" required="true" requiredMessage="*This field is required" validatorMessage="*Driver ID is not valid">                                                
-                                                        <f:validateRegex pattern="^[a-zA-Z0-9]+$" />
+                                                        <f:validateRegex pattern="^[a-zA-Z0-9]+$" />                                                        
                                                     </h:inputText>
                                                     <h:message styleClass="errorMsg" for="txtDriverID" />
                                                 </label>
@@ -174,8 +174,8 @@
                                             <h:commandLink id="btnReset" styleClass="btn" value="Reset">
                                                 <p:ajax update=":contact-form" resetValues="true" />
                                             </h:commandLink>          
-                                            <h:commandLink id="btnRegister" styleClass="btn" actionListener="#{controllerDriver.create(evt)}"
-                                                           value="Register" data-type="submit"/> 
+                                            <h:commandLink id="btnRegister" styleClass="btn" actionListener="#{controllerDriver.register(evt)}"
+                                                           value="Register" data-type="submit"/>                                             
                                         </div>
                                     </fieldset>
                                 </h:form>

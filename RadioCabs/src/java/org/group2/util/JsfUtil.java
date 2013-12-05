@@ -78,10 +78,20 @@ public class JsfUtil {
         FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, msg);
         FacesContext.getCurrentInstance().addMessage(null, facesMsg);
     }
+    
+    public static void addErrorMessage(String id, String msg){
+        FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, msg);
+        FacesContext.getCurrentInstance().addMessage(id, facesMsg);
+    }
 
     public static void addSuccessMessage(String msg) {
         FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_INFO, msg, msg);
         FacesContext.getCurrentInstance().addMessage("successInfo", facesMsg);
+    }
+    
+    public static void addSuccessMessage(String id, String msg) {
+        FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_INFO, msg, msg);
+        FacesContext.getCurrentInstance().addMessage(id, facesMsg);
     }
 
     public static String getRequestParameter(String key) {

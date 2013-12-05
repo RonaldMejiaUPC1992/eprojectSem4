@@ -45,7 +45,9 @@
                             <div class="box-register">
                                 <h3>Book an Advertisement</h3>
                                 <h:form id="contact-form" enctype="multipart/form-data">
-                                    <p:growl/>
+                                    <h:messages style="font-size: large" id="errInsert" styleClass="errorMsg" for="errInsert" />
+                                    <h:message styleClass="errorMsg" for="ddlPaymentType" />
+                                    <h:messages style="font-size: large; color: #0d93ff" id="sucInsert" for="sucInsert" />                                    
                                     <fieldset>
                                         <div class="coll-1">
                                             <div>
@@ -163,7 +165,7 @@
                                                             <h:outputLabel for="ddlPaymentType" value="Payment type: "/>
                                                         </td>
                                                         <td>
-                                                            <p:selectOneMenu id="ddlPaymentType" value="#{controllerBilling.selected.paymentType}" style="width: 150px;" required="true" >
+                                                            <p:selectOneMenu id="ddlPaymentType" value="#{controllerBilling.selected.paymentType}" style="width: 150px;" required="true" requiredMessage="*Please select payment type" >
                                                                 <f:selectItem itemLabel="---Select---" itemValue=""  noSelectionOption="true"/>
                                                                 <f:selectItems value="#{controllerBilling.listPaymentType}" var="paymentType" itemLabel="#{paymentType.paymentTypeName}" itemValue="#{paymentType}"/>
                                                                 <f:converter converterId="paymentTypeConverter" />                            
@@ -189,9 +191,7 @@
                                                 </table>
                                                 <div style="float: right">
                                                     <p:commandButton style="margin-top: 10px;" value="Register" ajax="false">
-                                                        <f:actionListener binding="#{controllerAdvertise.create(evt)}"/>
-                                                        <f:actionListener binding="#{controllerBilling.paidForAdvertise(evt)}"/>
-                                                        <f:actionListener binding="#{controllerUploadFile.updateImageForAdvertise(evt)}"/>
+                                                        <f:actionListener binding="#{controllerAdvertise.register(evt)}"/>                                                        
                                                     </p:commandButton>
                                                 </div>
                                             </div>

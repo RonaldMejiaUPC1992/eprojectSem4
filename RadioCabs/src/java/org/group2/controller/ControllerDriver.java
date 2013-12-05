@@ -11,6 +11,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
@@ -31,27 +34,37 @@ import org.primefaces.model.UploadedFile;
 @ManagedBean(name = "controllerDriver")
 @ViewScoped
 public class ControllerDriver extends AbstractController implements Serializable {
-    
+
     public ControllerDriver() {
         super(RegisteredUnit.class);
     }
-    
+
     @Override
     public List getList() {
         return super.getList("registeredTypeID = 2");
     }
-    
+
     @Override
     public void create(ActionEvent evt) {
         ((RegisteredUnit) selected).setRegisteredType(new RegisteredType(2, null));
         super.create(evt);
     }
-    
+
+    public void register(ActionEvent evt) {
+        try {
+            ((RegisteredUnit) selected).setRegisteredType(new RegisteredType(2, null));
+            model.add(selected);
+            JsfUtil.addSuccessMessage("contact-form:sucInsert", "Register Success");            
+        } catch (Exception ex) {
+            JsfUtil.addErrorMessage("contact-form:errInsert", "Cannot register. Please check your information again.");            
+        }
+    }
+
     @Override
     public void update(ActionEvent evt) {
         super.update(evt);
     }
-    
+
     public List getDisplayList() {
         //return super.createHQLQuery("select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 2 and b.expriateDate > CURRENT_DATE() " + condition);
         String hqlQuery = "select r From RegisteredUnit r join r.billings b where r.registeredType.registeredTypeId = 2 and b.expriateDate > CURRENT_DATE() " + condition;
@@ -59,15 +72,15 @@ public class ControllerDriver extends AbstractController implements Serializable
     }
     RegisteredUnit searchedUnit = new RegisteredUnit();
     String condition = "";
-    
+
     public RegisteredUnit getSearchedUnit() {
         return searchedUnit;
     }
-    
+
     public void setSearchedUnit(RegisteredUnit searchedUnit) {
         this.searchedUnit = searchedUnit;
     }
-    
+
     public void searchByName(ActionEvent evt) {
         selected = new RegisteredUnit();
         condition = " and r.name like '%" + searchedUnit.getName() + "%'";
@@ -75,7 +88,7 @@ public class ControllerDriver extends AbstractController implements Serializable
         condition += " and r.telephone like '%" + searchedUnit.getTelephone() + "%'";
         condition += " and r.experience >= " + searchedUnit.getExperience();
     }
-    
+
     public void handleImageUpload(FileUploadEvent evt) {
         try {
             String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/");
@@ -95,7 +108,6 @@ public class ControllerDriver extends AbstractController implements Serializable
             e.printStackTrace();
         }
     }
-    
     /*
      public void upload(){
      if(uploadFile != null){
