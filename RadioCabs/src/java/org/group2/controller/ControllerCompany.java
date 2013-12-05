@@ -11,6 +11,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 import org.group2.entity.RegisteredType;
 import org.group2.entity.RegisteredUnit;
+import org.group2.util.JsfUtil;
 
 /**
  *
@@ -33,6 +34,16 @@ public class ControllerCompany extends AbstractController implements Serializabl
     public void create(ActionEvent evt) {
         ((RegisteredUnit)selected).setRegisteredType(new RegisteredType(1, null));
         super.create(evt);
+    }
+    
+    public void register(ActionEvent evt) {
+        try {
+            ((RegisteredUnit) selected).setRegisteredType(new RegisteredType(1, null));
+            model.add(selected);
+            JsfUtil.addSuccessMessage("contact-form:sucInsert", "Register Success");
+        } catch (Exception ex) {
+            JsfUtil.addErrorMessage("contact-form:errInsert", "Cannot register. Please check your information again.");
+        }
     }
     
     public List getDisplayList() {

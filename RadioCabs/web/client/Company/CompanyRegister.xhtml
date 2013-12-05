@@ -53,26 +53,27 @@
                             <div class="box-register">
                                 <h3>Company Register</h3>
                                 <h:form id="contact-form">                                    
-                                    <div class="success"> Contact form submitted! <strong>We will be in touch soon.</strong> </div>                                
+                                    <h:message style="font-size: large" id="errInsert" styleClass="errorMsg" for="errInsert" />
+                                    <h:message style="font-size: large; color: #0d93ff" id="sucInsert" for="sucInsert" />
                                     <fieldset>
                                         <div class="coll-1">
                                             <div>
                                                 <div class="form-txt">Company ID:</div>
                                                 <label>
-                                                    <h:inputText id="txtCompanyName" value="#{controllerCompany.selected.name}" required="true" requiredMessage="*This field is required" validatorMessage="*Name is not valid">                                                
-                                                        <f:validateRegex pattern="^[a-zA-Z ']+$" />
+                                                    <h:inputText id="txtCompanyID" value="#{controllerCompany.selected.registrationId}" required="true" requiredMessage="*This field is required" validatorMessage="*Driver ID is not valid">                                                
+                                                        <f:validateRegex pattern="^[a-zA-Z0-9 ]+$" />
                                                     </h:inputText>
-                                                    <h:message styleClass="errorMsg" for="txtCompanyName" />
+                                                    <h:message styleClass="errorMsg" for="txtCompanyID" />                                                    
                                                 </label>
                                                 <div class="clear"></div>
                                             </div>
                                             <div>
                                                 <div class="form-txt">Company Name:</div>
                                                 <label>
-                                                    <h:inputText id="txtCompanyID" value="#{controllerCompany.selected.registrationId}" required="true" requiredMessage="*This field is required" validatorMessage="*Driver ID is not valid">                                                
-                                                        <f:validateRegex pattern="^[a-zA-Z0-9 ]+$" />
+                                                    <h:inputText id="txtCompanyName" value="#{controllerCompany.selected.name}" required="true" requiredMessage="*This field is required" validatorMessage="*Name is not valid">                                                
+                                                        <f:validateRegex pattern="^[a-zA-Z ']+$" />
                                                     </h:inputText>
-                                                    <h:message styleClass="errorMsg" for="txtCompanyID" />
+                                                    <h:message styleClass="errorMsg" for="txtCompanyName" />
                                                 </label>
                                                 <div class="clear"></div>
                                             </div>                                            
@@ -177,7 +178,7 @@
                                             <h:commandLink id="btnReset" styleClass="btn" value="Reset">
                                                 <p:ajax update=":contact-form" resetValues="true" />
                                             </h:commandLink>   
-                                            <h:commandLink id="btnRegister" styleClass="btn" actionListener="#{controllerCompany.create(evt)}"
+                                            <h:commandLink id="btnRegister" styleClass="btn" actionListener="#{controllerCompany.register(evt)}"
                                                            value="Register" data-type="submit"/>
                                         </div>
                                     </fieldset>

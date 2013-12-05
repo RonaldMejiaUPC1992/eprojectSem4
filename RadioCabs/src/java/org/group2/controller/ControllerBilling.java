@@ -8,6 +8,8 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
@@ -158,36 +160,74 @@ public class ControllerBilling extends AbstractController implements Serializabl
     }
 
     public void paidForAdvertise(ActionEvent evt) {
-        RegisteredUnit advertiseUser = ((RegisteredUnit)controllerAdvertise.selected);
-        ((Billing) selected).setRegisteredUnit(advertiseUser);
+        try {
+            RegisteredUnit advertiseUser = ((RegisteredUnit)controllerAdvertise.selected);
+            ((Billing) selected).setRegisteredUnit(advertiseUser);
 
-        Date now = new Date();
-        ((Billing) selected).setPurchaseDate(now);
+            Date now = new Date();
+            ((Billing) selected).setPurchaseDate(now);
 
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(now);
-        
-        switch (((Billing) selected).getPaymentType().getPaymentTypeId()){
-            case 1:
-                cal.add(Calendar.MONTH, 1);
-                ((Billing) selected).setMoney(15);
-                ((Billing) selected).setExpriateDate(cal.getTime());
-                break;
-            case 2:
-                cal.add(Calendar.MONTH, 3);
-                ((Billing) selected).setMoney(40);
-                ((Billing) selected).setExpriateDate(cal.getTime());
-                break;
-            default:
-                ((Billing) selected).setMoney(0);
-                ((Billing) selected).setExpriateDate(null);
-                break;
-        }
-        
-        super.create(evt);
-                
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(now);
+            
+            switch (((Billing) selected).getPaymentType().getPaymentTypeId()){
+                case 1:
+                    cal.add(Calendar.MONTH, 1);
+                    ((Billing) selected).setMoney(15);
+                    ((Billing) selected).setExpriateDate(cal.getTime());
+                    break;
+                case 2:
+                    cal.add(Calendar.MONTH, 3);
+                    ((Billing) selected).setMoney(40);
+                    ((Billing) selected).setExpriateDate(cal.getTime());
+                    break;
+                default:
+                    ((Billing) selected).setMoney(0);
+                    ((Billing) selected).setExpriateDate(null);
+                    break;
+            }
+            
+            model.add(selected);
+            JsfUtil.addSuccessMessage("contact-form:sucInsert", "Pay Billing Successful");
+        } catch (Exception ex) {
+            JsfUtil.addErrorMessage("contact-form:errInsert", "Cannot Pay Billing."); 
+        }                
     }
+    
+    public void paidForAdvertise(RegisteredUnit advertiseUser){
+        try {            
+            ((Billing) selected).setRegisteredUnit(advertiseUser);
 
+            Date now = new Date();
+            ((Billing) selected).setPurchaseDate(now);
+
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(now);
+            
+            switch (((Billing) selected).getPaymentType().getPaymentTypeId()){
+                case 1:
+                    cal.add(Calendar.MONTH, 1);
+                    ((Billing) selected).setMoney(15);
+                    ((Billing) selected).setExpriateDate(cal.getTime());
+                    break;
+                case 2:
+                    cal.add(Calendar.MONTH, 3);
+                    ((Billing) selected).setMoney(40);
+                    ((Billing) selected).setExpriateDate(cal.getTime());
+                    break;
+                default:
+                    ((Billing) selected).setMoney(0);
+                    ((Billing) selected).setExpriateDate(null);
+                    break;
+            }
+            
+            model.add(selected);
+            JsfUtil.addSuccessMessage("contact-form:sucInsert", "Pay Billing Successful");
+        } catch (Exception ex) {
+            JsfUtil.addErrorMessage("contact-form:errInsert", "Cannot Pay Billing."); 
+        }
+    }
+    
     public void updateMoneyForAdvertise() {
         try {
             if (((Billing) selected).getPaymentType() != null) {

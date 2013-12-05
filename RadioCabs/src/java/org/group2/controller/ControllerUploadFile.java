@@ -93,10 +93,8 @@ public class ControllerUploadFile {
         this.controllerAdvertise = controllerAdvertise;
     }
 
-    public void updateImageForAdvertise(ActionEvent evt) {
-        System.out.println("===Call update image for advertise ???===");
-        if (uploadFile != null) {
-            System.out.println("I'm not null");
+    public void updateImageForAdvertise(ActionEvent evt) {        
+        if (uploadFile != null) {            
             try {
                 String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/");
                 File targetFile = new File(path + "Images/" + uploadFile.getFileName());
@@ -126,14 +124,55 @@ public class ControllerUploadFile {
                 }
                 session.close();
 
-                JsfUtil.addSuccessMessage("Update Success");
+                JsfUtil.addSuccessMessage("contact-form:sucInsert", "Upload Image Successful");
 
             } catch (Exception e) {
                 e.printStackTrace();
-                JsfUtil.addSuccessMessage("Update Error");
+                JsfUtil.addErrorMessage("contact-form:errInsert", "Cannot Upload Image"); 
             }
         } else {
-            JsfUtil.addSuccessMessage("Please select Image");
+            JsfUtil.addSuccessMessage("contact-form:sucInsert", "Use default Image");
+        }
+    }
+    
+    public void updateImageForAdvertise(RegisteredUnit selected){
+        if (uploadFile != null) {            
+            try {
+                String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/");
+                File targetFile = new File(path + "Images/" + uploadFile.getFileName());
+                InputStream inputStream = uploadFile.getInputstream();
+                OutputStream out = new FileOutputStream(targetFile);
+                int read = 0;
+                byte[] bytes = new byte[1024];
+                while ((read = inputStream.read(bytes)) != -1) {
+                    out.write(bytes, 0, read);
+                }
+                inputStream.close();
+                out.flush();
+                out.close();
+                
+                selected.setPhoto(uploadFile.getFileName());
+                Session session = HibernateUtil.getSessionFactory().openSession();
+                Transaction trans = session.beginTransaction();
+                try {
+                    trans.begin();
+                    session.merge(selected);
+                    trans.commit();
+                } catch (Exception ex) {
+                    trans.rollback();
+                    ex.printStackTrace();
+                    throw new Exception(ex.getMessage());
+                }
+                session.close();
+
+                JsfUtil.addSuccessMessage("contact-form:sucInsert", "Upload Image Successful");
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                JsfUtil.addErrorMessage("contact-form:errInsert", "Cannot Upload Image"); 
+            }
+        } else {
+            JsfUtil.addSuccessMessage("contact-form:sucInsert", "Use default Image");
         }
     }
 }
