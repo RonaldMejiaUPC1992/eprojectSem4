@@ -26,13 +26,15 @@
                     background: oldlace;
                 }
             </style>
-            <div id="advertiseDisplay" class="myBox" style="position: fixed; z-index: 1000; left:10px;  "
+            <div id="advertiseDisplay" style="position: fixed; z-index: 100; padding-bottom: 0px; background: white; height: auto"
                  >                   
-                <img id="imgShowHide" src="/RadioCabs/Resource/Admin/images/leftArrow.png" width="10px;" onclick="hideImg()"/>                
-                <p:imageSwitch id="imgSwitch" effect="fade" style="width:220px; font-family: sans-serif; text-transform: none; text-align: center">  
+                <div style="width: 100%; background: none;">
+                    <img id="imgShowHide" src="/RadioCabs/Resource/Admin/images/leftArrow.png" width="10px;" onclick="hideImg()"/>                
+                </div>
+                <p:imageSwitch id="imgSwitch" effect="shuffle" speed="100" style="width:220px; font-family: sans-serif; text-transform: none; text-align: center; background: white">  
                     <ui:repeat value="#{controllerAdvertise.displayList}" var="item">                          
                         <div style="width: 220px; color: saddlebrown; ">
-                            <p:graphicImage width="200px" url="/Images/#{item.photo}" rendered="#{not empty item.photo}">
+                            <p:graphicImage width="200px" height="180px" url="/Images/#{item.photo}" rendered="#{not empty item.photo}" >
                                 <div>
                                     <div><h4>#{item.name}</h4></div>
                                     <div>Tel: #{item.telephone}</div>
@@ -40,7 +42,7 @@
                                     <div>Email: #{item.email}</div>
                                 </div>
                             </p:graphicImage>
-                            <p:graphicImage width="200px" url="/Resource/DefaultIcon/company2.png" rendered="#{empty item.photo}" >                               
+                            <p:graphicImage width="200px" height="180px" url="/Resource/DefaultIcon/company2.png" rendered="#{empty item.photo}" >                               
                                 <div>
                                     <div><h4>#{item.name}</h4></div>
                                     <div>Tel: #{item.telephone}</div>

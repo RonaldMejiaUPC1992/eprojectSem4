@@ -12,7 +12,7 @@ body {
     line-height:24px;
     color:#343434;
     min-width:1020px;
-    background:url(images/bg-body.gif) #e6e4d7;
+    background:url('/RadioCabs/Resource/Client/images/bg-body.gif') #e6e4d7;
     text-transform:uppercase
 }
 html, body {
@@ -124,7 +124,7 @@ header {
     padding:0;
     position: relative;
     z-index:99;
-    background:url(images/tail-header.gif);
+    background:url('/RadioCabs/Resource/Client/images/tail-header.gif');
 }
 
 .line-top{
@@ -195,7 +195,7 @@ nav {
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
     border-radius:4px;
-    background:url(images/point.png)
+    background:url('/RadioCabs/Resource/Client/images/point.png')
 }
 
 .sf-menu  a {
@@ -371,7 +371,7 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
     float:left;
     margin:20px 20px 0 -30px;
     padding:0 10px 7px 40px;
-    /*background:#fff;*/
+    background:#fff;
     border-radius:18px;
     -moz-border-radius:18px;
     -webkit-border-radius:18px;
@@ -774,7 +774,7 @@ footer {
 }
 
 .myBox{
-    /*background:#FFFFFF;*/
+    background:#FFFFFF;
     margin-top: 18px;
     padding: 0px 30px 30px ;        
     border-radius:18px;
@@ -793,7 +793,7 @@ footer {
 
 #frmSearch {
     font-size: small;
-    margin-top: 20px;
+    margin-top: 20px;    
 }
 
 #frmSearch input[type="text"] {
@@ -820,19 +820,49 @@ footer {
     width: 130px;
 }
 
-#frmList li:hover{
+#frmList li{
+    padding-top: 5px;    
+}
+
+#frmList li figure{
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#frmList li:hover{    
     border-radius:18px;
     -moz-border-radius:18px;
     -webkit-border-radius:18px;
     box-shadow:0 0 3px #c5c2a9;
     -moz-box-shadow: 0 0 3px #c5c2a9;
-    -webkit-box-shadow:0 0 3px #c5c2a9;
-    padding: 10px;
-    background: oldlace;
-    color: #262f36;
+    -webkit-box-shadow:0 0 3px #c5c2a9;    
+    background: white;
+    /*background: oldlace;
+    color: #262f36;*/
 }
 
 .form-txt:hover{
     color: darkorange;
     font-weight: bold;
+}
+
+.ui-paginator-bottom {
+    border-top: 0px none !important;
+    margin-top: 50px !important;
+}
+
+.ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid #a8a8a8 !important;
+    background: white !important;
+    color: black !important;    
+    font-weight: bold !important;                        
+}
+
+.ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled{
+    background: none !important;
+}
+
+.ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+    background: #db3222 !important;
+    color: white !important;
 }

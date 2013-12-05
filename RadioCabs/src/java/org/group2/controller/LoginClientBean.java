@@ -43,7 +43,7 @@ public class LoginClientBean implements Serializable{
             HttpSession session =
                     (HttpSession) context.getExternalContext().getSession(true);
             session.setAttribute("clientUser", user);
-            return "";
+            return gotoDetail();
         } else {            
             return "";
         }
