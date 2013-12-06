@@ -73,3 +73,6 @@ create table administrator(
 )
 go
 
+insert into administrator values('admin@admin.com', '1234', 1)
+go
+
