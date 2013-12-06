@@ -22,7 +22,7 @@
                     <h:outputLabel for="txtEmail" value="Email: "/>
                     <p:inputText id="txtEmail" value="#{controllerAdministrator.selected.email}"/>                    
                     <h:outputLabel for="txtPassword" value="Password: "/>
-                    <p:inputText id="txtPassword" value="#{controllerAdministrator.selected.password}"/>
+                    <p:password id="txtPassword" value="#{controllerAdministrator.selected.password}"/>
                     <h:outputLabel for="ddlRole" value="Role: "/>
                     <p:selectOneMenu value="#{controllerAdministrator.selected.role}" style="width: 100%">
                         <c:if test="#{sessionScope['adminUser'].role le 1}">

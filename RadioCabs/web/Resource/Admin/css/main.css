@@ -36,7 +36,7 @@
 html { height: 100%; background: transparent url(../images/backgrounds/bg.jpg); }
 .html { height: 100%;  }
 body { min-height: 100%; font-size: 12px; color: #595959; font-family: Arial, Helvetica, sans-serif; line-height: 20px; position: relative; }
-body { background: url(../images/backgrounds/bodyBg.png) repeat-y 0 0; }
+body { background: url('/RadioCabs/Resource/Admin/images/backgrounds/bodyBg.png') repeat-y 0 0; }
 .wrapper { position: relative; margin: 0 3%; }
 .contentWrapper { position: relative; margin: 0 3%; float: right; width: 94%; }
 .chart, .bars, .updating, .pie { height: 250px; z-index: 90; max-width: 100%; }
@@ -98,7 +98,7 @@ p { padding-top: 12px; }
 .sideMargin { margin: 0 12px; }
 
 #leftSide { background: url(../images/backgrounds/leftTop.png) repeat-x 0 0; margin: 0 2px; float: left; width: 216px; padding: 0 1px; padding-bottom: 60px; } 
-#rightSide { padding-bottom: 62px; overflow: hidden; height: 1024px;}
+#rightSide { padding-bottom: 62px; overflow: hidden; height: min-content;}
 
 .scroll { height: 182px; overflow: auto; }
 
@@ -425,7 +425,7 @@ ul.sub li ul li { padding-left: 10px; }
 
 .titleArea { padding-top: 36px; }
 
-.pageTitle { float: left; padding: 35px 0 32px 0; }
+.pageTitle { float: left; padding: 35px 0 32px 0; width: 100%; text-align: center;}
 
 .middleNav { float: right; border: 1px solid #cdcdcd; margin: 29px 0; }
 .middleNav ul { }
@@ -1783,4 +1783,14 @@ color: #656565;
 	.pInfo { max-width: 70%; }
 	.searchWidget input[type="text"] { width: 92%!important; }
 	
+}
+
+
+.ui-panelgrid td, .ui-panelgrid tr {
+    padding:10px;
+}
+
+.ui-state-default{    
+    /*background: #222a30 -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.8)), to(rgba(255,255,255,0))) !important;
+    color:white*/
 }

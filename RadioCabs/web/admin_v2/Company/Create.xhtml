@@ -26,9 +26,8 @@
                         <f:validateRegex pattern="^[a-zA-Z ']+$" />
                     </p:inputText>
                     <h:outputLabel for="txtPassword" value="Password: "/>
-                    <p:inputText id="txtPassword" value="#{controllerCompany.selected.password}">
-                        <f:validateRegex pattern=".{6}" />
-                    </p:inputText>
+                    <p:password id="txtPassword" value="#{controllerCompany.selected.password}">                        
+                    </p:password>
                     <h:outputLabel for="txtContactPerson" value="Contact Person: "/>
                     <p:inputText id="txtContactPerson" value="#{controllerCompany.selected.contactPerson}">
                         <f:validateRegex pattern="^[a-zA-Z ']+$" />
